@@ -32,6 +32,7 @@ public class ChessBoard {
 
 
 
+
         //--------Constructor-----------
     public void newGame(){
         setUp();
@@ -97,7 +98,7 @@ public class ChessBoard {
         chessPieces[0]  = new King(true);
         positions[0]     = new Position(4,1);
 
-        chessPieces[0]  = new Queen(true)
+        chessPieces[0]  = new Queen(true);
         positions[0]     = new Position(5,1);
 
         chessPieces[0]  = new Bishop(true);
@@ -146,7 +147,7 @@ public class ChessBoard {
         chessPieces[0]  = new King(false);
         positions[0]     = new Position(4,8);
 
-        chessPieces[0]  = new Queen(false)
+        chessPieces[0]  = new Queen(false);
         positions[0]     = new Position(5,8);
 
         chessPieces[0]  = new Bishop(false);
