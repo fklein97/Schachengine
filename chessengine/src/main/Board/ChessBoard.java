@@ -44,7 +44,7 @@ public class ChessBoard {
     }
 
 
-    private void move(Position positionFrom, Position positionTo){
+    public void move(Position positionFrom, Position positionTo){
         for(int i =0; i < Constant.CHESS_PIECES; i++){
             if(positions[i].equals(positionFrom)){
                 for(int j =0; j < Constant.CHESS_PIECES; j++){
