@@ -12,6 +12,7 @@ public class IO {
     private String command;
     private Scanner scann;
 
+
     /**
      * Constructor to set up the scanner
      */

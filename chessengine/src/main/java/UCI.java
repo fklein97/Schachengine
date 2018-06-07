@@ -1,4 +1,3 @@
-
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
  */
@@ -8,7 +7,7 @@ public class UCI {
     private boolean masterExit;
 
     /**
-     * Constructor to set up I/O
+     * Constructor to set up I /O
      */
     public UCI(){
         masterExit = true;
@@ -16,7 +15,7 @@ public class UCI {
     }
 
     /**
-     *
+     * Method to get inputs from I/O
      */
     public void getCommand(){
         String input;
@@ -61,11 +60,11 @@ public class UCI {
 
 
     /**
-     *
+     * Method to register the Engine
      */
     public void uci(){
-        io.answer(UCI_Commands.ID);
-        io.answer(UCI_Commands.AUTHOR);
+        io.answer(UCI_Commands.ID /*TODO + NAMENSKONSTANTE*/);
+        io.answer(UCI_Commands.AUTHOR /*TODO + AUTORENKONSTANTE*/);
 
         offerOptions();
 
@@ -73,42 +72,42 @@ public class UCI {
     }
 
     /**
-     *
+     * Method to send all possible options to the GUI
      */
     public void offerOptions(){
         io.answer(UCI_Commands.OPTION);
     }
 
     /**
-     *
+     * GUI will send this to check the engine status, always answer with "readyok"
      */
     public void isReady(){
         io.answer(UCI_Commands.READY_OK);
     }
 
     /**
-     *
+     * receives the parameters for the offered options and sets them
      */
     public void setOption(String input){
         //TODO
     }
 
     /**
-     *
+     * Toggle to enable/disable "info" messages
      */
     public void debug(){
         //TODO
     }
 
     /**
-     *
+     * Some GUI's send this to signal that a new game has started
      */
     public void ucinewgame(){
         // nothing to do here
     }
 
     /**
-     *
+     * This method receives the board from the GUI
      */
     public void position(String input){
         // First cut off the "position" from the input
@@ -130,14 +129,14 @@ public class UCI {
     }
 
     /**
-     *
+     * Starts the calculation of the best possible move
      */
     public void go(String input){
         //TODO Start the calculation
     }
 
     /**
-     *
+     * Stop the calculation as soon as possible and send the best possible move
      */
     public void stop(){
         //TODO Print best move found
