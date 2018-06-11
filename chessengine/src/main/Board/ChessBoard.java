@@ -1,163 +1,116 @@
+import java.util.*;
+
+
 public class ChessBoard {
 
-    private ChessPiece[]    chessPieces ;
-    private Position[]      positions;
+    private final static int NULL = 0;
+
+    private ArrayList<Position> positions;
 
 
-            //-----Getter Setter--------
-    public ChessPiece[] getChessPieces() {
-        return chessPieces;
-    }
-
-    public void setChessPieces(ChessPiece[] chessPieces) {
-        this.chessPieces = chessPieces;
-    }
-
-    public Position[] getPositions() {
+    public ArrayList<Position> getPositions() {
         return positions;
     }
 
-    public void setPositions(Position[] positions) {
+    public void setPositions(ArrayList<Position> positions) {
         this.positions = positions;
     }
 
-    ;
 
     public ChessBoard(){
-        chessPieces = new ChessPiece[Constant.CHESS_PIECES];
-        positions   = new Position[Constant.CHESS_PIECES];
+        positions   = new ArrayList<Position>();
 
         setUp();
     }
 
 
 
-
-        //--------Constructor-----------
     public void newGame(){
         setUp();
     }
 
-    public void newGame(ChessPiece[] chessPieces, Position[] positions){
-        this.chessPieces    = chessPieces;
+    public void newGame(ArrayList<Position> positions){
         this.positions      = positions;
     }
 
 
     public void move(Position positionFrom, Position positionTo){
-        for(int i =0; i < Constant.CHESS_PIECES; i++){
-            if(positions[i].equals(positionFrom)){
-                for(int j =0; j < Constant.CHESS_PIECES; j++){
-                    if(positions[j].equals(positionTo)){
-                        positions[i]    = positionTo;
-                        positions[j]    = new Position(0,0);
-                        chessPieces[j]  = new ChessPiece(true);
-                    }
-                }
-            }
+        int from    = positions.indexOf(positionFrom);
+        int to      = positions.indexOf(positionTo);
+        positions.get(from).setX(positionTo.getX());
+        positions.get(from).setY(positionTo.getY());
+        if(to >= NULL){
+            positions.remove(to);
         }
+
     }
 
 
     private void setUp(){
 
-        //white
-        chessPieces[0]  = new Pawn(true);
-        positions[0]     = new Position(1,2);
+        positions.add(new Position(1,2, new Pawn(true)));
 
-        chessPieces[1]  = new Pawn(true);
-        positions[1]     = new Position(2,2);
+        positions.add(new Position(2,2, new Pawn(true)));
 
-        chessPieces[2]  = new Pawn(true);
-        positions[2]     = new Position(3,2);
+        positions.add(new Position(3,2, new Pawn(true)));
 
-        chessPieces[3]  = new Pawn(true);
-        positions[3]     = new Position(4,2);
+        positions.add(new Position(4,2, new Pawn(true)));
 
-        chessPieces[4]  = new Pawn(true);
-        positions[4]     = new Position(5,2);
+        positions.add(new Position(5,2, new Pawn(true)));
 
-        chessPieces[5]  = new Pawn(true);
-        positions[5]     = new Position(6,2);
+        positions.add(new Position(6,2, new Pawn(true)));
 
-        chessPieces[6]  = new Pawn(true);
-        positions[6]     = new Position(7,2);
+        positions.add(new Position(7,2, new Pawn(true)));
 
-        chessPieces[7]  = new Pawn(true);
-        positions[7]     = new Position(8,2);
+        positions.add(new Position(8,2, new Pawn(true)));
 
-        chessPieces[8]  = new Rook(true);
-        positions[8]     = new Position(1,1);
+        positions.add(new Position(1,1, new Rook(true)));
 
-        chessPieces[0]  = new Knight(true);
-        positions[0]     = new Position(2,1);
+        positions.add(new Position(2,1, new Knight(true)));
 
-        chessPieces[0]  = new Bishop(true);
-        positions[0]     = new Position(3,1);
+        positions.add(new Position(3,1, new Bishop(true)));
 
-        chessPieces[0]  = new King(true);
-        positions[0]     = new Position(4,1);
+        positions.add(new Position(4,1, new King(true)));
 
-        chessPieces[0]  = new Queen(true);
-        positions[0]     = new Position(5,1);
+        positions.add(new Position(5,1, new Queen(true)));
 
-        chessPieces[0]  = new Bishop(true);
-        positions[0]     = new Position(6,1);
+        positions.add(new Position(6,1, new Bishop(true)));
 
-        chessPieces[0]  = new Knight(true);
-        positions[0]     = new Position(7,1);
+        positions.add(new Position(7,1, new Knight(true)));
 
-        chessPieces[0]  = new Rook(true);
-        positions[0]     = new Position(8,1);
+        positions.add(new Position(8,1, new Rook(true)));
 
-        //black
-        chessPieces[0]  = new Pawn(false);
-        positions[0]     = new Position(1,7);
+        positions.add(new Position(1,7, new Pawn(false)));
 
-        chessPieces[1]  = new Pawn(false);
-        positions[1]     = new Position(2,7);
+        positions.add(new Position(2,7, new Pawn(false)));
 
-        chessPieces[2]  = new Pawn(false);
-        positions[2]     = new Position(3,7);
+        positions.add(new Position(3,7, new Pawn(false)));
 
-        chessPieces[3]  = new Pawn(false);
-        positions[3]     = new Position(4,7);
+        positions.add(new Position(4,7, new Pawn(false)));
 
-        chessPieces[4]  = new Pawn(false);
-        positions[4]     = new Position(5,7);
+        positions.add(new Position(5,7, new Pawn(false)));
 
-        chessPieces[5]  = new Pawn(false);
-        positions[5]     = new Position(6,7);
+        positions.add(new Position(6,7, new Pawn(false)));
 
-        chessPieces[6]  = new Pawn(false);
-        positions[6]     = new Position(7,7);
+        positions.add(new Position(7,7, new Pawn(false)));
 
-        chessPieces[7]  = new Pawn(false);
-        positions[7]     = new Position(8,7);
+        positions.add(new Position(8,7, new Pawn(false)));
 
-        chessPieces[8]  = new Rook(false);
-        positions[8]     = new Position(1,8);
+        positions.add(new Position(1,8, new Rook(false)));
 
-        chessPieces[0]  = new Knight(false);
-        positions[0]     = new Position(2,8);
+        positions.add(new Position(2,8, new Knight(false)));
 
-        chessPieces[0]  = new Bishop(false);
-        positions[0]     = new Position(3,8);
+        positions.add(new Position(3,8, new Bishop(false)));
 
-        chessPieces[0]  = new King(false);
-        positions[0]     = new Position(4,8);
+        positions.add(new Position(4,8, new King(false)));
 
-        chessPieces[0]  = new Queen(false);
-        positions[0]     = new Position(5,8);
+        positions.add(new Position(5,8, new Queen(false)));
 
-        chessPieces[0]  = new Bishop(false);
-        positions[0]     = new Position(6,8);
+        positions.add(new Position(6,8, new Bishop(false)));
 
-        chessPieces[0]  = new Knight(false);
-        positions[0]     = new Position(7,8);
+        positions.add(new Position(7,8, new Knight(false)));
 
-        chessPieces[0]  = new Rook(false);
-        positions[0]     = new Position(8,8);
+        positions.add(new Position(8,8, new Rook(false)));
 
     }
 
