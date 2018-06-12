@@ -1,7 +1,7 @@
 /**
  *
  */
-public final class UCI_Commands {
+final class UCI_Commands {
 
     /**
      *  Private constructor so that this class may never be instanced
@@ -11,112 +11,112 @@ public final class UCI_Commands {
         throw new AssertionError();
     }
 
-    /** Commands send from GUI to engine */
+    // Commands send from GUI to engine
 
     /**
      * First command sent to enable uci mode and start communication
      * Expects the engine to identify itself
      */
-    public static final String UCI = "uci";
+    static final String UCI = "uci";
 
     /**
      * check status of the engine, has to respond with READY_OK at all times
      */
-    public static final String IS_READY = "isready";
+    static final String IS_READY = "isready";
 
     /**
      * setoption + name + id + value to set options offered by the engine
      */
-    public static final String SET_OPTION = "setoption";
+    static final String SET_OPTION = "setoption";
 
     /**
      * enable/disable debug mode -> information flagged with INFO will or will not be send
      */
-    public static final String DEBUG_MODE = "debug";
+    static final String DEBUG_MODE = "debug";
 
     /**
      * Some GUI's send this to tell the engine that a new game has been started
      *  -> Engine should not depend on it
      */
-    public static final String NEW_GAME = "ucinewgame";
+    static final String NEW_GAME = "ucinewgame";
 
     /**
      * Here the GUI sends the current board to the engine using a Fenstring
      */
-    public static final String POSITION = "position";
+    static final String POSITION = "position";
 
     /**
      * GUI tells engine tht the board has the standard layout
      */
-    public static final String STARTPOS = "startpos";
+    static final String STARTPOS = "startpos";
 
     /**
      * GUI sends the current boardlayout as a fenstring
      */
-    public static final String FEN = "fen";
+    static final String FEN = "fen";
 
     /**
      * GUI sends the moves the player has made
      */
-    public static final String MOVES = "moves";
+    static final String MOVES = "moves";
 
     /**
      * Command to start the move generator and find the best move for the current board
      */
-    public static final String GO = "go";
+    static final String GO = "go";
 
     /**
      * Engine stops calculation as soon as possible, then sends the best move found by then
      */
-    public static final String STOP = "stop";
+    static final String STOP = "stop";
 
     /**
      * Stop calculating and terminate the engine immediately
      */
-    public static final String QUIT = "quit";
+    static final String QUIT = "quit";
 
-    /** Commands send from engine to GUI */
+    // Commands send from engine to GUI
 
     /**
      * id + name is send to register the engine after receiving UCI
      */
-    public static final String ID = "id name ";
+    static final String ID = "id name ";
 
     /**
      * author + author name is send to register the engine after receiving UCI
      */
-    public static final String AUTHOR = "id author ";
+    static final String AUTHOR = "id author ";
 
     /**
      * after registering and offering of all options
      * the engine sends this to show it is ready for configuration
      */
-    public static final String UCI_OK = "uciok";
+    static final String UCI_OK = "uciok";
 
     /**
      * Answer to IS_READY, must be send when receiving the command as soon as possible
      * even when calculating
      */
-    public static final String READY_OK = "readyok";
+    static final String READY_OK = "readyok";
 
     /**
      * Sends the best move found for the current board to the GUI
      */
-    public static final String BEST_MOVE = "bestmove";
+    static final String BEST_MOVE = "bestmove";
 
     /**
      * Offers all the configurable options to the GUI
      */
-    public static final String OPTION = "option";
+    static final String OPTION = "option";
 
     /**
      * Debug information must be flagged with info
      */
-    public static final String INFO = "info";
+    static final String INFO = "info";
 
     /**
      * Type specifies the type of option offered, e.g. a button, checkbox, ...
      */
-    public static final String TYPE = "type";
+    static final String TYPE = "type";
 
 }

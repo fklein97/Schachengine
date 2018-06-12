@@ -19,6 +19,13 @@
             <artifactId>arquillian-junit-core</artifactId>
             <version>1.4.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <version>1.4.0.Final</version>
+        </dependency>
+
+
     </dependencies>
 
 

@@ -21,17 +21,12 @@ public class ChessBoard {
         this.positions = positions;
     }
 
-    ;
-
     public ChessBoard(){
         chessPieces = new ChessPiece[Constant.CHESS_PIECES];
         positions   = new Position[Constant.CHESS_PIECES];
 
         setUp();
     }
-
-
-
 
         //--------Constructor-----------
     public void newGame(){
@@ -42,7 +37,6 @@ public class ChessBoard {
         this.chessPieces    = chessPieces;
         this.positions      = positions;
     }
-
 
     public void move(Position positionFrom, Position positionTo){
         for(int i =0; i < Constant.CHESS_PIECES; i++){
@@ -57,7 +51,6 @@ public class ChessBoard {
             }
         }
     }
-
 
     private void setUp(){
 
@@ -160,7 +153,5 @@ public class ChessBoard {
         positions[0]     = new Position(8,8);
 
     }
-
-
 
 }
