@@ -1,6 +1,7 @@
 public class Knight extends ChessPiece{
 
     public Knight(boolean white){
-        super(white);
+
+        super(white, Constant.KNIGHT_VALUE);
     }
 }

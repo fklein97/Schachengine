@@ -1,6 +1,7 @@
 public class Rook extends ChessPiece {
 
     public Rook(boolean white){
-        super (white);
+
+        super (white, Constant.ROOK_VALUE);
     }
 }

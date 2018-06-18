@@ -46,4 +46,12 @@ public class Position {
     public void setPiece(ChessPiece piece) {
         this.piece = piece;
     }
+
+    public boolean equals(Position position){
+        if(this.x == position.getX() && this.y == position.getY() && this.piece.getClass() == position.getPiece().getClass()){
+            return true;
+        }
+        return false;
+    }
+
 }

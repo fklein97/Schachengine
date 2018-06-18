@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Schachengine.iml" filepath="$PROJECT_DIR$/.idea/Schachengine.iml" />
       <module fileurl="file://$PROJECT_DIR$/chessengine.iml" filepath="$PROJECT_DIR$/chessengine.iml" />
     </modules>
   </component>

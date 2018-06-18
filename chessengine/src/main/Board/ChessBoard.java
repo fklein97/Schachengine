@@ -24,6 +24,17 @@ public class ChessBoard {
     }
 
 
+    public boolean positionIsTaken(int x, int y){
+        Position[] positionsArr = new Position[positions.size()];
+        positionsArr = (Position[]) positions.toArray(positionsArr);
+
+        for(int i = 0; i < positionsArr.length; i++){
+            if(positionsArr[i].getX() == x && positionsArr[i].getY() == y){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void newGame(){
         setUp();
@@ -34,16 +45,43 @@ public class ChessBoard {
     }
 
 
+
+
     public void move(Position positionFrom, Position positionTo){
-        int from    = positions.indexOf(positionFrom);
-        int to      = positions.indexOf(positionTo);
-        positions.get(from).setX(positionTo.getX());
-        positions.get(from).setY(positionTo.getY());
+        int from    = -1;
+        int to      = -1;
+        Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
+        for(int i = 0; i < positionArr.length; i++){
+            if(positionFrom.equals(positionArr[i])){
+                from = i;
+            }
+            if(positionTo.equals(positionArr[i])){
+                to = i;
+            }
+        }
+        if(from >= NULL){
+            positions.set(from, new Position(positionTo.getX(),positionTo.getY(), positionFrom.getPiece()));
+        }
         if(to >= NULL){
             positions.remove(to);
         }
 
     }
+
+
+    public void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
+        int from    = -1;
+        int to      = -1;
+        move(positionFrom, positionTo);
+        Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
+        for(int i = 0; i < positionArr.length; i++){
+            if(positionTo.equals(positionArr[i])){
+                to = i;
+            }
+        }
+        positions.set(to, new Position(positionTo.getX(), positionTo.getY(), chessPiece));
+    }
+
 
 
     private void setUp(){

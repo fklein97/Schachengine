@@ -1,9 +1,25 @@
 public class ChessPiece {
-    private int     rating;
+    private int     value;
     private boolean white;
     private boolean moved;
 
-    public ChessPiece(boolean white){
-        this.white = white;
+    public ChessPiece(boolean white, int value){
+        this.value  = value;
+        this.white  = white;
+        this.moved  = false;
     }
+    public void move(){
+        moved = true;
+    }
+
+    public boolean isWhite(){
+        return white;
+    }
+
+    public boolean moved(){
+        return moved;
+    }
+
+
+
 }
