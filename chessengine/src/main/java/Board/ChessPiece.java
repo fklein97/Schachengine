@@ -1,3 +1,5 @@
+package Board;
+
 public class ChessPiece {
     private int     value;
     private boolean white;
