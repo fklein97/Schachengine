@@ -10,6 +10,12 @@ public class ChessPiece {
         this.white  = white;
         this.moved  = false;
     }
+
+    public ChessPiece(boolean white){
+        this.value = Constant.KING_VALUE;
+        this.white = white;
+        this.moved = false;
+    }
     public void move(){
         moved = true;
     }
