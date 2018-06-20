@@ -7,9 +7,9 @@ import Board.*;
 public class MoveGenerator {
 
     /**
-     *
-     * @param currentPos
-     * @return
+     * Returns the Moveset of a Chesspiece on a given position
+     * @param currentPos current position of the chesspiece
+     * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos){
         ArrayList<Position> moveset = new ArrayList<Position>();
@@ -26,9 +26,9 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @return
+     * Generates the moveset for a Pawn
+     * @param currentPos Position of the pawn
+     * @return moveset of the pawn
      */
     private static ArrayList<Position> getPawnMoves(Position currentPos){
         ArrayList<Position> moveset = new ArrayList<Position>();
@@ -63,9 +63,9 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @return
+     * Generates the moveset for a rook
+     * @param currentPos position of the rook
+     * @return moveset of the rook
      */
     private static ArrayList<Position> getRookMoves(Position currentPos){
         ArrayList<Position> moveset = new ArrayList<Position>();
