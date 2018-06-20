@@ -42,8 +42,8 @@ public class OperationManager {
         int x = moveString.charAt(2) - ASCII_a;
         int y = moveString.charAt(3) - ASCII_1;
 
-        Position oldPos = new Position(oldX,oldY);
-        Position newPos = new Position(x,y);
+        Position oldPos = new Position(oldX,oldY,new Pawn(true));
+        Position newPos = new Position(x,y,new Pawn(true));
 
         if (moveString.length() == 5) {
 
@@ -59,8 +59,10 @@ public class OperationManager {
                 case ROOK: piece = new Rook(true);
                 case KNIGHT: piece = new Knight(true);
                 case BISHOP: piece = new Bishop(true);
+                default:
+                    piece = new Pawn(true);
             }
-         //   board. PROMOTION MOVE (piece, positionold, positionnew);
+            board.promote(oldPos, newPos,piece);
         }
     }
 
