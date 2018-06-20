@@ -4,6 +4,7 @@
 public class UCI {
 
     private IO io;
+    private OperationManager manager;
     private boolean masterExit;
 
     /**
@@ -12,6 +13,7 @@ public class UCI {
     public UCI(){
         masterExit = true;
         io = new IO();
+        manager = new OperationManager();
     }
 
     /**
@@ -19,12 +21,15 @@ public class UCI {
      */
     public void getCommand(){
         String input;
-
-        while(masterExit){
-            input = io.receive();
-            if (!(input.isEmpty())) {
-                commandDetection(input, io.commandCutter(input));
+        try {
+            while (masterExit) {
+                input = io.receive();
+                if (!(input.isEmpty())) {
+                    commandDetection(input, io.commandCutter(input));
+                }
             }
+        }catch(Throwable error){
+
         }
     }
 
@@ -57,7 +62,6 @@ public class UCI {
             default: break;
         }
     }
-
 
     /**
      * Method to register the Engine
@@ -95,13 +99,19 @@ public class UCI {
     /**
      * Toggle to enable/disable "info" messages
      */
-    public void debug(){
-        //TODO
+    public void debug() {
+
+        if (manager.isDebug() == false) {
+            manager.setDebug(true);
+        } else {
+            manager.setDebug(false);
+        }
     }
 
     /**
      * Some GUI's send this to signal that a new game has started
      */
+
     public void ucinewgame(){
         // nothing to do here
     }
@@ -110,21 +120,21 @@ public class UCI {
      * This method receives the board from the GUI
      */
     public void position(String input){
-        // First cut off the "position" from the input
+
         input = input.substring(9);
         if (input.contains(UCI_Commands.STARTPOS)){
-            //TODO Standardboardgenerierung
 
         } else if (input.contains(UCI_Commands.FEN)){
             input = input.substring(4);
-            //TODO Sende Fenstring an Boardgenerierung
+            manager.handleFEN(input);
 
         }
 
         if (input.contains(UCI_Commands.MOVES)){
             input = input.substring(input.length()-5).trim();
             io.answer(input);
-            //TODO Sende Zug an Bordgenerierung
+            manager.playerMove(input);
+
         }
     }
 
@@ -132,14 +142,18 @@ public class UCI {
      * Starts the calculation of the best possible move
      */
     public void go(String input){
-        //TODO Start the calculation
+
+        io.answer(manager.go(input.substring(3)));
+
     }
 
     /**
      * Stop the calculation as soon as possible and send the best possible move
      */
     public void stop(){
+
         //TODO Print best move found
+
     }
 
     /**
