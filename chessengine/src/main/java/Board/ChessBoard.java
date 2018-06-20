@@ -70,6 +70,10 @@ public class ChessBoard {
 
     }
 
+    public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
+        promote(positionFrom, positionTo, chessPiece);
+    }
+
 
     public void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         int from    = -1;

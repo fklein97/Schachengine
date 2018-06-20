@@ -1,3 +1,4 @@
+package  MoveGenerator;
 import java.util.ArrayList;
 import Board.*;
 
