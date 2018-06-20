@@ -38,6 +38,19 @@ public class ChessBoard {
         return false;
     }
 
+    public ChessPiece chessPieceAt(int xCoordinate, int yCordinate){
+        Position[] positionsArr = new Position[positions.size()];
+        positionsArr = (Position[]) positions.toArray(positionsArr);
+
+        for(int i = 0; i < positionsArr.length; i++){
+            if(positionsArr[i].getX() == xCoordinate && positionsArr[i].getY() == yCordinate){
+                return positionsArr[i].getPiece();
+            }
+        }
+
+        return null;
+    }
+
     public void newGame(){
         setUp();
     }

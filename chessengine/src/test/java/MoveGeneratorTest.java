@@ -10,7 +10,7 @@ import MoveGenerator.*;
  * Created by FKPro on 19.06.2018.
  */
 public class MoveGeneratorTest {
-    
+
     private ArrayList<Position> positions   = new ArrayList<Position>();
     Pawn movedblackpawn = new Pawn(false);
     Pawn whitepawn = new Pawn(true);
