@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import Board.*;
 
 /**
  * Created by FKPro on 18.06.2018.
