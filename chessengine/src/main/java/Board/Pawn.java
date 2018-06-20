@@ -1,3 +1,5 @@
+package Board;
+
 public class Pawn extends ChessPiece {
 
     public Pawn (boolean white){

@@ -1,3 +1,5 @@
+package Board;
+
 public class Rook extends ChessPiece {
 
     public Rook(boolean white){
