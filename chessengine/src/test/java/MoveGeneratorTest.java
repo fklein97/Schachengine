@@ -1,8 +1,15 @@
 import org.junit.*;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import Board.*;
+=======
+//import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import Board.*;
+import MoveGenerator.*;
+>>>>>>> master
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by FKPro on 19.06.2018.
@@ -30,6 +37,6 @@ public class MoveGeneratorTest {
         expectedMoveset.add(new Position(4,3,whitepawn));
         expectedMoveset.add(new Position(4,4,whitepawn));
 
-        assertEquals(expectedMoveset, MoveGenerator.getMoveSet(new Position(4,2,whitepawn)));
+        Assert.assertEquals(expectedMoveset, MoveGenerator.getMoveSet(new Position(4,2,whitepawn)));
     }
 }

@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import org.junit.*;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 import Board.*;
+=======
+import org.junit.Test;
+import org.junit.*;
+//import org.junit.jupiter.api.Test;
+import java.util.*;
+import Board.*;
+
+>>>>>>> master
 //import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ChessBoardTest {
 
@@ -48,7 +57,7 @@ public class ChessBoardTest {
     @Test
     public void positionIsTaken() throws Exception {
 
-        assertEquals(chessBoard.positionIsTaken(1,2), true);
+        Assert.assertEquals(chessBoard.positionIsTaken(1,2), true);
     }
 
     @Test
@@ -73,13 +82,13 @@ public class ChessBoardTest {
     public void move() throws Exception {
         setUp();
         chessBoard.move(positionFrom, positionTo);
-        assertEquals(positions.get(0).getX(), chessBoard.getPositions().get(0).getX());
-        assertEquals(positions.get(0).getY(), chessBoard.getPositions().get(0).getY());
-        assertEquals(positions.get(0).getPiece().getClass(), chessBoard.getPositions().get(0).getPiece().getClass());
+        Assert.assertEquals(positions.get(0).getX(), chessBoard.getPositions().get(0).getX());
+        Assert.assertEquals(positions.get(0).getY(), chessBoard.getPositions().get(0).getY());
+        Assert.assertEquals(positions.get(0).getPiece().getClass(), chessBoard.getPositions().get(0).getPiece().getClass());
 
-        assertEquals(positions.get(8).getX(), chessBoard.getPositions().get(8).getX());
-        assertEquals(positions.get(8).getY(), chessBoard.getPositions().get(8).getY());
-        assertEquals(positions.get(8).getPiece().getClass(), chessBoard.getPositions().get(8).getPiece().getClass());
+        Assert.assertEquals(positions.get(8).getX(), chessBoard.getPositions().get(8).getX());
+        Assert.assertEquals(positions.get(8).getY(), chessBoard.getPositions().get(8).getY());
+        Assert.assertEquals(positions.get(8).getPiece().getClass(), chessBoard.getPositions().get(8).getPiece().getClass());
 
     }
 
