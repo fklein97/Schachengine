@@ -6,6 +6,9 @@ import Board.*;
  * Created by FKPro on 18.06.2018.
  */
 public class MoveGenerator {
+    //TODO: get the real board as soon as @Dominic makes a public variable or getter
+    private static ChessBoard chessboard =new ChessBoard();
+
 
     /**
      * Returns the Moveset of a Chesspiece on a given position
@@ -31,28 +34,46 @@ public class MoveGenerator {
      * @param currentPos Position of the pawn
      * @return moveset of the pawn
      */
-    private static ArrayList<Position> getPawnMoves(Position currentPos){
+    private static ArrayList<Position> getPawnMoves(Position currentPos){   //TODO: implement en passant
         ArrayList<Position> moveset = new ArrayList<Position>();
         Pawn p = (Pawn)currentPos.getPiece();
+        int p_x = currentPos.getX();
+        int p_y = currentPos.getY();
 
         if(p.isWhite() == true){ // Pawn is white
-            if((currentPos.getY() + 1 <= 8) && ) { //Check if legal move
-                moveset.add(new Position(currentPos.getX(), currentPos.getY() + 1, p));
+            if((p_y + 1 <= 8) && (chessboard.chessPieceAt(p_x,p_y+1) == null)) { //Check if legal move
+                moveset.add(new Position(p_x, p_y + 1, p));
+                if (p.moved() == false) { //has moved?
+                    if ((p_y + 2 <= 8) && (chessboard.chessPieceAt(p_x, p_y + 2) == null)) { //Check if legal move
+                        moveset.add(new Position(p_x, p_y + 2, p));
+                    }
+                }
             }
-            if((p.moved() == false) && (currentPos.getY() + 2 <= 8)) {
-                moveset.add(new Position(currentPos.getX(), currentPos.getY() + 2, p));
-            }
-            return moveset;
         }
         else{                           // Pawn is black
-            if(currentPos.getY() - 1 >= 1) {
-                moveset.add(new Position(currentPos.getX(), currentPos.getY() - 1, p));
+            if((p_y - 1 >= 1) && (chessboard.chessPieceAt(p_x,p_y-1) == null)) { //Check if legal move
+                moveset.add(new Position(p_x, p_y - 1, p));
+                if (p.moved() == false) { //has moved?
+                    if ((p_y - 2 >= 1) && (chessboard.chessPieceAt(p_x, p_y - 2) == null)) { //Check if legal move
+                        moveset.add(new Position(p_x, p_y - 2, p));
+                    }
+                }
             }
-            if((p.moved() == false) && (currentPos.getY() - 2 >= 1)) {
-                moveset.add(new Position(currentPos.getX(), currentPos.getY() - 2, p));
-            }
-            return moveset;
         }
+        //Looking for beat moves
+        ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y + 1);
+        ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y + 1);
+        if(leftTarget != null){
+            if(leftTarget.isWhite() != p.isWhite()){
+                moveset.add(new Position(p_x - 1, p_y + 1, p));
+            }
+        }
+        if(rightTarget != null){
+            if(rightTarget.isWhite() != p.isWhite()){
+                moveset.add(new Position(p_x + 1, p_y + 1, p));
+            }
+        }
+        return moveset;
     }
 
     /**
