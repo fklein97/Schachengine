@@ -1,4 +1,4 @@
-# Schachengine
-Projektarbeit 2018
+# Chessica - Chessengine
+htw saar - computer science project 2018
 
-Wilkommen im Repository unseres Projekte's. Wie wir unsere Dateien ablegen oder hier alles organisieren klären wir im nächsten Meeting. :) 
+On this repository we will create our own chessengine that uses the UCI-Protocol!
