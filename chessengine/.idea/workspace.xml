@@ -19,11 +19,12 @@
       <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+            <state relative-caret-position="403">
+              <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
               <folding>
                 <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
                 <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="e#5953#5963#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -745,12 +746,12 @@
       <workItem from="1529483516543" duration="37000" />
       <workItem from="1529491953516" duration="697000" />
       <workItem from="1529524493835" duration="252000" />
-      <workItem from="1529571183671" duration="4009000" />
+      <workItem from="1529571183671" duration="5782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6087000" />
+    <option name="totallyTimeSpent" value="7860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -794,7 +795,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -809,6 +812,7 @@
           <folding>
             <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
             <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#5953#5963#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -905,11 +909,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+        <state relative-caret-position="403">
+          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding>
             <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
             <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#5953#5963#0" expanded="true" />
           </folding>
         </state>
       </provider>
