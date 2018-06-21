@@ -1,8 +1,13 @@
 import org.junit.*;
+<<<<<<< HEAD
+import java.util.ArrayList;
+import Board.*;
+=======
 //import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import Board.*;
 import MoveGenerator.*;
+>>>>>>> master
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 

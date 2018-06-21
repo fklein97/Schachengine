@@ -19,17 +19,19 @@
             <artifactId>arquillian-junit-core</artifactId>
             <version>1.4.0.Final</version>
         </dependency>
+
         <dependency>
-<<<<<<< HEAD
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>RELEASE</version>
         </dependency>
-=======
+
+        <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <version>1.4.0.Final</version>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -37,7 +39,6 @@
             <scope>test</scope>
         </dependency>
 
->>>>>>> master
     </dependencies>
 
 
