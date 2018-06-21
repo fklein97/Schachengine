@@ -19,9 +19,12 @@
       <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-374">
-              <caret line="36" column="97" lean-forward="false" selection-start-line="36" selection-start-column="97" selection-end-line="36" selection-end-column="97" />
-              <folding />
+            <state relative-caret-position="714">
+              <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+              <folding>
+                <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -273,6 +276,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -741,12 +745,12 @@
       <workItem from="1529483516543" duration="37000" />
       <workItem from="1529491953516" duration="697000" />
       <workItem from="1529524493835" duration="252000" />
-      <workItem from="1529571183671" duration="2484000" />
+      <workItem from="1529571183671" duration="4009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4562000" />
+    <option name="totallyTimeSpent" value="6087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -802,7 +806,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -898,9 +905,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="36" column="97" lean-forward="false" selection-start-line="36" selection-start-column="97" selection-end-line="36" selection-end-column="97" />
-          <folding />
+        <state relative-caret-position="714">
+          <caret line="96" column="72" lean-forward="false" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+          <folding>
+            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

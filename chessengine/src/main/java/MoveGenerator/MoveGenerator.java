@@ -30,17 +30,17 @@ public class MoveGenerator {
     }
 
     /**
-     * Generates the moveset for a Pawn
+     * Generates the moveset for a Pawn //TODO: implement en passant
      * @param currentPos Position of the pawn
      * @return moveset of the pawn
      */
-    private static ArrayList<Position> getPawnMoves(Position currentPos){   //TODO: implement en passant
+    private static ArrayList<Position> getPawnMoves(Position currentPos){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Pawn p = (Pawn)currentPos.getPiece();
         int p_x = currentPos.getX();
         int p_y = currentPos.getY();
 
-        if(p.isWhite() == true){ // Pawn is white
+        if(p.isWhite() == true){        // WHITE PAWN
             if((p_y + 1 <= 8) && (chessboard.chessPieceAt(p_x,p_y+1) == null)) { //Check if legal move
                 moveset.add(new Position(p_x, p_y + 1, p));
                 if (p.moved() == false) { //has moved?
@@ -49,8 +49,21 @@ public class MoveGenerator {
                     }
                 }
             }
+            //beat moves
+            ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y + 1);
+            ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y + 1);
+            if(leftTarget != null){
+                if(leftTarget.isWhite() == false){
+                    moveset.add(new Position(p_x - 1, p_y + 1, p));
+                }
+            }
+            if(rightTarget != null){
+                if(rightTarget.isWhite() == false){
+                    moveset.add(new Position(p_x + 1, p_y + 1, p));
+                }
+            }
         }
-        else{                           // Pawn is black
+        else{                           // BLACK PAWN
             if((p_y - 1 >= 1) && (chessboard.chessPieceAt(p_x,p_y-1) == null)) { //Check if legal move
                 moveset.add(new Position(p_x, p_y - 1, p));
                 if (p.moved() == false) { //has moved?
@@ -59,18 +72,18 @@ public class MoveGenerator {
                     }
                 }
             }
-        }
-        //Looking for beat moves
-        ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y + 1);
-        ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y + 1);
-        if(leftTarget != null){
-            if(leftTarget.isWhite() != p.isWhite()){
-                moveset.add(new Position(p_x - 1, p_y + 1, p));
+            //beat moves
+            ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y - 1);
+            ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y - 1);
+            if(leftTarget != null){
+                if(leftTarget.isWhite() == true){
+                    moveset.add(new Position(p_x - 1, p_y - 1, p));
+                }
             }
-        }
-        if(rightTarget != null){
-            if(rightTarget.isWhite() != p.isWhite()){
-                moveset.add(new Position(p_x + 1, p_y + 1, p));
+            if(rightTarget != null){
+                if(rightTarget.isWhite() == true){
+                    moveset.add(new Position(p_x + 1, p_y - 1, p));
+                }
             }
         }
         return moveset;
@@ -84,23 +97,59 @@ public class MoveGenerator {
     private static ArrayList<Position> getRookMoves(Position currentPos){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Rook r = (Rook)currentPos.getPiece();
+        int r_x = currentPos.getX();
+        int r_y = currentPos.getY();
 
-
-
-        for(int x = currentPos.getX(); x <= 8; x++){
-            moveset.add(new Position(x,currentPos.getY(), r));
+        for(int x = r_x; x <= 8; x++){
+            ChessPiece target = chessboard.chessPieceAt(x,r_y);
+            if(target == null) {
+                moveset.add(new Position(x, r_y, r));
+            }
+            else{
+                if(target.isWhite() != r.isWhite()){
+                    moveset.add(new Position(x, r_y, r));
+                }
+                break;
+            }
         }
 
-        for(int x = currentPos.getX(); x >= 1; x--){
-            moveset.add(new Position(x,currentPos.getY(), r));
+        for(int x = r_x; x >= 1; x--){
+            ChessPiece target = chessboard.chessPieceAt(x,r_y);
+            if(target == null) {
+                moveset.add(new Position(x, r_y, r));
+            }
+            else{
+                if(target.isWhite() != r.isWhite()){
+                    moveset.add(new Position(x, r_y, r));
+                }
+                break;
+            }
         }
 
-        for(int y = currentPos.getY(); y <= 8; y++){
-            moveset.add(new Position(currentPos.getX(),y, r));
+        for(int y = r_y; y <= 8; y++){
+            ChessPiece target = chessboard.chessPieceAt(r_x,y);
+            if(target == null) {
+                moveset.add(new Position(r_x, y, r));
+            }
+            else{
+                if(target.isWhite() != r.isWhite()){
+                    moveset.add(new Position(r_x, y, r));
+                }
+                break;
+            }
         }
 
-        for(int y = currentPos.getX(); y >= 1; y++){
-            moveset.add(new Position(currentPos.getX(),y, r));
+        for(int y = r_y; y >= 1; y++){
+            ChessPiece target = chessboard.chessPieceAt(r_x,y);
+            if(target == null) {
+                moveset.add(new Position(r_x, y, r));
+            }
+            else{
+                if(target.isWhite() != r.isWhite()){
+                    moveset.add(new Position(r_x, y, r));
+                }
+                break;
+            }
         }
 
         return moveset;
