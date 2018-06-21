@@ -118,7 +118,6 @@ public class MoveGenerator {
                 break;
             }
         }
-
         for(int x = r_x; x >= 1; x--){
             ChessPiece target = chessboard.chessPieceAt(x,r_y);
             if(target == null) {
@@ -131,7 +130,6 @@ public class MoveGenerator {
                 break;
             }
         }
-
         for(int y = r_y; y <= 8; y++){
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
@@ -144,7 +142,6 @@ public class MoveGenerator {
                 break;
             }
         }
-
         for(int y = r_y; y >= 1; y++){
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
@@ -172,7 +169,7 @@ public class MoveGenerator {
         int k_x = currentPos.getX();
         int k_y = currentPos.getY();
 
-        ChessPiece target1 = chessboard.chessPieceAt(k_x+2,k_y+1);
+        ChessPiece target1 = chessboard.chessPieceAt(k_x+2,k_y+1); //For Knight, Hardcoding just looks like try hard copy-paste
         if(target1 == null){
             moveset.add(new Position(k_x+2,k_y+1,k));
         }
@@ -181,7 +178,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x+2,k_y+1,k));
             }
         }
-
         ChessPiece target2 = chessboard.chessPieceAt(k_x+2,k_y-1);
         if(target2 == null){
             moveset.add(new Position(k_x+2,k_y-1,k));
@@ -191,7 +187,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x+2,k_y-1,k));
             }
         }
-
         ChessPiece target3 = chessboard.chessPieceAt(k_x-2,k_y+1);
         if(target3 == null){
             moveset.add(new Position(k_x-2,k_y+1,k));
@@ -201,7 +196,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x-2,k_y+1,k));
             }
         }
-
         ChessPiece target4 = chessboard.chessPieceAt(k_x-2,k_y-1);
         if(target4 == null){
             moveset.add(new Position(k_x-2,k_y-1,k));
@@ -211,7 +205,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x-2,k_y-1,k));
             }
         }
-
         ChessPiece target5 = chessboard.chessPieceAt(k_x+1,k_y+2);
         if(target5 == null){
             moveset.add(new Position(k_x+1,k_y+2,k));
@@ -221,7 +214,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x+1,k_y+2,k));
             }
         }
-
         ChessPiece target6 = chessboard.chessPieceAt(k_x+1,k_y-2);
         if(target6 == null){
             moveset.add(new Position(k_x+1,k_y-2,k));
@@ -231,7 +223,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x+1,k_y-2,k));
             }
         }
-
         ChessPiece target7 = chessboard.chessPieceAt(k_x-1,k_y+2);
         if(target7 == null){
             moveset.add(new Position(k_x-1,k_y+2,k));
@@ -241,7 +232,6 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x-1,k_y+2,k));
             }
         }
-
         ChessPiece target8 = chessboard.chessPieceAt(k_x-1,k_y-2);
         if(target8 == null){
             moveset.add(new Position(k_x-1,k_y-2,k));
