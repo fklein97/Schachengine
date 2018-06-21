@@ -35,31 +35,23 @@ public class MoveGenerator {
         ArrayList<Position> moveset = new ArrayList<Position>();
         Pawn p = (Pawn)currentPos.getPiece();
 
-        if(p.isWhite() == true){
-            if(p.moved() == false){
-                moveset.add(new Position(currentPos.getX(),currentPos.getY() + 1, p));
+        if(p.isWhite() == true){ // Pawn is white
+            if((currentPos.getY() + 1 <= 8) && ) { //Check if legal move
+                moveset.add(new Position(currentPos.getX(), currentPos.getY() + 1, p));
+            }
+            if((p.moved() == false) && (currentPos.getY() + 2 <= 8)) {
                 moveset.add(new Position(currentPos.getX(), currentPos.getY() + 2, p));
-                return moveset;
             }
-            else{
-                if(currentPos.getY() + 1 <= 8){
-                    moveset.add(new Position(currentPos.getX(),currentPos.getY() + 1, p));
-                }
-                return moveset;
-            }
+            return moveset;
         }
-        else{
-            if(p.moved() == false){
-                moveset.add(new Position(currentPos.getX(),currentPos.getY() - 1, p));
+        else{                           // Pawn is black
+            if(currentPos.getY() - 1 >= 1) {
+                moveset.add(new Position(currentPos.getX(), currentPos.getY() - 1, p));
+            }
+            if((p.moved() == false) && (currentPos.getY() - 2 >= 1)) {
                 moveset.add(new Position(currentPos.getX(), currentPos.getY() - 2, p));
-                return moveset;
             }
-            else{
-                if(currentPos.getY() - 1 >= 1){
-                    moveset.add(new Position(currentPos.getX(),currentPos.getY() - 1, p));
-                }
-                return moveset;
-            }
+            return moveset;
         }
     }
 
