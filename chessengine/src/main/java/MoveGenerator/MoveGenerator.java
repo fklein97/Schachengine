@@ -6,27 +6,24 @@ import Board.*;
  * Created by FKPro on 18.06.2018.
  */
 public class MoveGenerator {
-    //TODO: get the real board as soon as @Dominic makes a public variable or getter
-    private static ChessBoard chessboard =new ChessBoard();
-
 
     /**
      * Returns the Moveset of a Chesspiece on a given position
      * @param currentPos current position of the chesspiece
      * @return moveset of the chesspiece
      */
-    public static ArrayList<Position> getMoveSet(Position currentPos){
+    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
         if(cp instanceof Pawn){
-            moveset = getPawnMoves(currentPos);
+            moveset = getPawnMoves(currentPos, chessboard);
         }
         else if(cp instanceof Rook){
-            moveset = getRookMoves(currentPos);
+            moveset = getRookMoves(currentPos,  chessboard);
         }
         else if(cp instanceof Knight){
-            moveset = getKnightMoves(currentPos);
+            moveset = getKnightMoves(currentPos, chessboard);
         }
         else{
             new AssertionError("Unknown Chesspiece");
@@ -40,7 +37,7 @@ public class MoveGenerator {
      * @param currentPos Position of the pawn
      * @return moveset of the pawn
      */
-    private static ArrayList<Position> getPawnMoves(Position currentPos){
+    private static ArrayList<Position> getPawnMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Pawn p = (Pawn)currentPos.getPiece();
         int p_x = currentPos.getX();
@@ -100,7 +97,7 @@ public class MoveGenerator {
      * @param currentPos position of the rook
      * @return moveset of the rook
      */
-    private static ArrayList<Position> getRookMoves(Position currentPos){
+    private static ArrayList<Position> getRookMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Rook r = (Rook)currentPos.getPiece();
         int r_x = currentPos.getX();
@@ -163,7 +160,7 @@ public class MoveGenerator {
      * @param currentPos position of the knight
      * @return moveset of the knight
      */
-    private static ArrayList<Position> getKnightMoves(Position currentPos){
+    private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Knight k = (Knight) currentPos.getPiece();
         int k_x = currentPos.getX();
