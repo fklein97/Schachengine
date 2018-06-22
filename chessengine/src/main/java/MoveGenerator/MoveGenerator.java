@@ -20,10 +20,13 @@ public class MoveGenerator {
             moveset = getPawnMoves(currentPos, chessboard);
         }
         else if(cp instanceof Rook){
-            moveset = getRookMoves(currentPos,  chessboard);
+            moveset = getRookMoves(currentPos, chessboard);
         }
         else if(cp instanceof Knight){
             moveset = getKnightMoves(currentPos, chessboard);
+        }
+        else if(cp instanceof Bishop){
+            moveset = getBishopMoves(currentPos, chessboard);
         }
         else{
             new AssertionError("Unknown Chesspiece");
@@ -103,7 +106,7 @@ public class MoveGenerator {
         int r_x = currentPos.getX();
         int r_y = currentPos.getY();
 
-        for(int x = r_x; x <= 8; x++){
+        for(int x = r_x; x <= 8; x++){                              //moves right
             ChessPiece target = chessboard.chessPieceAt(x,r_y);
             if(target == null) {
                 moveset.add(new Position(x, r_y, r));
@@ -115,7 +118,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int x = r_x; x >= 1; x--){
+        for(int x = r_x; x >= 1; x--){                              //moves left
             ChessPiece target = chessboard.chessPieceAt(x,r_y);
             if(target == null) {
                 moveset.add(new Position(x, r_y, r));
@@ -127,7 +130,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int y = r_y; y <= 8; y++){
+        for(int y = r_y; y <= 8; y++){                              //moves top
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
                 moveset.add(new Position(r_x, y, r));
@@ -139,7 +142,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int y = r_y; y >= 1; y++){
+        for(int y = r_y; y >= 1; y++){                              //moves bottom
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
                 moveset.add(new Position(r_x, y, r));
@@ -158,6 +161,7 @@ public class MoveGenerator {
     /**
      * Generates the moveset for a knight
      * @param currentPos position of the knight
+     * @param chessboard
      * @return moveset of the knight
      */
     private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard){
@@ -238,6 +242,92 @@ public class MoveGenerator {
                 moveset.add(new Position(k_x-1,k_y-2,k));
             }
         }
+        return moveset;
+    }
+
+    /**
+     *
+     * @param currentPos
+     * @param chessboard
+     * @return
+     */
+    private static ArrayList<Position> getBishopMoves(Position currentPos, ChessBoard chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        Bishop b = (Bishop) currentPos.getPiece();
+        int b_x = currentPos.getX();
+        int b_y = currentPos.getY();
+
+        int i_x;
+        int i_y;
+
+        i_x = b_x;
+        i_y = b_y;
+        while((i_x <= 8) && (i_y <= 8)){                            //moves top-right
+            ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
+            if(target == null){
+                moveset.add(new Position(i_x,i_y,b));
+            }
+            else{
+                if(target.isWhite() != b.isWhite()){
+                    moveset.add(new Position(i_x,i_y,b));
+                }
+                break;
+            }
+            i_x++;
+            i_y++;
+        }
+
+        i_x = b_x;
+        i_y = b_y;
+        while((i_x <= 8) && (i_y >= 1)){                            //moves bottom-right
+            ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
+            if(target == null){
+                moveset.add(new Position(i_x,i_y,b));
+            }
+            else{
+                if(target.isWhite() != b.isWhite()){
+                    moveset.add(new Position(i_x,i_y,b));
+                }
+                break;
+            }
+            i_x++;
+            i_y--;
+        }
+
+        i_x = b_x;
+        i_y = b_y;
+        while((i_x >= 1) && (i_y <= 8)){                            //moves top-left
+            ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
+            if(target == null){
+                moveset.add(new Position(i_x,i_y,b));
+            }
+            else{
+                if(target.isWhite() != b.isWhite()){
+                    moveset.add(new Position(i_x,i_y,b));
+                }
+                break;
+            }
+            i_x--;
+            i_y++;
+        }
+
+        i_x = b_x;
+        i_y = b_y;
+        while((i_x >= 1) && (i_y >= 1)){                            //moves bottom-left
+            ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
+            if(target == null){
+                moveset.add(new Position(i_x,i_y,b));
+            }
+            else{
+                if(target.isWhite() != b.isWhite()){
+                    moveset.add(new Position(i_x,i_y,b));
+                }
+                break;
+            }
+            i_x--;
+            i_y--;
+        }
+
         return moveset;
     }
 }

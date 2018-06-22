@@ -22,7 +22,7 @@
             <state relative-caret-position="-4760">
               <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding>
-                <marker date="1529655532692" expanded="true" signature="50890:50932" ph="..." />
+                <marker date="1529656550604" expanded="true" signature="53129:53146" ph="..." />
               </folding>
             </state>
           </provider>
@@ -31,13 +31,14 @@
       <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state relative-caret-position="-961">
+              <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding>
-                <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
-                <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
-                <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
-                <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="e#9156#9166#0" expanded="true" />
+                <marker date="1529656550464" expanded="false" signature="1331:3704" ph="{...}" />
+                <marker date="1529656550464" expanded="false" signature="6185:8916" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -705,12 +706,12 @@
       <workItem from="1529571183671" duration="6776000" />
       <workItem from="1529596434908" duration="855000" />
       <workItem from="1529599042107" duration="725000" />
-      <workItem from="1529655196387" duration="333000" />
+      <workItem from="1529655196387" duration="1352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10767000" />
+    <option name="totallyTimeSpent" value="11786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -795,7 +796,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1529655532692" expanded="true" signature="50890:50932" ph="..." />
+            <marker date="1529656550604" expanded="true" signature="53129:53146" ph="..." />
           </folding>
         </state>
       </provider>
@@ -805,51 +806,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/IO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/OperationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#9156#9166#0" expanded="true" />
+            <marker date="1529656550464" expanded="false" signature="1331:3704" ph="{...}" />
+            <marker date="1529656550464" expanded="false" signature="6185:8916" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -887,10 +848,53 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#9156#9166#0" expanded="true" />
+            <marker date="1529656550464" expanded="false" signature="1331:3704" ph="{...}" />
+            <marker date="1529656550464" expanded="false" signature="6185:8916" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/OperationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#9156#9166#0" expanded="true" />
+            <marker date="1529656550464" expanded="false" signature="1331:3704" ph="{...}" />
+            <marker date="1529656550464" expanded="false" signature="6185:8916" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -902,7 +906,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
-            <marker date="1529655532692" expanded="true" signature="50890:50932" ph="..." />
+            <marker date="1529656550604" expanded="true" signature="53129:53146" ph="..." />
           </folding>
         </state>
       </provider>
@@ -975,20 +979,21 @@
         <state relative-caret-position="-4760">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
-            <marker date="1529655532692" expanded="true" signature="50890:50932" ph="..." />
+            <marker date="1529656550604" expanded="true" signature="53129:53146" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="-961">
+          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding>
-            <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
-            <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="e#9156#9166#0" expanded="true" />
+            <marker date="1529656550464" expanded="false" signature="1331:3704" ph="{...}" />
+            <marker date="1529656550464" expanded="false" signature="6185:8916" ph="{...}" />
           </folding>
         </state>
       </provider>
