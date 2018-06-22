@@ -28,6 +28,12 @@ public class MoveGenerator {
         else if(cp instanceof Bishop){
             moveset = getBishopMoves(currentPos, chessboard);
         }
+        else if(cp instanceof Queen){
+            moveset = getQueenMoves(currentPos, chessboard);
+        }
+        else if(cp instanceof King) {
+            moveset = getKingMoves(currentPos, chessboard);
+        }
         else{
             new AssertionError("Unknown Chesspiece");
         }
@@ -164,84 +170,108 @@ public class MoveGenerator {
      * @param chessboard
      * @return moveset of the knight
      */
-    private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard) {
         ArrayList<Position> moveset = new ArrayList<Position>();
         Knight k = (Knight) currentPos.getPiece();
         int k_x = currentPos.getX();
         int k_y = currentPos.getY();
 
-        ChessPiece target1 = chessboard.chessPieceAt(k_x+2,k_y+1); //For Knight, Hardcoding just looks like try hard copy-paste
-        if(target1 == null){
-            moveset.add(new Position(k_x+2,k_y+1,k));
-        }
-        else{
-            if(target1.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x+2,k_y+1,k));
+        if ((k_x + 2 <= 8) && (k_y + 1 <= 8)){
+            ChessPiece target1 = chessboard.chessPieceAt(k_x + 2, k_y + 1); //For Knight, Hardcoding just looks like try hard copy-paste
+            if (target1 == null) {
+                moveset.add(new Position(k_x + 2, k_y + 1, k));
+            }
+            else {
+                if (target1.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 2, k_y + 1, k));
+                }
             }
         }
-        ChessPiece target2 = chessboard.chessPieceAt(k_x+2,k_y-1);
-        if(target2 == null){
-            moveset.add(new Position(k_x+2,k_y-1,k));
-        }
-        else{
-            if(target2.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x+2,k_y-1,k));
+
+        if ((k_x + 2 <= 8) && (k_y - 1 >= 1)) {
+            ChessPiece target2 = chessboard.chessPieceAt(k_x + 2, k_y - 1);
+            if (target2 == null) {
+                moveset.add(new Position(k_x + 2, k_y - 1, k));
+            }
+            else {
+                if (target2.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 2, k_y - 1, k));
+                }
             }
         }
-        ChessPiece target3 = chessboard.chessPieceAt(k_x-2,k_y+1);
-        if(target3 == null){
-            moveset.add(new Position(k_x-2,k_y+1,k));
-        }
-        else{
-            if(target3.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x-2,k_y+1,k));
+
+        if ((k_x - 2 >= 1) && (k_y + 1 <= 8)) {
+            ChessPiece target3 = chessboard.chessPieceAt(k_x - 2, k_y + 1);
+            if (target3 == null) {
+                moveset.add(new Position(k_x - 2, k_y + 1, k));
+            }
+            else {
+                if (target3.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 2, k_y + 1, k));
+                }
             }
         }
-        ChessPiece target4 = chessboard.chessPieceAt(k_x-2,k_y-1);
-        if(target4 == null){
-            moveset.add(new Position(k_x-2,k_y-1,k));
-        }
-        else{
-            if(target4.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x-2,k_y-1,k));
+
+        if ((k_x - 2 >= 1) && (k_y - 1 >= 1)) {
+            ChessPiece target4 = chessboard.chessPieceAt(k_x - 2, k_y - 1);
+            if (target4 == null) {
+                moveset.add(new Position(k_x - 2, k_y - 1, k));
+            }
+            else {
+                if (target4.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 2, k_y - 1, k));
+                }
             }
         }
-        ChessPiece target5 = chessboard.chessPieceAt(k_x+1,k_y+2);
-        if(target5 == null){
-            moveset.add(new Position(k_x+1,k_y+2,k));
-        }
-        else{
-            if(target5.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x+1,k_y+2,k));
+
+        if ((k_x + 1 <= 8) && (k_y + 2 <= 8)) {
+            ChessPiece target5 = chessboard.chessPieceAt(k_x + 1, k_y + 2);
+            if (target5 == null) {
+                moveset.add(new Position(k_x + 1, k_y + 2, k));
+            }
+            else {
+                if (target5.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 1, k_y + 2, k));
+                }
             }
         }
-        ChessPiece target6 = chessboard.chessPieceAt(k_x+1,k_y-2);
-        if(target6 == null){
-            moveset.add(new Position(k_x+1,k_y-2,k));
-        }
-        else{
-            if(target6.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x+1,k_y-2,k));
+
+        if ((k_x + 1 <= 8) && (k_y - 2 >= 1)) {
+            ChessPiece target6 = chessboard.chessPieceAt(k_x + 1, k_y - 2);
+            if (target6 == null) {
+                moveset.add(new Position(k_x + 1, k_y - 2, k));
+            }
+            else {
+                if (target6.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 1, k_y - 2, k));
+                }
             }
         }
-        ChessPiece target7 = chessboard.chessPieceAt(k_x-1,k_y+2);
-        if(target7 == null){
-            moveset.add(new Position(k_x-1,k_y+2,k));
-        }
-        else{
-            if(target7.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x-1,k_y+2,k));
+
+        if ((k_x - 1 >= 1) && (k_y + 2 <= 8)) {
+            ChessPiece target7 = chessboard.chessPieceAt(k_x - 1, k_y + 2);
+            if (target7 == null) {
+                moveset.add(new Position(k_x - 1, k_y + 2, k));
+            }
+            else {
+                if (target7.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 1, k_y + 2, k));
+                }
             }
         }
-        ChessPiece target8 = chessboard.chessPieceAt(k_x-1,k_y-2);
-        if(target8 == null){
-            moveset.add(new Position(k_x-1,k_y-2,k));
-        }
-        else{
-            if(target8.isWhite() != k.isWhite()){
-                moveset.add(new Position(k_x-1,k_y-2,k));
+
+        if ((k_x - 1 >= 1) && (k_y - 2 >= 1)) {
+            ChessPiece target8 = chessboard.chessPieceAt(k_x - 1, k_y - 2);
+            if (target8 == null) {
+                moveset.add(new Position(k_x - 1, k_y - 2, k));
+            }
+            else {
+                if (target8.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 1, k_y - 2, k));
+                }
             }
         }
+
         return moveset;
     }
 
@@ -326,6 +356,132 @@ public class MoveGenerator {
             }
             i_x--;
             i_y--;
+        }
+
+        return moveset;
+    }
+
+    /**
+     *
+     * @param currentPos
+     * @param chessboard
+     * @return
+     */
+    private static ArrayList<Position> getQueenMoves(Position currentPos, ChessBoard chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        moveset.addAll(getRookMoves(currentPos,chessboard));                                        //@all: too lazy or ok?
+        moveset.addAll(getBishopMoves(currentPos,chessboard));
+
+        return moveset;
+    }
+
+    /**
+     *
+     * @param currentPos
+     * @param chessboard
+     * @return
+     */
+    private static ArrayList<Position> getKingMoves(Position currentPos, ChessBoard chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        King k = (King)currentPos.getPiece();
+        int k_x = currentPos.getX();
+        int k_y = currentPos.getY();
+        ChessPiece target;
+
+        if(k_x + 1 <= 8) {                                                  //King is also sad hardcoding
+            target = chessboard.chessPieceAt(k_x + 1, k_y);
+            if (target == null) {
+                moveset.add(new Position(k_x + 1, k_y, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 1, k_y, k));
+                }
+            }
+        }
+
+        if(k_x -1 >= 1) {
+            target = chessboard.chessPieceAt(k_x - 1, k_y);
+            if (target == null) {
+                moveset.add(new Position(k_x - 1, k_y, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 1, k_y, k));
+                }
+            }
+        }
+
+        if(k_y + 1 <= 8) {
+            target = chessboard.chessPieceAt(k_x, k_y + 1);
+            if (target == null) {
+                moveset.add(new Position(k_x, k_y + 1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x, k_y + 1, k));
+                }
+            }
+        }
+
+        if(k_y - 1 >= 1) {
+            target = chessboard.chessPieceAt(k_x, k_y-1);
+            if (target == null) {
+                moveset.add(new Position(k_x, k_y-1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x, k_y-1, k));
+                }
+            }
+        }
+
+        if((k_x + 1 <= 8) && (k_y + 1 <= 8)) {
+            target = chessboard.chessPieceAt(k_x + 1, k_y + 1);
+            if (target == null) {
+                moveset.add(new Position(k_x + 1, k_y + 1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 1, k_y + 1, k));
+                }
+            }
+        }
+
+        if((k_x + 1 <= 8) && (k_y - 1 >= 1)) {
+            target = chessboard.chessPieceAt(k_x + 1, k_y - 1);
+            if (target == null) {
+                moveset.add(new Position(k_x + 1, k_y - 1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x + 1, k_y - 1, k));
+                }
+            }
+        }
+
+        if((k_x - 1 >= 1) && (k_y + 1 <= 8)) {
+            target = chessboard.chessPieceAt(k_x - 1, k_y + 1);
+            if (target == null) {
+                moveset.add(new Position(k_x - 1, k_y + 1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 1, k_y + 1, k));
+                }
+            }
+        }
+
+        if((k_x - 1 >= 1) && (k_y - 1 >= 1)) {
+            target = chessboard.chessPieceAt(k_x - 1, k_y - 1);
+            if (target == null) {
+                moveset.add(new Position(k_x - 1, k_y - 1, k));
+            }
+            else{
+                if (target.isWhite() != k.isWhite()) {
+                    moveset.add(new Position(k_x - 1, k_y - 1, k));
+                }
+            }
         }
 
         return moveset;
