@@ -108,11 +108,11 @@ public class MoveGenerator {
      */
     private static ArrayList<Position> getRookMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
-        Rook r = (Rook)currentPos.getPiece();
+        ChessPiece r = currentPos.getPiece();
         int r_x = currentPos.getX();
         int r_y = currentPos.getY();
 
-        for(int x = r_x; x <= 8; x++){                              //moves right
+        for(int x = r_x + 1; x <= 8; x++){                              //moves right
             ChessPiece target = chessboard.chessPieceAt(x,r_y);
             if(target == null) {
                 moveset.add(new Position(x, r_y, r));
@@ -124,7 +124,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int x = r_x; x >= 1; x--){                              //moves left
+        for(int x = r_x - 1; x >= 1; x--){                              //moves left
             ChessPiece target = chessboard.chessPieceAt(x,r_y);
             if(target == null) {
                 moveset.add(new Position(x, r_y, r));
@@ -136,7 +136,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int y = r_y; y <= 8; y++){                              //moves top
+        for(int y = r_y + 1; y <= 8; y++){                              //moves top
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
                 moveset.add(new Position(r_x, y, r));
@@ -148,7 +148,7 @@ public class MoveGenerator {
                 break;
             }
         }
-        for(int y = r_y; y >= 1; y++){                              //moves bottom
+        for(int y = r_y - 1; y >= 1; y--){                              //moves bottom
             ChessPiece target = chessboard.chessPieceAt(r_x,y);
             if(target == null) {
                 moveset.add(new Position(r_x, y, r));
@@ -283,15 +283,15 @@ public class MoveGenerator {
      */
     private static ArrayList<Position> getBishopMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
-        Bishop b = (Bishop) currentPos.getPiece();
+        ChessPiece b = currentPos.getPiece();
         int b_x = currentPos.getX();
         int b_y = currentPos.getY();
 
         int i_x;
         int i_y;
 
-        i_x = b_x;
-        i_y = b_y;
+        i_x = b_x + 1;
+        i_y = b_y + 1;
         while((i_x <= 8) && (i_y <= 8)){                            //moves top-right
             ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
             if(target == null){
@@ -307,8 +307,8 @@ public class MoveGenerator {
             i_y++;
         }
 
-        i_x = b_x;
-        i_y = b_y;
+        i_x = b_x + 1;
+        i_y = b_y - 1;
         while((i_x <= 8) && (i_y >= 1)){                            //moves bottom-right
             ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
             if(target == null){
@@ -324,8 +324,8 @@ public class MoveGenerator {
             i_y--;
         }
 
-        i_x = b_x;
-        i_y = b_y;
+        i_x = b_x - 1;
+        i_y = b_y + 1;
         while((i_x >= 1) && (i_y <= 8)){                            //moves top-left
             ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
             if(target == null){
@@ -341,8 +341,8 @@ public class MoveGenerator {
             i_y++;
         }
 
-        i_x = b_x;
-        i_y = b_y;
+        i_x = b_x - 1;
+        i_y = b_y - 1;
         while((i_x >= 1) && (i_y >= 1)){                            //moves bottom-left
             ChessPiece target = chessboard.chessPieceAt(i_x,i_y);
             if(target == null){
