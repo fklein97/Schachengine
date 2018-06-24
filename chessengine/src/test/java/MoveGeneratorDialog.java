@@ -8,7 +8,7 @@ import static MoveGenerator.MoveGenerator.getMoveSet;
 
 /**
  * Dialog class to test the MoveGenerator
- * @version 1
+ * @version 1.1
  * @author florian
  */
 public class MoveGeneratorDialog {
@@ -122,7 +122,7 @@ public class MoveGeneratorDialog {
         int pieces_length = chessboard.getPositions().toArray().length;
         Position[] pieces = chessboard.getPositions().toArray(new Position[chessboard.getPositions().size()]);
         for(int i = 0; i < pieces_length; i++){
-            System.out.print(i+ " -  x: " + pieces[i].getX() + " y: " + pieces[i].getY());
+            System.out.print(i+ " - "+ pieces[i].getPiece().toString() +" x:" + pieces[i].getX() + " y:" + pieces[i].getY());
             System.out.print("\n");
         }
         int choice = input.nextInt();
@@ -132,7 +132,7 @@ public class MoveGeneratorDialog {
         Position[] moveset_array = moveset.toArray(new Position[moveset.size()]);
         System.out.print("the selected chesspiece can go to:\n");
         for(int i = 0; i < moveset_array.length; i++){
-            System.out.print("x: " + moveset_array[i].getX() + " y: " + moveset_array[i].getY() + "\n");
+            System.out.print("x:" + moveset_array[i].getX() + " y:" + moveset_array[i].getY() + "\n");
         }
     }
 
