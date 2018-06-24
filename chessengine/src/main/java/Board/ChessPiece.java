@@ -28,6 +28,13 @@ public class ChessPiece {
         return moved;
     }
 
-
+    public String toString(){
+        if(isWhite()){
+            return "white chesspiece";
+        }
+        else{
+            return "black chesspiece";
+        }
+    }
 
 }
