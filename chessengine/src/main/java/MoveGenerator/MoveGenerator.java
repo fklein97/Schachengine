@@ -3,13 +3,15 @@ import java.util.ArrayList;
 import Board.*;
 
 /**
- * Created by FKPro on 18.06.2018.
+ * Generates the movesets of all chesspieces
+ * @author Florian
+ * @version 1
  */
 public class MoveGenerator {
-
     /**
      * Returns the Moveset of a Chesspiece on a given position
      * @param currentPos current position of the chesspiece
+     * @param chessboard current chessboard
      * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard){
@@ -44,6 +46,7 @@ public class MoveGenerator {
     /**
      * Generates the moveset for a Pawn //TODO: implement en passant
      * @param currentPos Position of the pawn
+     * @param chessboard current chessboard
      * @return moveset of the pawn
      */
     private static ArrayList<Position> getPawnMoves(Position currentPos, ChessBoard chessboard){
@@ -88,12 +91,12 @@ public class MoveGenerator {
             ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y - 1);
             ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y - 1);
             if(leftTarget != null){
-                if(leftTarget.isWhite() == true){
+                if(leftTarget.isWhite()){
                     moveset.add(new Position(p_x - 1, p_y - 1, p));
                 }
             }
             if(rightTarget != null){
-                if(rightTarget.isWhite() == true){
+                if(rightTarget.isWhite()){
                     moveset.add(new Position(p_x + 1, p_y - 1, p));
                 }
             }
@@ -104,6 +107,7 @@ public class MoveGenerator {
     /**
      * Generates the moveset for a rook
      * @param currentPos position of the rook
+     * @param chessboard current chessboard
      * @return moveset of the rook
      */
     private static ArrayList<Position> getRookMoves(Position currentPos, ChessBoard chessboard){
@@ -167,7 +171,7 @@ public class MoveGenerator {
     /**
      * Generates the moveset for a knight
      * @param currentPos position of the knight
-     * @param chessboard
+     * @param chessboard current chessboard
      * @return moveset of the knight
      */
     private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard) {
@@ -276,10 +280,10 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @param chessboard
-     * @return
+     * Generates the moveset for a bishop
+     * @param currentPos position of the bishop
+     * @param chessboard current chessboard
+     * @return moveset of the bishop
      */
     private static ArrayList<Position> getBishopMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
@@ -362,10 +366,10 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @param chessboard
-     * @return
+     * Generates the moveset for a queen
+     * @param currentPos position of the queen
+     * @param chessboard current chessboard
+     * @return moveset of the queen
      */
     private static ArrayList<Position> getQueenMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
@@ -376,10 +380,10 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @param chessboard
-     * @return
+     * Generates the moveset for a king
+     * @param currentPos position of the king
+     * @param chessboard current chessboard
+     * @return moveset of the king
      */
     private static ArrayList<Position> getKingMoves(Position currentPos, ChessBoard chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();

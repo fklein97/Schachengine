@@ -6,15 +6,27 @@ import java.util.Scanner;
 
 import static MoveGenerator.MoveGenerator.getMoveSet;
 
+/**
+ * Dialog class to test the MoveGenerator
+ * @version 1
+ * @author florian
+ */
 public class MoveGeneratorDialog {
 
     public static ChessBoard chessboard;
     public static Scanner input;
 
+    /**
+     * starts the dialog
+     * @param args commandline parameters
+     */
     public static void main(String[] args){
         dialog();
     }
 
+    /**
+     * dialog method
+     */
     private static void dialog(){
         try {
             input = new Scanner(System.in);
@@ -46,6 +58,9 @@ public class MoveGeneratorDialog {
 
     }
 
+    /**
+     * adds a chesspiece to the testboard
+     */
     private static void addChessPiece(){
         int x;
         int y;
@@ -99,6 +114,9 @@ public class MoveGeneratorDialog {
         chessboard.setPositions(board);
     }
 
+    /**
+     * prints the moveset of a chesspiece on the testboard
+     */
     private static void getMoveset(){
         System.out.print("Moveset of which chesspiece?\n\n");
         int pieces_length = chessboard.getPositions().toArray().length;
@@ -118,6 +136,9 @@ public class MoveGeneratorDialog {
         }
     }
 
+    /**
+     * prints the testboard
+     */
     private static void printBoard(){
         System.out.print("0 1 2 3 4 5 6 7 8\n");
         printBoardRow(8);
@@ -131,6 +152,10 @@ public class MoveGeneratorDialog {
         System.out.print("\n");
     }
 
+    /**
+     * prints a row of the testboard
+     * @param row row that should be printed
+     */
     private static void printBoardRow(int row){
         System.out.print(row + " ");
         for(int i = 1; i <= 8; i++){
