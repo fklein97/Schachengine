@@ -7,4 +7,12 @@ public class King extends ChessPiece{
 
     }
 
+    public String toString(){
+        if (isWhite()){
+            return "white king";
+        }
+        else{
+            return "black king";
+        }
+    }
 }
