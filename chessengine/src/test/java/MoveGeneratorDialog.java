@@ -2,6 +2,7 @@ import Board.*;
 import MoveGenerator.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import static MoveGenerator.MoveGenerator.getMoveSet;
@@ -35,8 +36,10 @@ public class MoveGeneratorDialog {
             int i = 999;
             while(i != 9){
                 System.out.print("What do u want to do? \n");
-                System.out.print("1: Add a Chesspiece to the Board\n");
-                System.out.print("2: Get Moveset of a Chesspiece\n");
+                System.out.print("1: Add a chesspiece to the board\n");
+                System.out.print("2: Get moveset of a chesspiece\n");
+                System.out.print("3: Randomize the chessboard\n");
+                System.out.print("4: Clear the chessboard\n");
                 System.out.print("9: Close this program\n");
                 System.out.print("\n");
                 printBoard();
@@ -49,13 +52,67 @@ public class MoveGeneratorDialog {
                 else if(i == 2){
                     getMoveset();
                 }
-
+                else if(i == 3){
+                    randomizeBoard();
+                }
+                else if(i == 4){
+                    clearBoard();
+                }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    private static void clearBoard() {
+        chessboard.setPositions(new ArrayList<Position>());
+    }
+
+    private static void randomizeBoard() {
+        ArrayList<Position> randomPositions = new ArrayList<>();
+
+        for(int i = 1; i <= 20; i++){
+            int random_x = new Random().nextInt(7) + 1;
+            int random_y = new Random().nextInt(7) + 1;
+            int random_piece_number = new Random().nextInt(11);
+            ChessPiece random_piece;
+            switch (random_piece_number){
+                case 0: random_piece = new Pawn(true);
+                        break;
+                case 1: random_piece = new Pawn(false);
+                        break;
+                case 2: random_piece = new Rook(true);
+                        break;
+                case 3: random_piece = new Rook(false);
+                        break;
+                case 4: random_piece = new Bishop(true);
+                        break;
+                case 5: random_piece = new Bishop(false);
+                        break;
+                case 6: random_piece = new King(true);
+                        break;
+                case 7: random_piece = new King(false);
+                        break;
+                case 8: random_piece = new Knight(true);
+                        break;
+                case 9: random_piece = new Knight(false);
+                        break;
+                case 10:random_piece = new Queen(true);
+                        break;
+                case 11:random_piece = new Queen(false);
+                        break;
+                default:random_piece = new Pawn(true);
+                        break;
+            }
+            chessboard.setPositions(randomPositions);
+            if(chessboard.chessPieceAt(random_x,random_y) == null){
+                randomPositions.add(new Position(random_x,random_y,random_piece));
+            }
+        }
+
+        chessboard.setPositions(randomPositions);
     }
 
     /**
@@ -210,7 +267,8 @@ public class MoveGeneratorDialog {
                 }
             }
             else{
-                System.out.print("O ");
+                char square = 9633;
+                System.out.print(square+" ");
             }
         }
         System.out.print("\n");
