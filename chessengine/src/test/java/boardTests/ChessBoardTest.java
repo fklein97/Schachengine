@@ -12,6 +12,7 @@ public class ChessBoardTest {
     private Position positionTo = new Position(1, 1, new Rook(true));
     private ArrayList<Position> positions = new ArrayList<Position>();
 
+
     private void setUp() {
         positions.add(new Position(1, 1, new Pawn(true)));
         positions.add(new Position(2, 2, new Pawn(true)));
@@ -57,11 +58,14 @@ public class ChessBoardTest {
     @Test
     public void getPositions() throws Exception {
         Assert.assertEquals(chessBoard.getPositions().get(0).equals(new Position(1,2,new Pawn(true))),true );
+        Assert.assertEquals(chessBoard.getPositions().get(0).equals(new Position(1,3,new Pawn(true))),false );
     }
 
     @Test
     public void setPositions() throws Exception {
-
+        setUp();
+        chessBoard.setPositions(positions);
+        Assert.assertEquals(chessBoard.getPositions(), positions);
     }
 
     @Test
