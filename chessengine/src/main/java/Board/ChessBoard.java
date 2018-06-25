@@ -1,5 +1,7 @@
 package Board;
 
+import javafx.geometry.Pos;
+
 import java.util.*;
 
 
@@ -24,16 +26,15 @@ public class ChessBoard {
 
         setUp();
     }
+    public ChessBoard(ArrayList<Position> positions){
+        this.positions = positions;
+    }
 
 
     public boolean positionIsTaken(int x, int y){
-        Position[] positionsArr = new Position[positions.size()];
-        positionsArr = (Position[]) positions.toArray(positionsArr);
-
-        for(int i = 0; i < positionsArr.length; i++){
-            if(positionsArr[i].getX() == x && positionsArr[i].getY() == y){
-                return true;
-            }
+        ChessPiece chessPiece = chessPieceAt(x,y );
+        if(chessPiece != null){
+            return true;
         }
         return false;
     }
