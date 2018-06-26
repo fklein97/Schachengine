@@ -1,4 +1,8 @@
 import Board.*;
+import MoveGenerator.*;
+
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * Class that handles all further task management in the engine after receiving a command
  */
@@ -13,7 +17,15 @@ public class OperationManager {
     private final String BISHOP = "b";
 
     private ChessBoard board;
+    private MoveGenerator generator;
+
     private boolean debug;
+
+    public OperationManager(){
+
+        board = new ChessBoard();
+        generator = new MoveGenerator();
+    }
 
     public void setDebug(boolean debug) {
         this.debug = debug;
@@ -66,12 +78,35 @@ public class OperationManager {
         }
     }
 
-    //TODO Implementieren
     /**
      * Method go starts the
      */
     public String go(String input){
-        return new String("");
+        Random ran = new Random();
+        ArrayList<Position> moveSet;
+        int randomOne = ran.nextInt(board.getPositions().size());
+
+        moveSet = generator.getMoveSet(board.getPositions().get(randomOne),board);
+
+        int randomTwo = ran.nextInt(moveSet.size());
+
+        return new String(posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
     }
 
+    /**
+     * Method to convert positions to Strings
+     * @param pos Input position
+     * @return String of position
+     */
+    public String posToString(Position pos){
+
+       int x = pos.getX();
+       int y = pos.getY();
+
+       x += ASCII_a;
+       y += ASCII_1;
+
+       return new String(Character.toString((char)x)+Character.toString((char)y));
+
+    }
 }

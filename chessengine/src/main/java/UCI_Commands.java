@@ -104,7 +104,7 @@ final class UCI_Commands {
     /**
      * Sends the best move found for the current board to the GUI
      */
-    static final String BEST_MOVE = "bestmove";
+    static final String BEST_MOVE = "bestmove ";
 
     /**
      * Offers all the configurable options to the GUI

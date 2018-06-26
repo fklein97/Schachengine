@@ -143,7 +143,7 @@ public class UCI {
      */
     public void go(String input){
 
-        io.answer(manager.go(input.substring(3)));
+        io.answer(UCI_Commands.BEST_MOVE + manager.go(input.substring(3)));
 
     }
 
