@@ -29,7 +29,7 @@ public class UCI {
                 }
             }
         }catch(Throwable error){
-
+            error.printStackTrace();
         }
     }
 
@@ -67,8 +67,8 @@ public class UCI {
      * Method to register the Engine
      */
     public void uci(){
-        io.answer(UCI_Commands.ID /*TODO + NAMENSKONSTANTE*/);
-        io.answer(UCI_Commands.AUTHOR /*TODO + AUTORENKONSTANTE*/);
+        io.answer(UCI_Commands.ID + "test"/*TODO + NAMENSKONSTANTE*/);
+        io.answer(UCI_Commands.AUTHOR + "test"/*TODO + AUTORENKONSTANTE*/);
 
         offerOptions();
 
@@ -79,7 +79,8 @@ public class UCI {
      * Method to send all possible options to the GUI
      */
     public void offerOptions(){
-        io.answer(UCI_Commands.OPTION);
+
+        // io.answer(UCI_Commands.OPTION);
     }
 
     /**
@@ -121,6 +122,9 @@ public class UCI {
      */
     public void position(String input){
 
+        //TODO
+        io.answer("INFO: Start moving");
+
         input = input.substring(9);
         if (input.contains(UCI_Commands.STARTPOS)){
 
@@ -132,19 +136,22 @@ public class UCI {
 
         if (input.contains(UCI_Commands.MOVES)){
             input = input.substring(input.length()-5).trim();
-            io.answer(input);
             manager.playerMove(input);
 
         }
+        //TODO
+        io.answer("INFO: Move succesful");
     }
 
     /**
      * Starts the calculation of the best possible move
      */
     public void go(String input){
-
-        io.answer(UCI_Commands.BEST_MOVE + manager.go(input.substring(3)));
-
+        //TODO
+        io.answer("INFO: Start go");
+        String response = manager.go(input);
+        io.answer(UCI_Commands.BEST_MOVE + response);
+        io.answer("INFO: Go succesful");
     }
 
     /**

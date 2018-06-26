@@ -13,7 +13,6 @@
     <artifactId>chessengine</artifactId>
     <version>1.0</version>
     <dependencies>
-
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-core</artifactId>
@@ -40,6 +39,7 @@
         </dependency>
 
     </dependencies>
+
 
 
 </project>

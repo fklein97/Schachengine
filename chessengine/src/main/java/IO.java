@@ -55,11 +55,13 @@ public class IO {
      * @param input message
      */
     public void log(String input){
+        /**
         try {
             writer.write(input);
-        }catch (IOException e){
+         }catch (IOException e){
             //TODO FEHLERMELDUNG LOG schreiben fehlgeschlagen
         }
+         **/
     }
 
     /**

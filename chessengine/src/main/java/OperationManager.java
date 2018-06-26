@@ -1,5 +1,6 @@
 import Board.*;
 import MoveGenerator.*;
+import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,7 +10,7 @@ import java.util.Random;
 public class OperationManager {
 
     private final int ASCII_a = 96;
-    private final int ASCII_1 = 47;
+    private final int ASCII_1 = 48;
 
     private final String QUEEN = "q";
     private final String ROOK = "r";
@@ -57,7 +58,7 @@ public class OperationManager {
         Position oldPos = new Position(oldX,oldY,new Pawn(true));
         Position newPos = new Position(x,y,new Pawn(true));
 
-        if (moveString.length() == 5) {
+        if (moveString.length() == 4) {
 
             board.move(oldPos, newPos);
 
@@ -74,6 +75,8 @@ public class OperationManager {
                 default:
                     piece = new Pawn(true);
             }
+            oldPos.setPiece(piece);
+            newPos.setPiece(piece);
             board.promote(oldPos, newPos,piece);
         }
     }
@@ -84,13 +87,23 @@ public class OperationManager {
     public String go(String input){
         Random ran = new Random();
         ArrayList<Position> moveSet;
+        Position testPos;
         int randomOne = ran.nextInt(board.getPositions().size());
-
+        while(board.getPositions().get(randomOne).getPiece().isWhite()){
+            randomOne = ran.nextInt(board.getPositions().size());
+        }
         moveSet = generator.getMoveSet(board.getPositions().get(randomOne),board);
+
+        //TODO
+        if (moveSet.isEmpty()){
+            return go(input);
+        }
 
         int randomTwo = ran.nextInt(moveSet.size());
 
-        return new String(posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
+         String move = (posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
+         board.move(board.getPositions().get(randomOne),moveSet.get(randomTwo));
+         return move;
     }
 
     /**
