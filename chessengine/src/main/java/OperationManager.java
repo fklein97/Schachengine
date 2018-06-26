@@ -102,7 +102,9 @@ public class OperationManager {
         int randomTwo = ran.nextInt(moveSet.size());
 
          String move = (posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
+         board.getPositions().get(randomOne).getPiece().move();
          board.move(board.getPositions().get(randomOne),moveSet.get(randomTwo));
+
          return move;
     }
 
