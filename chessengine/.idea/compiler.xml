@@ -9,5 +9,8 @@
         <module name="chessengine" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chessengine" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

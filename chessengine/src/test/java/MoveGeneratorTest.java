@@ -34,6 +34,8 @@ public class MoveGeneratorTest {
         expectedMoveset.add(new Position(4,3,whitepawn));
         expectedMoveset.add(new Position(4,4,whitepawn));
 
+       //Assert.assertEquals(expectedMoveset, MoveGenerator.getMoveSet(new Position(4,2,whitepawn)));
+
         Assert.assertEquals(expectedMoveset.get(0).equals(calculatedMoveset.get(0)) , true);
         Assert.assertEquals(expectedMoveset.get(1).equals(calculatedMoveset.get(1)) , true);
     }
