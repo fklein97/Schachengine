@@ -158,9 +158,9 @@ public class ChessBoard {
 
         positions.add(new Position(3,8, new Bishop(false)));
 
-        positions.add(new Position(4,8, new King(false)));
+        positions.add(new Position(4,8, new Queen(false)));
 
-        positions.add(new Position(5,8, new Queen(false)));
+        positions.add(new Position(5,8, new King(false)));
 
         positions.add(new Position(6,8, new Bishop(false)));
 
