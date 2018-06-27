@@ -1,6 +1,5 @@
 import Board.*;
 import MoveGenerator.*;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -55,8 +54,9 @@ public class OperationManager {
         int x = moveString.charAt(2) - ASCII_a;
         int y = moveString.charAt(3) - ASCII_1;
 
-        Position oldPos = new Position(oldX,oldY,new Pawn(true));
-        Position newPos = new Position(x,y,new Pawn(true));
+        ChessPiece cp = board.chessPieceAt(oldX,oldY);
+        Position oldPos = new Position(oldX,oldY,cp);
+        Position newPos = new Position(x,y,cp);
 
         if (moveString.length() == 4) {
 
@@ -68,12 +68,12 @@ public class OperationManager {
             ChessPiece piece;
 
             switch (pieceName){
-                case QUEEN: piece = new Queen(true);
-                case ROOK: piece = new Rook(true);
-                case KNIGHT: piece = new Knight(true);
-                case BISHOP: piece = new Bishop(true);
+                case QUEEN: piece = new Queen(cp.isWhite());
+                case ROOK: piece = new Rook(cp.isWhite());
+                case KNIGHT: piece = new Knight(cp.isWhite());
+                case BISHOP: piece = new Bishop(cp.isWhite());
                 default:
-                    piece = new Pawn(true);
+                    piece = new Pawn(cp.isWhite());
             }
             oldPos.setPiece(piece);
             newPos.setPiece(piece);
