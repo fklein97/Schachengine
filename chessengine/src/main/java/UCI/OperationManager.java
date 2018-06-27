@@ -1,3 +1,5 @@
+package UCI;
+
 import Board.*;
 import MoveGenerator.*;
 

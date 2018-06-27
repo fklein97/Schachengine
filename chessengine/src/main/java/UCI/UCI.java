@@ -1,3 +1,4 @@
+package UCI;
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
  */
@@ -115,6 +116,7 @@ public class UCI {
 
     public void ucinewgame(){
         // nothing to do here
+        manager = new OperationManager();
     }
 
     /**
