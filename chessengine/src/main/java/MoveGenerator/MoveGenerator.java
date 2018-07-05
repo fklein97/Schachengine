@@ -12,29 +12,30 @@ public class MoveGenerator {
      * Returns the Moveset of a Chesspiece on a given position
      * @param currentPos current position of the chesspiece
      * @param chessboard current chessboard
+     * @param old_chessboard chessboard one move ago
      * @return moveset of the chesspiece
      */
-    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard){
+    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
         if(cp instanceof Pawn){
-            moveset = getPawnMoves(currentPos, chessboard);
+            moveset = getPawnMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof Rook){
-            moveset = getRookMoves(currentPos, chessboard);
+            moveset = getRookMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof Knight){
-            moveset = getKnightMoves(currentPos, chessboard);
+            moveset = getKnightMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof Bishop){
-            moveset = getBishopMoves(currentPos, chessboard);
+            moveset = getBishopMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof Queen){
-            moveset = getQueenMoves(currentPos, chessboard);
+            moveset = getQueenMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof King) {
-            moveset = getKingMoves(currentPos, chessboard);
+            moveset = getKingMoves(currentPos, chessboard, old_chessboard);
         }
         else{
             new AssertionError("Unknown Chesspiece");
@@ -47,9 +48,10 @@ public class MoveGenerator {
      * Generates the moveset for a Pawn //TODO: implement en passant
      * @param currentPos Position of the pawn
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the pawn
      */
-    private static ArrayList<Position> getPawnMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getPawnMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         Pawn p = (Pawn)currentPos.getPiece();
         int p_x = currentPos.getX();
@@ -77,6 +79,24 @@ public class MoveGenerator {
                     moveset.add(new Position(p_x + 1, p_y + 1, p));
                 }
             }
+
+            //en passant
+            ChessPiece leftPassant = chessboard.chessPieceAt(p_x-1,p_y);
+            if(leftPassant != null){
+                if(leftPassant instanceof Pawn && leftPassant.isWhite() == false){
+                    if(leftPassant == old_chessboard.chessPieceAt(p_x-1,p_y + 2)){
+                        moveset.add(new Position(p_x - 1, p_y +1,p));
+                    }
+                }
+            }
+            ChessPiece rightPassant = chessboard.chessPieceAt(p_x+1,p_y);
+            if(rightPassant != null){
+                if(rightPassant instanceof Pawn && rightPassant.isWhite() == false){
+                    if(rightPassant == old_chessboard.chessPieceAt(p_x+1,p_y + 2)){
+                        moveset.add(new Position(p_x + 1, p_y +1,p));
+                    }
+                }
+            }
         }
         else{                           // BLACK PAWN
             if((p_y - 1 >= 1) && (chessboard.chessPieceAt(p_x,p_y-1) == null)) { //Check if legal move
@@ -100,6 +120,24 @@ public class MoveGenerator {
                     moveset.add(new Position(p_x + 1, p_y - 1, p));
                 }
             }
+
+            //en passant
+            ChessPiece leftPassant = chessboard.chessPieceAt(p_x-1,p_y);
+            if(leftPassant != null){
+                if(leftPassant instanceof Pawn && leftPassant.isWhite() == true){
+                    if(leftPassant == old_chessboard.chessPieceAt(p_x-1,p_y - 2)){
+                        moveset.add(new Position(p_x - 1, p_y -1,p));
+                    }
+                }
+            }
+            ChessPiece rightPassant = chessboard.chessPieceAt(p_x+1,p_y);
+            if(rightPassant != null){
+                if(rightPassant instanceof Pawn && rightPassant.isWhite() == true){
+                    if(rightPassant == old_chessboard.chessPieceAt(p_x+1,p_y - 2)){
+                        moveset.add(new Position(p_x + 1, p_y -1,p));
+                    }
+                }
+            }
         }
         return moveset;
     }
@@ -108,9 +146,10 @@ public class MoveGenerator {
      * Generates the moveset for a rook
      * @param currentPos position of the rook
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the rook
      */
-    private static ArrayList<Position> getRookMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getRookMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece r = currentPos.getPiece();
         int r_x = currentPos.getX();
@@ -172,9 +211,10 @@ public class MoveGenerator {
      * Generates the moveset for a knight
      * @param currentPos position of the knight
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the knight
      */
-    private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard) {
+    private static ArrayList<Position> getKnightMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard) {
         ArrayList<Position> moveset = new ArrayList<Position>();
         Knight k = (Knight) currentPos.getPiece();
         int k_x = currentPos.getX();
@@ -283,9 +323,10 @@ public class MoveGenerator {
      * Generates the moveset for a bishop
      * @param currentPos position of the bishop
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the bishop
      */
-    private static ArrayList<Position> getBishopMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getBishopMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece b = currentPos.getPiece();
         int b_x = currentPos.getX();
@@ -369,12 +410,13 @@ public class MoveGenerator {
      * Generates the moveset for a queen
      * @param currentPos position of the queen
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the queen
      */
-    private static ArrayList<Position> getQueenMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getQueenMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
-        moveset.addAll(getRookMoves(currentPos,chessboard));                                        //@all: too lazy or ok?
-        moveset.addAll(getBishopMoves(currentPos,chessboard));
+        moveset.addAll(getRookMoves(currentPos,chessboard, old_chessboard));                                        //@all: too lazy or ok?
+        moveset.addAll(getBishopMoves(currentPos,chessboard, old_chessboard));
 
         return moveset;
     }
@@ -383,9 +425,10 @@ public class MoveGenerator {
      * Generates the moveset for a king
      * @param currentPos position of the king
      * @param chessboard current chessboard
+     * @param old_chessboard
      * @return moveset of the king
      */
-    private static ArrayList<Position> getKingMoves(Position currentPos, ChessBoard chessboard){
+    private static ArrayList<Position> getKingMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         King k = (King)currentPos.getPiece();
         int k_x = currentPos.getX();
