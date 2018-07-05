@@ -45,7 +45,7 @@ public class MoveGenerator {
     }
 
     /**
-     * Generates the moveset for a Pawn //TODO: implement en passant
+     * Generates the moveset for a Pawn
      * @param currentPos Position of the pawn
      * @param chessboard current chessboard
      * @param old_chessboard

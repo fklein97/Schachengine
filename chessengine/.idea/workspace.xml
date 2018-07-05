@@ -32,8 +32,8 @@
       <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="285">
+              <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
               <folding>
                 <element signature="method#getMoveSet#0;class#MoveGenerator#0" />
               </folding>
@@ -664,12 +664,12 @@
       <workItem from="1530089250124" duration="1052000" />
       <workItem from="1530092764436" duration="801000" />
       <workItem from="1530093992860" duration="49000" />
-      <workItem from="1530791235446" duration="1380000" />
+      <workItem from="1530791235446" duration="1558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16445000" />
+    <option name="totallyTimeSpent" value="16623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -976,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="285">
+          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
           <folding>
             <element signature="method#getMoveSet#0;class#MoveGenerator#0" />
           </folding>
