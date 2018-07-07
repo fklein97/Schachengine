@@ -19,8 +19,8 @@ public class DangerChecker {
 
        if(forWhite){
            ArrayList<Position> black_positions = chessBoard.getPositions();
-           for (Position p:black_positions) {
-               if(p.getPiece().isWhite()==true && p.getPiece() instanceof King == false){
+           for (Position p : black_positions) {
+               if(!p.getPiece().isWhite() && !(p.getPiece() instanceof King)){
                    dangers.addAll(MoveGenerator.getMoveSet(p,chessBoard));
                }
            }
@@ -28,7 +28,7 @@ public class DangerChecker {
        else{
            ArrayList<Position> white_positions = chessBoard.getPositions();
            for (Position p : white_positions) {
-               if(p.getPiece().isWhite()==false && p.getPiece() instanceof King == false){
+               if(p.getPiece().isWhite() && !(p.getPiece() instanceof King)){
                    dangers.addAll(MoveGenerator.getMoveSet(p,chessBoard));
                }
            }
