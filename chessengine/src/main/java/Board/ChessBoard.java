@@ -141,27 +141,36 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
-   /** public void move(Position positionFrom, Position positionTo){
-        int from = -1;
-        int to = -1;
-        for(Position p : positions){
-            if(p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()){
-                from = positions.indexOf(p);
-            }
-            if(p.getX() == positionTo.getX() && p.getY() == positionTo.getY()){
-                to = positions.indexOf(p);
+   public void move(Position positionFrom, Position positionTo){
+        Position from = null;
+        Position to = null;
+
+       for(Position p : positions) {
+           if(p.getX() == positionTo.getX() && p.getY() == positionTo.getY()){
+               to = p;
+           }
+       }
+
+
+       if(to != null){
+           positions.remove(to);
+       }
+
+        for(Position p : positions) {
+            if (p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()) {
+                from = p;
             }
         }
 
-        if(from != -1){
-            positions.set(from, new Position(positionTo.getX(),positionTo.getY(),positionFrom.getPiece()));
-        }
-        if(to != -1){
-            positions.remove(to);
-        }
-    }*/
+       if(from != null){
+           positions.remove(from);
+           positions.add(new Position(positionTo.getX(),positionTo.getY(),positionFrom.getPiece()));
+       }
 
-    public void move(Position positionFrom, Position positionTo){
+
+    }
+
+    /**public void move(Position positionFrom, Position positionTo){
         int from    = -1;
         int to      = -1;
         Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
@@ -180,7 +189,7 @@ public class ChessBoard {
             positions.remove(to);
         }
 
-    }
+    }*/
 
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         promote(positionFrom, positionTo, chessPiece);
