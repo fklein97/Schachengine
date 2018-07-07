@@ -543,13 +543,15 @@ public class MoveGenerator {
             }
         }
 
+        ArrayList<Position> dangermoves = new ArrayList<>();
         for(Position d: dangers){ //prevents that a king moves in a danger position
             for(Position p: moveset){
                 if(p.getX() == d.getX() && p.getY() == d.getY()){
-                    moveset.remove(p);
+                    dangermoves.add(p);
                 }
             }
         }
+        moveset.removeAll(dangermoves);
         return moveset;
     }
 }

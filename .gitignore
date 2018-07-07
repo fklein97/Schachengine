@@ -4,3 +4,5 @@
 chessengine/.idea/workspace.xml
 chessengine/.idea/workspace.xml
 chessengine/.idea/misc.xml
+*.class
+*.jar
