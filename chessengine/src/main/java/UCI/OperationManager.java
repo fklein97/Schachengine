@@ -118,9 +118,17 @@ public class OperationManager {
         }
         int randomTwo = ran.nextInt(moveSet.size());
 
-         String move = (posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
-         board.getPositions().get(randomOne).getPiece().move();
-         board.move(board.getPositions().get(randomOne),moveSet.get(randomTwo));
+        String move;
+        if(kingindanger == false) {
+            move = (posToString(board.getPositions().get(randomOne)) + posToString(moveSet.get(randomTwo)));
+            board.getPositions().get(randomOne).getPiece().move();
+            board.move(board.getPositions().get(randomOne), moveSet.get(randomTwo));
+        }
+        else{
+            move = (posToString(board.getKingPosition(false)) + posToString(moveSet.get(randomTwo)));
+            board.getKingPosition(false).getPiece().move();
+            board.move(board.getKingPosition(false), moveSet.get(randomTwo));
+        }
 
          board.print();
          return move;
