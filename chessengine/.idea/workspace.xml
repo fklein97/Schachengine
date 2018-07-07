@@ -21,17 +21,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="160" column="49" lean-forward="false" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
@@ -43,56 +33,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="71" lean-forward="false" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pawn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Board/Pawn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessPiece.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="637">
+              <caret line="545" column="83" lean-forward="false" selection-start-line="545" selection-start-column="83" selection-end-line="545" selection-end-column="83" />
               <folding>
-                <element signature="e#490#491#0" expanded="false" />
-                <element signature="e#518#519#0" expanded="false" />
-                <element signature="e#547#548#0" expanded="false" />
-                <element signature="e#575#576#0" expanded="false" />
+                <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getMoveSet#1;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+                <element signature="method#getQueenMoves#0;class#MoveGenerator#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DangerChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,8 +92,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Board/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java" />
       </list>
     </option>
   </component>
@@ -269,6 +235,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Rating" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chessengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chessengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MoveGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chessengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chessengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Board" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -751,12 +769,12 @@
       <workItem from="1530092764436" duration="801000" />
       <workItem from="1530093992860" duration="49000" />
       <workItem from="1530791235446" duration="1558000" />
-      <workItem from="1530960671618" duration="1983000" />
+      <workItem from="1530960671618" duration="3637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18606000" />
+    <option name="totallyTimeSpent" value="20260000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,8 +836,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/IO.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/UCI.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/OperationManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -847,10 +863,8 @@
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#490#491#0" expanded="false" />
-            <element signature="e#518#519#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#575#576#0" expanded="false" />
+            <element signature="e#431#432#0" expanded="false" />
+            <element signature="e#459#460#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -893,10 +907,8 @@
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#490#491#0" expanded="false" />
-            <element signature="e#518#519#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#575#576#0" expanded="false" />
+            <element signature="e#431#432#0" expanded="false" />
+            <element signature="e#459#460#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1026,25 +1038,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="e#490#491#0" expanded="false" />
-            <element signature="e#518#519#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#575#576#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UCI.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/IO.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/UCI_Commands.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/TimeManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/OperationManager.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Engine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="160" column="49" lean-forward="false" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board/Bishop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1061,28 +1086,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessPiece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="71" lean-forward="false" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="e#431#432#0" expanded="false" />
+            <element signature="e#459#460#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="160" column="49" lean-forward="false" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="545" column="83" lean-forward="false" selection-start-line="545" selection-start-column="83" selection-end-line="545" selection-end-column="83" />
+          <folding>
+            <element signature="method#getMoveSet#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getMoveSet#1;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getPawnMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getRookMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getKnightMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getBishopMoves#0;class#MoveGenerator#0" expanded="false" />
+            <element signature="method#getQueenMoves#0;class#MoveGenerator#0" expanded="false" />
           </folding>
         </state>
       </provider>

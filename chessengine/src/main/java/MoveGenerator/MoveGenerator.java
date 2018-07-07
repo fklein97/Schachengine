@@ -445,6 +445,8 @@ public class MoveGenerator {
         int k_y = currentPos.getY();
         ChessPiece target;
 
+        ArrayList<Position> dangers = DangerChecker.getDangerPositions(chessboard,k.isWhite());
+
         if(k_x + 1 <= 8) {                                                  //King is also sad hardcoding
             target = chessboard.chessPieceAt(k_x + 1, k_y);
             if (target == null) {
@@ -541,6 +543,13 @@ public class MoveGenerator {
             }
         }
 
+        for(Position d: dangers){ //prevents that a king moves in a danger position
+            for(Position p: moveset){
+                if(p.getX() == d.getX() && p.getY() == d.getY()){
+                    moveset.remove(p);
+                }
+            }
+        }
         return moveset;
     }
 }
