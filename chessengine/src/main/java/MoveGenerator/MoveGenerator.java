@@ -12,7 +12,17 @@ public class MoveGenerator {
      * Returns the Moveset of a Chesspiece on a given position
      * @param currentPos current position of the chesspiece
      * @param chessboard current chessboard
-     * @param old_chessboard chessboard one move ago
+     * @return moveset of the chesspiece
+     */
+    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard){
+        return getMoveSet(currentPos,chessboard,chessboard);
+    }
+
+    /**
+     * Returns the Moveset of a Chesspiece on a given position
+     * @param currentPos current position of the chesspiece
+     * @param chessboard current chessboard
+     * @param old_chessboard chessboard one move ago (en passant moves)
      * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
