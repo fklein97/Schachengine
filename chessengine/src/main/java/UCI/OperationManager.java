@@ -79,7 +79,7 @@ public class OperationManager {
             }
             oldPos.setPiece(piece);
             newPos.setPiece(piece);
-            board.promote(oldPos, newPos,piece);
+            board.move(oldPos, newPos,piece);
         }
         board.print();
     }
