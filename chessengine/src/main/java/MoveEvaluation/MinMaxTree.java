@@ -21,7 +21,7 @@ public class MinMaxTree {
      */
     public void generateTree(int maxDepth, Node currentNode){
         ChessBoard chessBoard       = currentNode.getChessBoard();
-        Position[] positions        = (Position[]) currentNode.getChessBoard().getPositions().toArray();
+        Position[] positions        = (Position[]) chessBoard.getPositions().toArray();
         ArrayList<Position> moveset;
         if(maxDepth > 0){
             for(Position position : positions){                                                                                                                                         //test each position
@@ -30,7 +30,7 @@ public class MinMaxTree {
                     for(int i = 0; 0 < moveset.size(); i++){                                                                                                                            //create node for each move
                         ChessBoard board = new ChessBoard(chessBoard.getPositions());
                         board.move(position, moveset.get(i));
-                        Node childNode = new Node(board, true,currentNode, position, moveset.get(i));
+                        Node childNode = new Node(board, false,currentNode, position, moveset.get(i));
                         currentNode.addChild(childNode);
                         generateTree((maxDepth-1), childNode);
                     }
@@ -41,7 +41,7 @@ public class MinMaxTree {
                     for(int i = 0; 0 < moveset.size(); i++){                                                                                                                            //create node for each move
                         ChessBoard board = new ChessBoard(chessBoard.getPositions());
                         board.move(position, moveset.get(i));
-                        Node childNode = new Node(board, false,currentNode, position, moveset.get(i));
+                        Node childNode = new Node(board, true,currentNode, position, moveset.get(i));
                         currentNode.addChild(childNode);
                         generateTree((maxDepth-1), childNode);
                     }
@@ -53,6 +53,23 @@ public class MinMaxTree {
             currentNode.rate();
         }
 
+    }
+
+    /**
+     *
+     * @return best known move for current tree
+     */
+    public Move getBestMove(){
+        int rating = 100000000;
+        ArrayList<Node> children = root.getChildren();
+        Move bestMove = children.get(0).getMove();
+
+        for(Node child : children){
+            if(child.getRating() <= rating){
+                bestMove = child.getMove();
+            }
+        }
+        return bestMove;
     }
 
 

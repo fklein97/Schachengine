@@ -55,7 +55,7 @@ public class Node {
     }
 
     /**
-     * gets boardrating from BoardRater
+     * gets boardrating from BoardRater und updates it to its parent
      */
     public void rate(){
         int rating  = getMaterialRating(chessBoard);
@@ -121,5 +121,13 @@ public class Node {
 
     public boolean getMaximize(){
         return maximize;
+    }
+
+    public ArrayList<Node> getChildren(){
+        return children;
+    }
+
+    public Move getMove(){
+        return (new Move(posFrom, posTo));
     }
 }
