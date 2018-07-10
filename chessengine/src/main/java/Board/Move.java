@@ -10,6 +10,10 @@ public class Move {
         this.positionTo     = positionTo;
     }
 
+    public Move(){
+        this(null, null);
+    }
+
     public Position getPositionFrom() {
         return positionFrom;
     }

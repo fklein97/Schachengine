@@ -27,6 +27,7 @@ public class Node {
         this.posFrom        = posFrom;
         this.posTo          = posTo;
         this.maximize       = maximize;
+        this.children       = new ArrayList<Node>();
         initRating();
     }
 
@@ -42,11 +43,11 @@ public class Node {
 
     /**
      * Initialize the worst possible rating.
-     * If depth is even inizialisze with negative
-     * If depth is odd inizialisze with positive
+     * If Node tries to maximize inizialisze with negative
+     * If Node tries to minimize inizialisze with positive
      */
     private void initRating(){
-        if((depth % 2) == 0){
+        if(maximize){
             this.rating = -1000000;
         }
         else{
@@ -60,7 +61,10 @@ public class Node {
     public void rate(){
         int rating  = getMaterialRating(chessBoard);
         this.rating = rating;
-        parent.updateRating(rating);
+        if(parent != null){
+            parent.updateRating(rating);
+        }
+
     }
 
 
@@ -84,7 +88,7 @@ public class Node {
      * @param rating
      */
     private void updateRating(int rating){
-        if((depth % 2) == 0){
+        if(maximize){
             if(rating > this.rating){
                 setRating(rating);
                 if(this.parent != null){
@@ -92,7 +96,7 @@ public class Node {
                 }
             }
         }
-        if((depth % 2) != 0){
+        if(!maximize){
             if(rating < this.rating){
                 setRating(rating);
                 if(this.parent != null){
