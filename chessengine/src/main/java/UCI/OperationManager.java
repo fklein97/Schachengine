@@ -81,6 +81,7 @@ public class OperationManager {
             newPos.setPiece(piece);
             board.promote(oldPos, newPos,piece);
         }
+        board.print();
     }
 
     /**
@@ -91,22 +92,45 @@ public class OperationManager {
         ArrayList<Position> moveSet;
         Position testPos;
         int randomOne = ran.nextInt(board.getPositions().size());
-        while(board.getPositions().get(randomOne).getPiece().isWhite()){
-            randomOne = ran.nextInt(board.getPositions().size());
-        }
-        moveSet = generator.getMoveSet(board.getPositions().get(randomOne),board);
 
-        //TODO
-        if (moveSet.isEmpty()){
-            return go(input);
+        boolean kingindanger = false;
+        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,false);
+        for(Position p : dangerPositions){
+            if(p.getX() == board.getKingPosition(false).getX() && p.getY() == board.getKingPosition(false).getY()){
+                kingindanger = true;
+                break;
+            }
         }
 
+        if(kingindanger == false) {
+            while (board.getPositions().get(randomOne).getPiece().isWhite()) {
+                randomOne = ran.nextInt(board.getPositions().size());
+            }
+            moveSet = generator.getMoveSet(board.getPositions().get(randomOne), board);
+
+            //TODO
+            if (moveSet.isEmpty()) {
+                return go(input);
+            }
+        }
+        else{
+            moveSet = generator.getMoveSet(board.getKingPosition(false), board);
+        }
         int randomTwo = ran.nextInt(moveSet.size());
 
-         String move = (posToString(board.getPositions().get(randomOne))+posToString(moveSet.get(randomTwo)));
-         board.getPositions().get(randomOne).getPiece().move();
-         board.move(board.getPositions().get(randomOne),moveSet.get(randomTwo));
+        String move;
+        if(kingindanger == false) {
+            move = (posToString(board.getPositions().get(randomOne)) + posToString(moveSet.get(randomTwo)));
+            board.getPositions().get(randomOne).getPiece().move();
+            board.move(board.getPositions().get(randomOne), moveSet.get(randomTwo));
+        }
+        else{
+            move = (posToString(board.getKingPosition(false)) + posToString(moveSet.get(randomTwo)));
+            board.getKingPosition(false).getPiece().move();
+            board.move(board.getKingPosition(false), moveSet.get(randomTwo));
+        }
 
+         board.print();
          return move;
     }
 

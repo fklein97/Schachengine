@@ -197,81 +197,13 @@ public class MoveGeneratorDialog {
      * prints the testboard
      */
     private static void printBoard(){
-        System.out.print("0 1 2 3 4 5 6 7 8\n");
-        printBoardRow(8);
-        printBoardRow(7);
-        printBoardRow(6);
-        printBoardRow(5);
-        printBoardRow(4);
-        printBoardRow(3);
-        printBoardRow(2);
-        printBoardRow(1);
-        System.out.print("\n");
+        chessboard.print();
     }
 
     /**
      * prints a row of the testboard
      * @param row row that should be printed
      */
-    private static void printBoardRow(int row){
-        System.out.print(row + " ");
-        for(int i = 1; i <= 8; i++){
-            ChessPiece nextPiece = chessboard.chessPieceAt(i,row);
-            if(nextPiece != null) {
-                if (nextPiece instanceof Pawn) {
-                    if (nextPiece.isWhite()) {
-                        System.out.print("P ");
-                    } else {
-                        System.out.print("p ");
-                    }
-                }
-                else if(nextPiece instanceof Rook){
-                    if(nextPiece.isWhite()){
-                        System.out.print("R ");
-                    }
-                    else{
-                        System.out.print("r ");
-                    }
-                }
-                else if(nextPiece instanceof Bishop){
-                    if(nextPiece.isWhite()){
-                        System.out.print("B ");
-                    }
-                    else{
-                        System.out.print("b ");
-                    }
-                }
-                else if(nextPiece instanceof Knight){
-                    if(nextPiece.isWhite()){
-                        System.out.print("N ");
-                    }
-                    else{
-                        System.out.print("n ");
-                    }
-                }
-                else if(nextPiece instanceof Queen){
-                    if(nextPiece.isWhite()){
-                        System.out.print("Q ");
-                    }
-                    else{
-                        System.out.print("q ");
-                    }
-                }
-                else if(nextPiece instanceof King){
-                    if(nextPiece.isWhite()){
-                        System.out.print("K ");
-                    }
-                    else{
-                        System.out.print("k ");
-                    }
-                }
-            }
-            else{
-                char square = 9633;
-                System.out.print(square+" ");
-            }
-        }
-        System.out.print("\n");
-    }
+
 
 }
