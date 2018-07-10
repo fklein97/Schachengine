@@ -77,10 +77,10 @@ public class ChessBoard {
         printBoardRow(3);
         printBoardRow(2);
         printBoardRow(1);
-        System.out.print("\n");
     }
 
     private void printBoardRow(int row){
+        //TODO Info Methode erstellen
         System.out.print("INFO: " + row + " ");
         for(int i = 1; i <= 8; i++){
             ChessPiece nextPiece = chessPieceAt(i,row);

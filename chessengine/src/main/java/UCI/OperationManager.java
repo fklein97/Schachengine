@@ -18,6 +18,7 @@ public class OperationManager {
     private final String KNIGHT = "k";
     private final String BISHOP = "b";
 
+    private DataManager history;
     private ChessBoard board;
     private MoveGenerator generator;
 
@@ -25,6 +26,7 @@ public class OperationManager {
 
     public OperationManager(){
 
+        history = new DataManager();
         board = new ChessBoard();
         generator = new MoveGenerator();
     }
@@ -119,6 +121,7 @@ public class OperationManager {
         int randomTwo = ran.nextInt(moveSet.size());
 
         String move;
+
         if(kingindanger == false) {
             move = (posToString(board.getPositions().get(randomOne)) + posToString(moveSet.get(randomTwo)));
             board.getPositions().get(randomOne).getPiece().move();
@@ -129,8 +132,10 @@ public class OperationManager {
             board.getKingPosition(false).getPiece().move();
             board.move(board.getKingPosition(false), moveSet.get(randomTwo));
         }
-
+        //TODO
          board.print();
+
+         history.addBoard(board);
          return move;
     }
 
