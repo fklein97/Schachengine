@@ -104,13 +104,13 @@ public class OperationManager {
         }
 
         if(kingindanger == false) {
-            while (board.getPositions().get(randomOne).getPiece().isWhite() != Parameters.isEngineWhite) {
+            while ((board.getPositions().get(randomOne).getPiece().isWhite() != Parameters.isEngineWhite)) {
                 randomOne = ran.nextInt(board.getPositions().size());
             }
             moveSet = generator.getMoveSet(board.getPositions().get(randomOne), board);
 
             //TODO
-            if (moveSet.isEmpty()) {
+            if (moveSet.size() <= 0) {
                 return go(input);
             }
         }
