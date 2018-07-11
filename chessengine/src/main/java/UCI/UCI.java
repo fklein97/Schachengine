@@ -2,6 +2,10 @@ package UCI;
 
 import Parameters.Parameters;
 
+
+import java.util.concurrent.atomic.AtomicReference;
+import Parameters.Parameters;
+
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
  */
@@ -10,7 +14,7 @@ public class UCI {
     private IO io;
     private OperationManager manager;
     private boolean masterExit;
-
+    private Thread goThread;
     /**
      * Constructor to set up I /O
      */
@@ -164,20 +168,26 @@ public class UCI {
      * Starts the calculation of the best possible move
      */
     public void go(String input){
-        //TODO
         io.answer("INFO: Start go");
-        String response = manager.go(input);
-        io.answer(UCI_Commands.BEST_MOVE + response);
-        io.answer("INFO: Go succesful");
+        goThread = new Thread() {
+            @Override
+            public void run(){
+                String response = manager.go(input);
+                io.answer(UCI_Commands.BEST_MOVE + response);
+                io.answer("INFO: Go succesful");
+            }
+        };
+        goThread.setDaemon(true);
+        goThread.start();
     }
 
     /**
      * Stop the calculation as soon as possible and send the best possible move
      */
     public void stop(){
-
-        //TODO Print best move found
-
+        if (goThread.isAlive()) {
+            goThread.interrupt();
+        };
     }
 
     /**

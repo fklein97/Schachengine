@@ -11,7 +11,11 @@ public class ChessBoard {
 
 
     public ArrayList<Position> getPositions() {
-        return positions;
+        ArrayList<Position> pos = new ArrayList<Position>();
+        for(int i = 0; i < positions.size(); i++){
+            pos.add(new Position(positions.get(i).getX(), positions.get(i).getY(), positions.get(i).getPiece()));
+        }
+        return pos;
     }
 
     public void setPositions(ArrayList<Position> positions) {
@@ -141,7 +145,7 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
-   public void move(Position positionFrom, Position positionTo){
+   /**public void move(Position positionFrom, Position positionTo){
         Position from = null;
         Position to = null;
 
@@ -168,9 +172,9 @@ public class ChessBoard {
        }
 
 
-    }
+    }*/
 
-    /**public void move(Position positionFrom, Position positionTo){
+    public void move(Position positionFrom, Position positionTo){
         int from    = -1;
         int to      = -1;
         Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
@@ -182,14 +186,14 @@ public class ChessBoard {
                 to = i;
             }
         }
-        if(from >= NULL){
+        if(from >= 0){
             positions.set(from, new Position(positionTo.getX(),positionTo.getY(), positionFrom.getPiece()));
         }
-        if(to >= NULL){
+        if(to >= 0){
             positions.remove(to);
         }
 
-    }*/
+    }
 
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         promote(positionFrom, positionTo, chessPiece);
@@ -229,7 +233,7 @@ public class ChessBoard {
 
         positions.add(new Position(8,2, new Pawn(true)));
 
-        positions.add(new Position(1,1, new Rook(true)));
+        /**positions.add(new Position(1,1, new Rook(true)));
 
         positions.add(new Position(2,1, new Knight(true)));
 
@@ -245,7 +249,7 @@ public class ChessBoard {
 
         positions.add(new Position(8,1, new Rook(true)));
 
-        positions.add(new Position(1,7, new Pawn(false)));
+        */positions.add(new Position(1,7, new Pawn(false)));
 
         positions.add(new Position(2,7, new Pawn(false)));
 

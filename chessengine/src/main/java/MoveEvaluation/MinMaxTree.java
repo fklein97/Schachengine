@@ -2,6 +2,8 @@ package MoveEvaluation;
 
 import Board.*;
 import MoveGenerator.MoveGenerator;
+import Rating.BoardRater;
+
 
 import java.util.ArrayList;
 
@@ -21,23 +23,28 @@ public class MinMaxTree {
      */
     public void generateTree(int maxDepth, Node currentNode){
         ChessBoard chessBoard               = currentNode.getChessBoard();
-        chessBoard.print();
         ArrayList<Position> positions       =  chessBoard.getPositions();
         ArrayList<Position> moveset;
         if(maxDepth > 0){
             for(int j = 0; j < positions.size(); j++){                                                                                                                                         //test each position
-                System.out.println("J-Count: " + j +"Position Sizie: " + positions.size() + " Depth: " + maxDepth);
-                currentNode.getChessBoard().print();
+                //System.out.println("J-Count: " + j +"Position Sizie: " + positions.size() + " Depth: " + maxDepth);
+                //currentNode.getChessBoard().print();
                 if( positions.get(j).getPiece().isWhite() && currentNode.getMaximize()){                                                                                            // white oder maximieren
                     moveset = MoveGenerator.getMoveSet(positions.get(j), chessBoard);
                     for(int i = 0; i < moveset.size(); i++){                                                                                                                            //create node for each move
                         ChessBoard board = new ChessBoard(chessBoard.getPositions());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, false,currentNode, positions.get(j), moveset.get(i));
+                        //board.print();
 
-                        generateTree((maxDepth-1), childNode);
                         currentNode.addChild(childNode);
-                        System.out.println("DEBUG INFO: i"+i);
+                        if(BoardRater.getMaterialRating(childNode.getChessBoard()) > currentNode.getRating()){
+                            generateTree((maxDepth-1), childNode);
+
+                        }
+                        else{
+                            childNode.rate();
+                        }
                     }
                 }
 
@@ -47,15 +54,19 @@ public class MinMaxTree {
                         ChessBoard board = new ChessBoard(chessBoard.getPositions());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, true,currentNode, positions.get(j), moveset.get(i));
-
-                        generateTree((maxDepth-1), childNode);
+                        //board.print();
                         currentNode.addChild(childNode);
-                        System.out.println("DEBUG INFO: i"+i);
+
+                        if(BoardRater.getMaterialRating(childNode.getChessBoard()) < currentNode.getRating()){
+                            generateTree((maxDepth-1), childNode);
+
+                        }
+                        else{
+                            childNode.rate();
+                        }
+
                     }
                 }
-                System.out.println("DEBUG INFO: j:"+j);
-                System.out.println("DEBUG INFO: j size: " + positions.size());
-                chessBoard.print();
             }
 
         }
@@ -74,12 +85,13 @@ public class MinMaxTree {
      * @return best known move for current tree
      */
     public Move getBestMove(){
-        int rating = 1000000;
+        int rating = -1000000;
         ArrayList<Node> children = root.getChildren();
-        Move bestMove = children.get(0).getMove();
+        Move bestMove = children.get(0).getMove();                                                                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         for(Node child : children){
-            if(child.getRating() <= rating){
+            if(child.getRating() > rating){
+                rating = child.getRating();
                 bestMove = child.getMove();
             }
         }
@@ -89,6 +101,10 @@ public class MinMaxTree {
 
     public Node getRoot(){
         return root;
+    }
+
+    public void setRoot(Node root){
+        this.root = root;
     }
                                                                                                                                     //(!position.getPiece().isWhite() && ((currentNode.getDepth() % 2 ) != 0) )
 
