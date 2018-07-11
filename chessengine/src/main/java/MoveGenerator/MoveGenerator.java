@@ -14,7 +14,7 @@ public class MoveGenerator {
      * @param chessboard current chessboard
      * @return moveset of the chesspiece
      */
-    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard) throws Exception{
+    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard){
         return getMoveSet(currentPos,chessboard,chessboard);
     }
 
@@ -25,7 +25,7 @@ public class MoveGenerator {
      * @param old_chessboard chessboard one move ago (en passant moves)
      * @return moveset of the chesspiece
      */
-    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard) throws Exception {
+    public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
@@ -48,7 +48,7 @@ public class MoveGenerator {
             moveset = getKingMoves(currentPos, chessboard, old_chessboard);
         }
         else{
-            throw new RuntimeException("Unknown Chesspiece");
+            throw new AssertionError("Unknown Chesspiece");
         }
 
         return moveset;
