@@ -14,7 +14,7 @@ public class MinMaxTreeTest {
     public void generateTree() throws Exception {
         ChessBoard board = new ChessBoard();
         MinMaxTree tree = new MinMaxTree(board);
-        tree.generateTree(4);
+        tree.generateTree(3);
         Move move = tree.getBestMove();
         Move move2 = tree.getRoot().getChildren().get(0).getChildren().get(0).getChildren().get(0).getChildren().get(0).getMove();
 

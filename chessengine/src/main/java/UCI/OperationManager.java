@@ -2,6 +2,7 @@ package UCI;
 
 import Board.*;
 import MoveGenerator.*;
+import Parameters.Parameters;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -87,34 +88,34 @@ public class OperationManager {
     /**
      * Method go starts the
      */
-    public String go(String input){
+    public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
         Random ran = new Random();
         ArrayList<Position> moveSet;
         Position testPos;
         int randomOne = ran.nextInt(board.getPositions().size());
 
         boolean kingindanger = false;
-        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,false);
+        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,Parameters.isEngineWhite);
         for(Position p : dangerPositions){
-            if(p.getX() == board.getKingPosition(false).getX() && p.getY() == board.getKingPosition(false).getY()){
+            if(p.getX() == board.getKingPosition(Parameters.isEngineWhite).getX() && p.getY() == board.getKingPosition(Parameters.isEngineWhite).getY()){
                 kingindanger = true;
                 break;
             }
         }
 
         if(kingindanger == false) {
-            while (board.getPositions().get(randomOne).getPiece().isWhite()) {
+            while ((board.getPositions().get(randomOne).getPiece().isWhite() != Parameters.isEngineWhite)) {
                 randomOne = ran.nextInt(board.getPositions().size());
             }
             moveSet = generator.getMoveSet(board.getPositions().get(randomOne), board);
 
             //TODO
-            if (moveSet.isEmpty()) {
+            if (moveSet.size() <= 0) {
                 return go(input);
             }
         }
         else{
-            moveSet = generator.getMoveSet(board.getKingPosition(false), board);
+            moveSet = generator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite), board);
         }
         int randomTwo = ran.nextInt(moveSet.size());
 
@@ -125,9 +126,9 @@ public class OperationManager {
             board.move(board.getPositions().get(randomOne), moveSet.get(randomTwo));
         }
         else{
-            move = (posToString(board.getKingPosition(false)) + posToString(moveSet.get(randomTwo)));
-            board.getKingPosition(false).getPiece().move();
-            board.move(board.getKingPosition(false), moveSet.get(randomTwo));
+            move = (posToString(board.getKingPosition(Parameters.isEngineWhite)) + posToString(moveSet.get(randomTwo)));
+            board.getKingPosition(Parameters.isEngineWhite).getPiece().move();
+            board.move(board.getKingPosition(Parameters.isEngineWhite), moveSet.get(randomTwo));
         }
 
          board.print();
