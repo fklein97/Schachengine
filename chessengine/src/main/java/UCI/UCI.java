@@ -120,6 +120,7 @@ public class UCI {
     public void ucinewgame(){
         // nothing to do here
         manager = new OperationManager();
+        Parameters.isColorSet = false;
     }
 
     /**
