@@ -196,7 +196,7 @@ public class ChessBoard {
     }
 
 
-    public void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
+    private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         int from    = -1;
         int to      = -1;
         move(positionFrom, positionTo);
