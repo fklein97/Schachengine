@@ -25,6 +25,8 @@ public class MinMaxTree {
         ArrayList<Position> moveset;
         if(maxDepth > 0){
             for(int j = 0; j < positions.size(); j++){                                                                                                                                         //test each position
+                System.out.println("J-Count: " + j +"Position Sizie: " + positions.size() + " Depth: " + maxDepth);
+                currentNode.getChessBoard().print();
                 if( positions.get(j).getPiece().isWhite() && currentNode.getMaximize()){                                                                                            // white oder maximieren
                     moveset = MoveGenerator.getMoveSet(positions.get(j), chessBoard);
                     for(int i = 0; i < moveset.size(); i++){                                                                                                                            //create node for each move
@@ -50,6 +52,7 @@ public class MinMaxTree {
                 }
 
             }
+
         }
         else{
             currentNode.rate();
