@@ -244,7 +244,7 @@ public class ChessBoard {
         positions.add(new Position(7,1, new Knight(true)));
 
         positions.add(new Position(8,1, new Rook(true)));
-
+/**
         positions.add(new Position(1,7, new Pawn(false)));
 
         positions.add(new Position(2,7, new Pawn(false)));
@@ -276,7 +276,7 @@ public class ChessBoard {
         positions.add(new Position(7,8, new Knight(false)));
 
         positions.add(new Position(8,8, new Rook(false)));
-
+*/
     }
 
 

@@ -21,6 +21,7 @@ public class MinMaxTree {
      */
     public void generateTree(int maxDepth, Node currentNode){
         ChessBoard chessBoard               = currentNode.getChessBoard();
+        chessBoard.print();
         ArrayList<Position> positions       =  chessBoard.getPositions();
         ArrayList<Position> moveset;
         if(maxDepth > 0){
@@ -34,6 +35,7 @@ public class MinMaxTree {
 
                         generateTree((maxDepth-1), childNode);
                         currentNode.addChild(childNode);
+                        System.out.println("DEBUG INFO: i"+i);
                     }
                 }
 
@@ -46,9 +48,12 @@ public class MinMaxTree {
 
                         generateTree((maxDepth-1), childNode);
                         currentNode.addChild(childNode);
+                        System.out.println("DEBUG INFO: i"+i);
                     }
                 }
-
+                System.out.println("DEBUG INFO: j:"+j);
+                System.out.println("DEBUG INFO: j size: " + positions.size());
+                chessBoard.print();
             }
         }
         else{
