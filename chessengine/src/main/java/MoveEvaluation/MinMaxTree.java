@@ -85,7 +85,13 @@ public class MinMaxTree {
      * @return best known move for current tree
      */
     public Move getBestMove(){
-        int rating = -1000000;
+        int rating = 0;
+        if(root.getMaximize()){
+            rating = -1000000;
+        }
+        else{
+            rating = 1000000;
+        }
         ArrayList<Node> children = root.getChildren();
         Move bestMove = children.get(0).getMove();                                                                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
