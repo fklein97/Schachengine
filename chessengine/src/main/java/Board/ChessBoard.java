@@ -188,6 +188,7 @@ public class ChessBoard {
         }
         if(from >= 0){
             positions.set(from, new Position(positionTo.getX(),positionTo.getY(), positionFrom.getPiece()));
+            positions.get(from).getPiece().move();
         }
         if(to >= 0){
             positions.remove(to);

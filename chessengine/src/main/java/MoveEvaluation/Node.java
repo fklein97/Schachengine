@@ -20,6 +20,17 @@ public class Node {
     private ArrayList<Node> children;
     private boolean maximize;
 
+    public Node (ChessBoard chessBoard, boolean maximize, Node parent, Position posFrom, Position posTo, int maxRating, int minRating){
+        this.chessBoard     = chessBoard;
+        this.parent         = parent;
+        this.posFrom        = posFrom;
+        this.posTo          = posTo;
+        this.maximize       = maximize;
+        this.children       = new ArrayList<Node>();
+        initRating();
+        this.maxRating      = maxRating;
+        this.minRating      = minRating;
+    }
 
     public Node (ChessBoard chessBoard, boolean maximize, Node parent, Position posFrom, Position posTo){
         this.chessBoard     = chessBoard;
@@ -53,6 +64,8 @@ public class Node {
         else{
             this.rating = 1000000;
         }
+        maxRating = -1000000;
+        minRating =  1000000;
     }
 
     /**
@@ -62,7 +75,7 @@ public class Node {
         int rating  = getMaterialRating(chessBoard);
         this.rating = rating;
         if(parent != null){
-            parent.updateRating(rating);
+            parent.updateRating(rating, this.maxRating, this.minRating);
         }
 
     }
@@ -87,27 +100,29 @@ public class Node {
      * Gets new Rating from children and Updates ist Rating. Gives new Rating to Parents, but only if current rating was chanced
      * @param rating
      */
-    private void updateRating(int rating){
+    private void updateRating(int rating, int maxRating, int minRating){
         if(maximize){
-            if(rating > this.rating){
-                setRating(rating);
+            if(rating >= this.rating){
+                this.rating = rating;
+                this.maxRating = maxRating;
                 if(this.parent != null){
-                    parent.updateRating(rating);
+                    parent.updateRating(rating, maxRating, minRating);
                 }
             }
         }
         if(!maximize){
-            if(rating < this.rating){
-                setRating(rating);
+            if(rating <= this.rating){
+                this.rating = rating;
+                this.minRating = minRating;
                 if(this.parent != null){
-                    parent.updateRating(rating);
+                    parent.updateRating(rating, maxRating, minRating);
                 }
             }
         }
 
     }
 
-    private void setRating(int rating){
+    public void setRating(int rating){
         this.rating = rating;
     }
 
@@ -134,4 +149,17 @@ public class Node {
     public Move getMove(){
         return (new Move(posFrom, posTo));
     }
+
+    public void setParent(Node parent){
+        this.parent = parent;
+    }
+
+    public int getMinRating(){
+        return minRating;
+    }
+    public int getMaxRating(){
+        return maxRating;
+    }
+
+
 }
