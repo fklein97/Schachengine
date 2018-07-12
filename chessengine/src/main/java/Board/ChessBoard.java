@@ -1,5 +1,7 @@
 package Board;
 
+import MoveGenerator.DangerChecker;
+
 import java.util.*;
 
 
@@ -145,7 +147,7 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
-   /**public void move(Position positionFrom, Position positionTo){
+   public void move(Position positionFrom, Position positionTo){ //alternate move method
         Position from = null;
         Position to = null;
 
@@ -168,13 +170,14 @@ public class ChessBoard {
 
        if(from != null){
            positions.remove(from);
+           positionFrom.getPiece().move();
            positions.add(new Position(positionTo.getX(),positionTo.getY(),positionFrom.getPiece()));
        }
 
 
-    }*/
+    }
 
-    public void move(Position positionFrom, Position positionTo){
+    /**public void move(Position positionFrom, Position positionTo){ //moritz move method
         int from    = -1;
         int to      = -1;
         Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
@@ -194,12 +197,24 @@ public class ChessBoard {
             positions.remove(to);
         }
 
-    }
+    } */
 
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         promote(positionFrom, positionTo, chessPiece);
     }
 
+    public boolean isKinginDanger(boolean forWhite){
+        boolean kingindanger = false;
+        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this,forWhite);
+        for(Position p : dangerPositions){
+            if(p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()){
+                kingindanger = true;
+                break;
+            }
+        }
+
+        return kingindanger;
+    }
 
     private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         int from    = -1;

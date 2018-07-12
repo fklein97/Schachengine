@@ -1,6 +1,7 @@
 package UCI;
 
 import Board.*;
+import MoveEvaluation.MinMaxTree;
 import MoveGenerator.*;
 import Parameters.Parameters;
 
@@ -89,8 +90,8 @@ public class OperationManager {
      * Method go starts the
      */
     public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
-        Random ran = new Random();
-        ArrayList<Position> moveSet;
+        /**Random ran = new Random();
+        ArrayList<Position> moveSet;                                                            //RANDOMIZED GO METHOD
         Position testPos;
         int randomOne = ran.nextInt(board.getPositions().size());
 
@@ -133,6 +134,28 @@ public class OperationManager {
 
          board.print();
          return move;
+         */
+
+        boolean kingindanger = board.isKinginDanger(Parameters.isEngineWhite);
+        String movestring = "";
+
+        if(kingindanger == false) {
+            MinMaxTree tree = new MinMaxTree(board);
+            tree.generateTree(5);
+            Move move = tree.getBestMove();
+
+            board.move(move.getPositionFrom(), move.getPositionTo());
+            movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
+        }
+        else{
+            ArrayList<Position> kingmoveset = new ArrayList<>();
+            kingmoveset = MoveGenerator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite),board);
+            Random rng = new Random();
+            int randomkingmove = rng.nextInt(kingmoveset.size());
+            Position newPos = kingmoveset.get(randomkingmove);
+            movestring = (posToString(board.getKingPosition(Parameters.isEngineWhite)))+ posToString(newPos);
+        }
+        return movestring;
     }
 
     /**

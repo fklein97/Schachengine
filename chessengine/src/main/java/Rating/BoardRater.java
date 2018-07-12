@@ -16,6 +16,7 @@ public class BoardRater {
     private static final int QUEEN_VALUE = 975;
     private static final int BOTH_BISHOPS_VALUE = 50;
 
+
     /**
      * Rates a chessboard based on piece values.
      * Uses int so 1 Pawn = 100
