@@ -52,6 +52,10 @@ public class Node {
         this(chessBoard, true, null, null, null);
     }
 
+    public Node(ChessBoard chessBoard, boolean maximize){
+        this(chessBoard, maximize, null, null, null);
+    }
+
     /**
      * Initialize the worst possible rating.
      * If Node tries to maximize inizialisze with negative
