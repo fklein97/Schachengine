@@ -14,7 +14,7 @@ public class MinMaxTreeTest {
     public void generateTree() throws Exception {
 
         ChessBoard board = new ChessBoard();
-        MinMaxTree tree = new MinMaxTree(board);
+        MinMaxTree tree = new MinMaxTree(board, true);
         tree.generateTree(4);                                  //holt letzter legaler move
 
 

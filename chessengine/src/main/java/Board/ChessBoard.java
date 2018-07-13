@@ -147,7 +147,7 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
-   public void move(Position positionFrom, Position positionTo){ //alternate move method
+   public void move(Position positionFrom, Position positionTo){
         Position from = null;
         Position to = null;
 
@@ -197,7 +197,7 @@ public class ChessBoard {
             positions.remove(to);
         }
 
-    } */
+    }*/
 
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         promote(positionFrom, positionTo, chessPiece);

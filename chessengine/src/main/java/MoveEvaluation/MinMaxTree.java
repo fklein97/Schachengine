@@ -13,8 +13,8 @@ public class MinMaxTree {
     private int maxRating;
     private int minRating;
 
-    public MinMaxTree (ChessBoard chessBoard){
-        root        = new Node(chessBoard);
+    public MinMaxTree (ChessBoard chessBoard, boolean maximize){
+        root        = new Node(chessBoard, maximize);
         maxRating   = -1000000;
         minRating   = 1000000;
         //root.setParent(root);
