@@ -68,8 +68,8 @@ public class BoardRater {
         if(black_bishops >= 2){
             rating = rating - BOTH_BISHOPS_VALUE;
         }
-        Random rd = new Random();
-        rating += rd.nextInt(1000);
+        //Random rd = new Random();
+        //rating += rd.nextInt(1000);
         return rating;
     }
 }

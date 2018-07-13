@@ -145,7 +145,7 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
-   /**public void move(Position positionFrom, Position positionTo){
+   public void move(Position positionFrom, Position positionTo){
         Position from = null;
         Position to = null;
 
@@ -172,9 +172,9 @@ public class ChessBoard {
        }
 
 
-    }*/
+    }
 
-    public void move(Position positionFrom, Position positionTo){
+    /**public void move(Position positionFrom, Position positionTo){
         int from    = -1;
         int to      = -1;
         Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
@@ -194,7 +194,7 @@ public class ChessBoard {
             positions.remove(to);
         }
 
-    }
+    }*/
 
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         promote(positionFrom, positionTo, chessPiece);
