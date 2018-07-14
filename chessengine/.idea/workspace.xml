@@ -24,10 +24,10 @@
       <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <marker date="1531412020126" expanded="false" signature="24:61" ph="..." />
+                <marker date="1531555627050" expanded="false" signature="24:61" ph="..." />
               </folding>
             </state>
           </provider>
@@ -36,8 +36,8 @@
       <file leaf-file-name="OperationManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="143" column="31" lean-forward="false" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+            <state relative-caret-position="399">
+              <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +48,11 @@
       <file leaf-file-name="MinMaxTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1672">
+            <state relative-caret-position="68">
               <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
-                <element signature="e#4431#4432#0" expanded="true" />
-                <element signature="e#4475#4476#0" expanded="true" />
+                <element signature="e#4459#4460#0" expanded="true" />
+                <element signature="e#4503#4504#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,11 +61,44 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="255">
+              <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
               <folding>
                 <element signature="e#1656#1657#0" expanded="true" />
                 <element signature="e#1712#1713#0" expanded="true" />
+                <marker date="1531555627045" expanded="true" signature="1719:2012" ph="/**...*/" />
+                <marker date="1531555627045" expanded="true" signature="2042:2236" ph="{...}" />
+                <marker date="1531555627045" expanded="true" signature="2242:2322" ph="/**...*/" />
+                <marker date="1531555627045" expanded="true" signature="2345:2547" ph="{...}" />
+                <marker date="1531555627045" expanded="false" signature="2593:2603" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="2630:2636" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="2680:2690" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="2717:2723" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="2752:2762" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="2782:2788" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="2816:2826" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="2845:2851" ph=" }" />
+                <marker date="1531555627045" expanded="true" signature="2857:3018" ph="/**...*/" />
+                <marker date="1531555627045" expanded="true" signature="3090:3693" ph="{...}" />
+                <marker date="1531555627045" expanded="false" signature="3732:3742" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="3763:3769" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="3808:3819" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="3837:3843" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="3880:3890" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="3914:3920" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="3947:3957" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="3970:3976" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4010:4020" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="4036:4042" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4084:4094" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="4110:4116" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4143:4153" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="4187:4193" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4233:4243" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="4264:4270" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4301:4311" ph=" { " />
+                <marker date="1531555627045" expanded="false" signature="4328:4334" ph=" }" />
+                <marker date="1531555627045" expanded="false" signature="4364:4374" ph=" { " />
               </folding>
             </state>
           </provider>
@@ -74,21 +107,11 @@
       <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-706">
-              <caret line="156" column="12" lean-forward="true" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
+            <state relative-caret-position="2482">
+              <caret line="156" column="12" lean-forward="false" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8152">
-              <caret line="27" column="119" lean-forward="false" selection-start-line="27" selection-start-column="119" selection-end-line="27" selection-end-column="119" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -203,6 +226,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -384,8 +409,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -852,8 +875,8 @@
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.Engine" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MoveGeneratorDialog" />
+      <item index="0" class="java.lang.String" itemvalue="Application.MoveGeneratorDialog" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Engine" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.MinMaxTreeTest.generateTree" />
     </list>
     <recent_temporary>
@@ -897,6 +920,7 @@
       <workItem from="1531239254787" duration="1176000" />
       <workItem from="1531293970708" duration="6338000" />
       <workItem from="1531407081031" duration="4354000" />
+      <workItem from="1531555797475" duration="98000" />
     </task>
     <servers />
   </component>
@@ -933,7 +957,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44012000" />
+    <option name="totallyTimeSpent" value="44110000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -946,37 +970,37 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1247,30 +1271,52 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/MoveEvaluationTests/MinMaxTreeTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="255">
+          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding>
             <element signature="e#1656#1657#0" expanded="true" />
             <element signature="e#1712#1713#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1672">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#4431#4432#0" expanded="true" />
-            <element signature="e#4475#4476#0" expanded="true" />
+            <marker date="1531555627045" expanded="true" signature="1719:2012" ph="/**...*/" />
+            <marker date="1531555627045" expanded="true" signature="2042:2236" ph="{...}" />
+            <marker date="1531555627045" expanded="true" signature="2242:2322" ph="/**...*/" />
+            <marker date="1531555627045" expanded="true" signature="2345:2547" ph="{...}" />
+            <marker date="1531555627045" expanded="false" signature="2593:2603" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="2630:2636" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="2680:2690" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="2717:2723" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="2752:2762" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="2782:2788" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="2816:2826" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="2845:2851" ph=" }" />
+            <marker date="1531555627045" expanded="true" signature="2857:3018" ph="/**...*/" />
+            <marker date="1531555627045" expanded="true" signature="3090:3693" ph="{...}" />
+            <marker date="1531555627045" expanded="false" signature="3732:3742" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="3763:3769" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="3808:3819" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="3837:3843" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="3880:3890" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="3914:3920" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="3947:3957" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="3970:3976" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4010:4020" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="4036:4042" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4084:4094" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="4110:4116" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4143:4153" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="4187:4193" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4233:4243" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="4264:4270" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4301:4311" ph=" { " />
+            <marker date="1531555627045" expanded="false" signature="4328:4334" ph=" }" />
+            <marker date="1531555627045" expanded="false" signature="4364:4374" ph=" { " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706">
-          <caret line="156" column="12" lean-forward="true" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
+        <state relative-caret-position="2482">
+          <caret line="156" column="12" lean-forward="false" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1281,13 +1327,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8152">
+        <state relative-caret-position="442">
           <caret line="27" column="119" lean-forward="false" selection-start-line="27" selection-start-column="119" selection-end-line="27" selection-end-column="119" />
           <folding />
         </state>
@@ -1295,18 +1340,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <marker date="1531412020126" expanded="false" signature="24:61" ph="..." />
+            <marker date="1531555627050" expanded="false" signature="24:61" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="e#4459#4460#0" expanded="true" />
+            <element signature="e#4503#4504#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="143" column="31" lean-forward="false" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+        <state relative-caret-position="399">
+          <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
