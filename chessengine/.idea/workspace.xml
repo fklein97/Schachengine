@@ -21,7 +21,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -48,21 +48,21 @@
       <file leaf-file-name="MinMaxTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="1326">
+              <caret line="83" column="43" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
               <folding>
-                <element signature="e#4459#4460#0" expanded="true" />
-                <element signature="e#4503#4504#0" expanded="true" />
+                <element signature="e#4447#4448#0" expanded="true" />
+                <element signature="e#4491#4492#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="119">
+              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -92,7 +92,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>j</find>
+      <find>getMaterialRating</find>
     </findStrings>
+    <replaceStrings>
+      <replace>getBoardRating</replace>
+    </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -117,11 +121,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Parameters/Parameters.java" />
         <option value="$PROJECT_DIR$/src/main/java/UCI/UCI.java" />
         <option value="$PROJECT_DIR$/src/test/java/MoveEvaluationTests/MinMaxTreeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Board/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/UCI/OperationManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java" />
       </list>
     </option>
   </component>
@@ -884,7 +889,7 @@
       <workItem from="1531239254787" duration="1176000" />
       <workItem from="1531293970708" duration="6338000" />
       <workItem from="1531407081031" duration="4354000" />
-      <workItem from="1531555797475" duration="1307000" />
+      <workItem from="1531555797475" duration="1501000" />
     </task>
     <servers />
   </component>
@@ -921,7 +926,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45319000" />
+    <option name="totallyTimeSpent" value="45513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1259,25 +1264,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#4459#4460#0" expanded="true" />
-            <element signature="e#4503#4504#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="20" column="10" lean-forward="false" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34">
@@ -1295,6 +1281,25 @@
           <folding>
             <marker date="1531557908076" expanded="false" signature="24:61" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="83" column="43" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+          <folding>
+            <element signature="e#4447#4448#0" expanded="true" />
+            <element signature="e#4491#4492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
