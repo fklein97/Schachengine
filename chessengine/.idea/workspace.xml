@@ -24,20 +24,20 @@
       <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="578">
+              <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
               <folding>
-                <marker date="1531557908076" expanded="false" signature="24:61" ph="..." />
+                <marker date="1531559378986" expanded="false" signature="24:61" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OperationManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OperationManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
+            <state relative-caret-position="527">
+              <caret line="162" column="94" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
+            <state relative-caret-position="2278">
               <caret line="214" column="13" lean-forward="true" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -122,11 +122,11 @@
         <option value="$PROJECT_DIR$/src/main/java/UCI/UCI.java" />
         <option value="$PROJECT_DIR$/src/test/java/MoveEvaluationTests/MinMaxTreeTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UCI/OperationManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/Board/ChessBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UCI/OperationManager.java" />
       </list>
     </option>
   </component>
@@ -889,7 +889,7 @@
       <workItem from="1531239254787" duration="1176000" />
       <workItem from="1531293970708" duration="6338000" />
       <workItem from="1531407081031" duration="4354000" />
-      <workItem from="1531555797475" duration="1923000" />
+      <workItem from="1531555797475" duration="3111000" />
     </task>
     <servers />
   </component>
@@ -926,7 +926,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45935000" />
+    <option name="totallyTimeSpent" value="47123000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -938,7 +938,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1254,26 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="148" column="9" lean-forward="true" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding>
-            <marker date="1531557908076" expanded="false" signature="24:61" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
@@ -1295,8 +1275,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
+        <state relative-caret-position="2278">
           <caret line="214" column="13" lean-forward="true" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
+          <folding>
+            <marker date="1531559378986" expanded="false" signature="24:61" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="162" column="94" lean-forward="false" selection-start-line="162" selection-start-column="94" selection-end-line="162" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

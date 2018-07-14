@@ -9,7 +9,7 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
-    private static final int INDANGER_VALUE = -700;
+    private static final int INDANGER_VALUE = -1300;
 
     private static final int PAWN_VALUE = 100;
     private static final int KNIGHT_VALUE = 325;
