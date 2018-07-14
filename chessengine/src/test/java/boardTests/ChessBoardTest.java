@@ -93,7 +93,7 @@ public class ChessBoardTest {
     @Test
     public void promote(){
 
-        chessBoard.promote(new Position(2,2, new Pawn (true)), new Position(2,8, new Pawn(true)), new Queen(true));
+        chessBoard.move(new Position(2,2, new Pawn (true)), new Position(2,8, new Pawn(true)), new Queen(true));
         Assert.assertEquals(chessBoard.getPositions().get(1).equals(new Position(2,8, new Queen(true))), true );
 
     }

@@ -3,6 +3,7 @@ package Rating;
 import Board.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by FKPro on 07.07.2018.
@@ -14,6 +15,7 @@ public class BoardRater {
     private static final int ROOK_VALUE = 500;
     private static final int QUEEN_VALUE = 975;
     private static final int BOTH_BISHOPS_VALUE = 50;
+
 
     /**
      * Rates a chessboard based on piece values.
@@ -67,7 +69,8 @@ public class BoardRater {
         if(black_bishops >= 2){
             rating = rating - BOTH_BISHOPS_VALUE;
         }
-
+        //Random rd = new Random();
+        //rating += rd.nextInt(1000);
         return rating;
     }
 }

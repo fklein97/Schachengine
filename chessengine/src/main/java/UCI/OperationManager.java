@@ -1,7 +1,9 @@
 package UCI;
 
 import Board.*;
+import MoveEvaluation.MinMaxTree;
 import MoveGenerator.*;
+import Parameters.Parameters;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -81,7 +83,7 @@ public class OperationManager {
             }
             oldPos.setPiece(piece);
             newPos.setPiece(piece);
-            board.promote(oldPos, newPos,piece);
+            board.move(oldPos, newPos,piece);
         }
         board.print();
     }
@@ -89,34 +91,34 @@ public class OperationManager {
     /**
      * Method go starts the
      */
-    public String go(String input){
-        Random ran = new Random();
-        ArrayList<Position> moveSet;
+    public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
+        /**Random ran = new Random();
+        ArrayList<Position> moveSet;                                                            //RANDOMIZED GO METHOD
         Position testPos;
         int randomOne = ran.nextInt(board.getPositions().size());
 
         boolean kingindanger = false;
-        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,false);
+        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,Parameters.isEngineWhite);
         for(Position p : dangerPositions){
-            if(p.getX() == board.getKingPosition(false).getX() && p.getY() == board.getKingPosition(false).getY()){
+            if(p.getX() == board.getKingPosition(Parameters.isEngineWhite).getX() && p.getY() == board.getKingPosition(Parameters.isEngineWhite).getY()){
                 kingindanger = true;
                 break;
             }
         }
 
         if(kingindanger == false) {
-            while (board.getPositions().get(randomOne).getPiece().isWhite()) {
+            while ((board.getPositions().get(randomOne).getPiece().isWhite() != Parameters.isEngineWhite)) {
                 randomOne = ran.nextInt(board.getPositions().size());
             }
             moveSet = generator.getMoveSet(board.getPositions().get(randomOne), board);
 
             //TODO
-            if (moveSet.isEmpty()) {
+            if (moveSet.size() <= 0) {
                 return go(input);
             }
         }
         else{
-            moveSet = generator.getMoveSet(board.getKingPosition(false), board);
+            moveSet = generator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite), board);
         }
         int randomTwo = ran.nextInt(moveSet.size());
 
@@ -128,15 +130,37 @@ public class OperationManager {
             board.move(board.getPositions().get(randomOne), moveSet.get(randomTwo));
         }
         else{
-            move = (posToString(board.getKingPosition(false)) + posToString(moveSet.get(randomTwo)));
-            board.getKingPosition(false).getPiece().move();
-            board.move(board.getKingPosition(false), moveSet.get(randomTwo));
+            move = (posToString(board.getKingPosition(Parameters.isEngineWhite)) + posToString(moveSet.get(randomTwo)));
+            board.getKingPosition(Parameters.isEngineWhite).getPiece().move();
+            board.move(board.getKingPosition(Parameters.isEngineWhite), moveSet.get(randomTwo));
         }
         //TODO
          board.print();
 
          history.addBoard(board);
          return move;
+         */
+
+        boolean kingindanger = board.isKinginDanger(Parameters.isEngineWhite);
+        String movestring = "";
+
+        if(kingindanger == false) {
+            MinMaxTree tree = new MinMaxTree(board);
+            tree.generateTree(5);
+            Move move = tree.getBestMove();
+
+            board.move(move.getPositionFrom(), move.getPositionTo());
+            movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
+        }
+        else{
+            ArrayList<Position> kingmoveset = new ArrayList<>();
+            kingmoveset = MoveGenerator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite),board);
+            Random rng = new Random();
+            int randomkingmove = rng.nextInt(kingmoveset.size());
+            Position newPos = kingmoveset.get(randomkingmove);
+            movestring = (posToString(board.getKingPosition(Parameters.isEngineWhite)))+ posToString(newPos);
+        }
+        return movestring;
     }
 
     /**

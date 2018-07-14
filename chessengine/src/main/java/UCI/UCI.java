@@ -1,6 +1,14 @@
 package UCI;
 
+<<<<<<< HEAD
 import java.util.concurrent.atomic.AtomicReference;
+=======
+import Parameters.Parameters;
+
+
+import java.util.concurrent.atomic.AtomicReference;
+import Parameters.Parameters;
+>>>>>>> master
 
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
@@ -11,7 +19,10 @@ public class UCI {
     private OperationManager manager;
     private boolean masterExit;
     private Thread goThread;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     /**
      * Constructor to set up I /O
      */
@@ -121,6 +132,7 @@ public class UCI {
     public void ucinewgame(){
         // nothing to do here
         manager = new OperationManager();
+        Parameters.isColorSet = false;
     }
 
     /**
@@ -143,7 +155,18 @@ public class UCI {
         if (input.contains(UCI_Commands.MOVES)){
             input = input.substring(input.length()-5).trim();
             manager.playerMove(input);
-
+            if(Parameters.isColorSet == false) {
+                Parameters.isEngineWhite = false;
+                System.out.print("DEBUG INFO: IM BLACK!");
+                Parameters.isColorSet = true;
+            }
+        }
+        else{
+            if(Parameters.isColorSet == false) {
+                Parameters.isEngineWhite = true;
+                System.out.print("DEBUG INFO: IM WHITE!");
+                Parameters.isColorSet = true;
+            }
         }
         //TODO
         io.answer("INFO: Move succesful");

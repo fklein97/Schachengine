@@ -1,5 +1,7 @@
 package Board;
 
+import MoveGenerator.DangerChecker;
+
 import java.util.*;
 
 
@@ -11,7 +13,11 @@ public class ChessBoard {
 
 
     public ArrayList<Position> getPositions() {
-        return positions;
+        ArrayList<Position> pos = new ArrayList<Position>();
+        for(int i = 0; i < positions.size(); i++){
+            pos.add(new Position(positions.get(i).getX(), positions.get(i).getY(), positions.get(i).getPiece()));
+        }
+        return pos;
     }
 
     public void setPositions(ArrayList<Position> positions) {
@@ -164,13 +170,14 @@ public class ChessBoard {
 
        if(from != null){
            positions.remove(from);
+           positionFrom.getPiece().move();
            positions.add(new Position(positionTo.getX(),positionTo.getY(),positionFrom.getPiece()));
        }
 
 
     }
 
-    /**public void move(Position positionFrom, Position positionTo){
+    /**public void move(Position positionFrom, Position positionTo){ //moritz move method
         int from    = -1;
         int to      = -1;
         Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
@@ -182,10 +189,11 @@ public class ChessBoard {
                 to = i;
             }
         }
-        if(from >= NULL){
+        if(from >= 0){
             positions.set(from, new Position(positionTo.getX(),positionTo.getY(), positionFrom.getPiece()));
+            positions.get(from).getPiece().move();
         }
-        if(to >= NULL){
+        if(to >= 0){
             positions.remove(to);
         }
 
@@ -195,8 +203,20 @@ public class ChessBoard {
         promote(positionFrom, positionTo, chessPiece);
     }
 
+    public boolean isKinginDanger(boolean forWhite){
+        boolean kingindanger = false;
+        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this,forWhite);
+        for(Position p : dangerPositions){
+            if(p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()){
+                kingindanger = true;
+                break;
+            }
+        }
 
-    public void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
+        return kingindanger;
+    }
+
+    private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){
         int from    = -1;
         int to      = -1;
         move(positionFrom, positionTo);

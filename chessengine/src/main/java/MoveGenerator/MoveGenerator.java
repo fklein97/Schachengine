@@ -48,7 +48,7 @@ public class MoveGenerator {
             moveset = getKingMoves(currentPos, chessboard, old_chessboard);
         }
         else{
-            new AssertionError("Unknown Chesspiece");
+            throw new AssertionError("Unknown Chesspiece");
         }
 
         return moveset;
