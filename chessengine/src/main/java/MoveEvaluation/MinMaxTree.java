@@ -14,7 +14,7 @@ public class MinMaxTree {
     private int minRating;
 
     public MinMaxTree (ChessBoard chessBoard, boolean maximize){
-        root        = new Node(chessBoard, maximize);
+        root        = new Node(chessBoard, maximize, 1000000, -1000000);
         maxRating   = -1000000;
         minRating   = 1000000;
         //root.setParent(root);

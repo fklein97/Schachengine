@@ -52,7 +52,7 @@ public class Node {
         this(chessBoard, true, null, null, null);
     }
 
-    public Node(ChessBoard chessBoard, boolean maximize){
+    public Node(ChessBoard chessBoard, boolean maximize, int max, int min ){
         this(chessBoard, maximize, null, null, null);
     }
 
