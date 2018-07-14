@@ -33,7 +33,7 @@ public class MinMaxTree {
         int rating = 0;
         if(maxDepth > 0){
             for(int j = 0; j < positions.size(); j++){                                                                                                                                         //test each position
-                //System.out.println("J-Count: " + j +"Position Sizie: " + positions.size() + " Depth: " + maxDepth +" Rating: " + BoardRater.getMaterialRating(currentNode.getChessBoard()));
+                //System.out.println("J-Count: " + j +"Position Sizie: " + positions.size() + " Depth: " + maxDepth +" Rating: " + BoardRater.getBoardRating(currentNode.getChessBoard()));
                 //currentNode.getChessBoard().print();
                 if( positions.get(j).getPiece().isWhite() && currentNode.getMaximize()){                                                                                            // white oder maximieren
                     moveset = MoveGenerator.getMoveSet(positions.get(j), chessBoard);
@@ -76,12 +76,12 @@ public class MinMaxTree {
 
         }
         else{
-            //System.out.println("LeafRating" + BoardRater.getMaterialRating(currentNode.getChessBoard()));
-            return BoardRater.getMaterialRating(currentNode.getChessBoard());
+            //System.out.println("LeafRating" + BoardRater.getBoardRating(currentNode.getChessBoard()));
+            return BoardRater.getBoardRating(currentNode.getChessBoard());
 
         }
 
-        return BoardRater.getMaterialRating(currentNode.getChessBoard());
+        return BoardRater.getBoardRating(currentNode.getChessBoard());
 
     }
 

@@ -9,6 +9,8 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
+    private static final int INDANGER_VALUE = -1300;
+
     private static final int PAWN_VALUE = 100;
     private static final int KNIGHT_VALUE = 325;
     private static final int BISHOP_VALUE = 325;
@@ -16,7 +18,27 @@ public class BoardRater {
     private static final int QUEEN_VALUE = 975;
     private static final int BOTH_BISHOPS_VALUE = 50;
 
+    public static int getBoardRating(ChessBoard chessboard){
+        int rating = 0;
 
+        rating = rating + getMaterialRating(chessboard);
+        rating = rating + getDangerRating(chessboard);
+
+        return rating;
+    }
+
+    public static int getDangerRating(ChessBoard chessboard){
+        int rating = 0;
+
+        if(chessboard.isKinginDanger(true)){
+            rating = rating + INDANGER_VALUE;
+        }
+        if(chessboard.isKinginDanger(false)){
+            rating = rating - INDANGER_VALUE;
+        }
+
+        return rating;
+    }
     /**
      * Rates a chessboard based on piece values.
      * Uses int so 1 Pawn = 100

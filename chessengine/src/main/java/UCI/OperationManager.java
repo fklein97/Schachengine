@@ -4,6 +4,7 @@ import Board.*;
 import MoveEvaluation.MinMaxTree;
 import MoveGenerator.*;
 import Parameters.Parameters;
+import Rating.BoardRater;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -86,6 +87,7 @@ public class OperationManager {
             board.move(oldPos, newPos,piece);
         }
         board.print();
+        System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
     }
 
     /**
@@ -145,12 +147,12 @@ public class OperationManager {
         String movestring = "";
 
         if(kingindanger == false) {
-            MinMaxTree tree = new MinMaxTree(board);
+            MinMaxTree tree = new MinMaxTree(board, Parameters.isEngineWhite);
             tree.generateTree(5);
             Move move = tree.getBestMove();
 
-            board.move(move.getPositionFrom(), move.getPositionTo());
             movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
+            board.move(move.getPositionFrom(), move.getPositionTo());
         }
         else{
             ArrayList<Position> kingmoveset = new ArrayList<>();
@@ -158,8 +160,12 @@ public class OperationManager {
             Random rng = new Random();
             int randomkingmove = rng.nextInt(kingmoveset.size());
             Position newPos = kingmoveset.get(randomkingmove);
+
             movestring = (posToString(board.getKingPosition(Parameters.isEngineWhite)))+ posToString(newPos);
+            board.move(board.getKingPosition(Parameters.isEngineWhite),newPos);
         }
+        board.print();
+        System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
         return movestring;
     }
 
