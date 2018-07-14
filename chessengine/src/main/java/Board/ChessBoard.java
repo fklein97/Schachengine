@@ -204,16 +204,21 @@ public class ChessBoard {
     }
 
     public boolean isKinginDanger(boolean forWhite){
-        boolean kingindanger = false;
-        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this,forWhite);
-        for(Position p : dangerPositions){
-            if(p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()){
-                kingindanger = true;
-                break;
+        if(this.getKingPosition(forWhite) != null) {
+            boolean kingindanger = false;
+            ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this, forWhite);
+            for (Position p : dangerPositions) {
+                if (p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()) {
+                    kingindanger = true;
+                    break;
+                }
             }
-        }
 
-        return kingindanger;
+            return kingindanger;
+        }
+        else{
+            return true;
+        }
     }
 
     private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece){

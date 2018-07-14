@@ -76,7 +76,7 @@ public class Node {
      * gets boardrating from BoardRater und updates it to its parent
      */
     public void rate(){
-        int rating  = getMaterialRating(chessBoard);
+        int rating  = getBoardRating(chessBoard);
         this.rating = rating;
         if(parent != null){
             parent.updateRating(rating, this.maxRating, this.minRating);
