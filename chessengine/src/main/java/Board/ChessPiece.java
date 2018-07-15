@@ -28,6 +28,8 @@ public class ChessPiece {
         return moved;
     }
 
+    public void setMoved(boolean moved) { this.moved = moved;}
+
     public String toString(){
         if(isWhite()){
             return "white chesspiece";

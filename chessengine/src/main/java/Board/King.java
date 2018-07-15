@@ -2,6 +2,13 @@ package Board;
 
 public class King extends ChessPiece{
 
+    public King(boolean white, boolean moved){
+
+        super (white, Constant.ROOK_VALUE);
+        this.setMoved(moved);
+    }
+
+
     public King(boolean white){
         super(white, Constant.KING_VALUE);
 

@@ -1,14 +1,6 @@
 package UCI;
 
-<<<<<<< HEAD
-import java.util.concurrent.atomic.AtomicReference;
-=======
 import Parameters.Parameters;
-
-
-import java.util.concurrent.atomic.AtomicReference;
-import Parameters.Parameters;
->>>>>>> master
 
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
@@ -19,10 +11,7 @@ public class UCI {
     private OperationManager manager;
     private boolean masterExit;
     private Thread goThread;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
     /**
      * Constructor to set up I /O
      */
