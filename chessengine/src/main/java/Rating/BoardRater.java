@@ -9,7 +9,7 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
-    private static final int INDANGER_VALUE = -1300;
+    private static final int INDANGER_VALUE = -50;
 
     private static final int PAWN_VALUE = 100;
     private static final int KNIGHT_VALUE = 325;
@@ -91,8 +91,8 @@ public class BoardRater {
         if(black_bishops >= 2){
             rating = rating - BOTH_BISHOPS_VALUE;
         }
-        //Random rd = new Random();
-        //rating += rd.nextInt(1000);
+        Random rd = new Random();
+        //rating += rd.nextInt(10);
         return rating;
     }
 }

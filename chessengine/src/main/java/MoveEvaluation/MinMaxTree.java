@@ -28,7 +28,7 @@ public class MinMaxTree {
      */
     public int  generateTree(int maxDepth, Node currentNode){
         ChessBoard chessBoard               = currentNode.getChessBoard();
-        ArrayList<Position> positions       =  chessBoard.getPositions();
+        ArrayList<Position> positions       =  chessBoard.getPositionsCopy();
         ArrayList<Position> moveset;
         int rating = 0;
         if(maxDepth > 0){
@@ -38,13 +38,14 @@ public class MinMaxTree {
                 if( positions.get(j).getPiece().isWhite() && currentNode.getMaximize()){                                                                                            // white oder maximieren
                     moveset = MoveGenerator.getMoveSet(positions.get(j), chessBoard);
                     for(int i = 0; i < moveset.size(); i++){                                                                                                                            //create node for each move
-                        ChessBoard board = new ChessBoard(chessBoard.getPositions());
+                        ChessBoard board = new ChessBoard(chessBoard.getPositionsCopy());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, false,currentNode, positions.get(j), moveset.get(i), currentNode.getMaxRating(), currentNode.getMinRating());
-                        //board.print();
+                        board.print();
 
                         currentNode.addChild(childNode);
                         rating = generateTree((maxDepth-1), childNode);
+                        System.out.println("Rating: "+rating);
                         update(currentNode, rating);
                         if(currentNode.getRating() >= currentNode.getMinRating()){
                             //System.out.println("Pruning in depth: " + maxDepth + " on a MaxNote, Nr: ");
@@ -57,13 +58,14 @@ public class MinMaxTree {
                 if( !positions.get(j).getPiece().isWhite() && !currentNode.getMaximize()){                                                                                            // black oder nicht maximieren
                     moveset = MoveGenerator.getMoveSet(positions.get(j), chessBoard);
                     for(int i = 0; i < moveset.size(); i++){                                                                                                                            //create node for each move
-                        ChessBoard board = new ChessBoard(chessBoard.getPositions());
+                        ChessBoard board = new ChessBoard(chessBoard.getPositionsCopy());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, true,currentNode, positions.get(j), moveset.get(i), currentNode.getMaxRating(), currentNode.getMinRating());
-                        //board.print();
-                        currentNode.addChild(childNode);
+                        board.print();
 
+                        currentNode.addChild(childNode);
                         rating = generateTree((maxDepth-1), childNode);
+                        System.out.println("Rating: "+rating);
                         update(currentNode, rating);
                         if(currentNode.getRating() <= currentNode.getMaxRating()){
                             //System.out.println("Pruning in depth: " + maxDepth + " on a MinNote, Nr: ");

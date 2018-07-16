@@ -4,7 +4,7 @@ public class King extends ChessPiece{
 
     public King(boolean white, boolean moved){
 
-        super (white, Constant.ROOK_VALUE);
+        super (white, Constant.KING_VALUE);
         this.setMoved(moved);
     }
 

@@ -43,13 +43,36 @@ public class Position {
     public ChessPiece getPiece() {
         return piece;
     }
+    public ChessPiece getPieceCopy() {
+        if(this.piece instanceof King){
+            return new King(piece.isWhite(), piece.moved());
+        }
+        else if(this.piece instanceof Queen){
+            return new Queen(piece.isWhite());
+        }
+        else if(this.piece instanceof Rook){
+            return new Rook(piece.isWhite(), piece.moved());
+        }
+        else if(this.piece instanceof Bishop){
+            return new Bishop(piece.isWhite());
+        }
+        else if(this.piece instanceof Knight){
+            return new Knight(piece.isWhite());
+        }
+        else if(this.piece instanceof Pawn){
+            return new Pawn(piece.isWhite(),piece.moved());
+        }
+        else{
+            return new Pawn(piece.isWhite(),piece.moved());
+        }
+    }
 
     public void setPiece(ChessPiece piece) {
         this.piece = piece;
     }
 
     public boolean equals(Position position){
-        if(this.x == position.getX() && this.y == position.getY() && this.piece.getClass() == position.getPiece().getClass()){
+        if(this.x == position.getX() && this.y == position.getY() && this.piece.equals(position.getPiece())){
             return true;
         }
         return false;

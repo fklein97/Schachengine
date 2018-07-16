@@ -12,10 +12,14 @@ public class ChessBoard {
     private ArrayList<Position> positions;
 
 
-    public ArrayList<Position> getPositions() {
+    public ArrayList<Position> getPositions(){
+        return positions;
+    }
+
+    public ArrayList<Position> getPositionsCopy() {
         ArrayList<Position> pos = new ArrayList<Position>();
         for (int i = 0; i < positions.size(); i++) {
-            pos.add(new Position(positions.get(i).getX(), positions.get(i).getY(), positions.get(i).getPiece()));
+            pos.add(new Position(positions.get(i).getX(), positions.get(i).getY(), positions.get(i).getPieceCopy()));
         }
         return pos;
     }
@@ -138,38 +142,46 @@ public class ChessBoard {
     }
 
     public void move(Position positionFrom, Position positionTo) {
-        Boolean finish = true;
+        Boolean didSpecialMove = false;
         Position from = null;
         Position to = null;
 
-        for (Position p : positions) {
-            if (p.getX() == positionTo.getX() && p.getY() == positionTo.getY()) {
-                to = p;
+        didSpecialMove = castling(positionFrom,positionTo);
+     //   System.out.println("INFO DEBUG: " + didSpecialMove.toString());
+
+        if(didSpecialMove == false) {
+            for (Position p : positions) {
+                if (p.getX() == positionTo.getX() && p.getY() == positionTo.getY()) {
+                    to = p;
+                }
             }
-        }
 
 
-        if (to != null) {
-            positions.remove(to);
+            if (to != null) {
+                positions.remove(to);
+            }
+
+            for (Position p : positions) {
+                if (p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()) {
+                    from = p;
+                }
+            }
+
+            if (from != null) {
+                    positions.remove(from);
+                    positionFrom.getPiece().move();
+                    positions.add(new Position(positionTo.getX(), positionTo.getY(), positionFrom.getPiece()));
+
+            }
+        }
+    }
+
+    public boolean checkforSpecialMoves(Position positionFrom, Position positionTo){
+        if(positionFrom.getPiece() instanceof King && positionFrom.getPiece().moved() == false){ //ROCHADE
+
         }
 
-        for (Position p : positions) {
-            if (p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()) {
-                from = p;
-            }
-        }
-
-        if (from != null) {
-            if((positionFrom.getPiece().equals(Constant.WHITE_CASTLING_LONG_FROM.getPiece())) ||
-                    positionFrom.getPiece().equals(Constant.BLACK_CASTLING_LONG_FROM.getPiece())){
-                finish = castling(positionFrom,positionTo);
-            }
-            if (finish) {
-                positions.remove(from);
-                positionFrom.getPiece().move();
-                positions.add(new Position(positionTo.getX(), positionTo.getY(), positionFrom.getPiece()));
-            }
-        }
+        return false;
     }
 
     /**
@@ -181,35 +193,39 @@ public class ChessBoard {
     public boolean castling(Position positionFrom, Position positionTo) {
         boolean back = false;
         if (positionFrom.getPiece().isWhite()) {
-            if (positionFrom == Constant.WHITE_CASTLING_LONG_FROM &&
-                    (positionTo == Constant.WHITE_CASTLING_LONG_TO)) {
-                positions.remove(Constant.WHITE_CASTLING_LONG_FROM);
-                positions.remove(Constant.WHITE_CASTLING_LONG_ROOK_FROM);
-                positions.add(Constant.WHITE_CASTLING_LONG_TO);
-                positions.add(Constant.WHITE_CASTLING_LONG_ROOK_TO);
+            if (positionFrom.equals(Constant.WHITE_CASTLING_LONG_FROM) &&
+                    (positionTo.equals(Constant.WHITE_CASTLING_LONG_TO))) {
+                positionFrom.getPiece().move();
+                move(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
+                move(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals");
                 back = true;
-            } else if (positionFrom == Constant.WHITE_CASTLING_SHORT_FROM &&
-                    (positionTo == Constant.WHITE_CASTLING_SHORT_TO)) {
-                positions.remove(Constant.WHITE_CASTLING_SHORT_FROM);
-                positions.remove(Constant.WHITE_CASTLING_SHORT_ROOK_FROM);
-                positions.add(Constant.WHITE_CASTLING_SHORT_TO);
-                positions.add(Constant.WHITE_CASTLING_SHORT_ROOK_TO);
+            } else if (positionFrom.equals(Constant.WHITE_CASTLING_SHORT_FROM) &&
+                    (positionTo.equals(Constant.WHITE_CASTLING_SHORT_TO))) {
+                System.out.println("INFO: Rochade + found equals");
+                positionFrom.getPiece().move();
+                move(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
+                move(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals");
                 back = true;
             }
-        } else if (positionFrom == Constant.BLACK_CASTLING_LONG_FROM &&
-                (positionTo == Constant.BLACK_CASTLING_LONG_TO)) {
-            positions.remove(Constant.BLACK_CASTLING_LONG_FROM);
-            positions.remove(Constant.BLACK_CASTLING_LONG_ROOK_FROM);
-            positions.add(Constant.BLACK_CASTLING_LONG_TO);
-            positions.add(Constant.BLACK_CASTLING_LONG_ROOK_TO);
-            back = true;
-        } else if (positionFrom == Constant.BLACK_CASTLING_SHORT_FROM &&
-                (positionTo == Constant.BLACK_CASTLING_SHORT_TO)) {
-            positions.remove(Constant.BLACK_CASTLING_SHORT_FROM);
-            positions.remove(Constant.BLACK_CASTLING_SHORT_ROOK_FROM);
-            positions.add(Constant.BLACK_CASTLING_SHORT_TO);
-            positions.add(Constant.BLACK_CASTLING_SHORT_ROOK_TO);
-            back = true;
+        }
+        else {
+            if (positionFrom.equals(Constant.BLACK_CASTLING_LONG_FROM) &&
+                    (positionTo.equals(Constant.BLACK_CASTLING_LONG_TO))) {
+                positionFrom.getPiece().move();
+                move(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
+                move(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals");
+                back = true;
+            } else if (positionFrom.equals(Constant.BLACK_CASTLING_SHORT_FROM) &&
+                    (positionTo.equals(Constant.BLACK_CASTLING_SHORT_TO))) {
+                positionFrom.getPiece().move();
+                move(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
+                move(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals");
+                back = true;
+            }
         }
         return back;
     }

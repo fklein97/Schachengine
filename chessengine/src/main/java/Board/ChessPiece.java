@@ -11,6 +11,12 @@ public class ChessPiece {
         this.moved  = false;
     }
 
+    public ChessPiece(boolean white, boolean moved, int value){
+        this.white = white;
+        this.moved = moved;
+        this.value = value;
+    }
+
     public ChessPiece(boolean white){
         this.value = Constant.KING_VALUE;
         this.white = white;
@@ -24,11 +30,17 @@ public class ChessPiece {
         return white;
     }
 
+    public int getValue(){ return value; }
+
     public boolean moved(){
         return moved;
     }
 
     public void setMoved(boolean moved) { this.moved = moved;}
+
+    public boolean equals(ChessPiece cp){
+        return (cp.moved() == this.moved() && cp.isWhite() == this.isWhite() && cp.getValue() == this.getValue());
+    }
 
     public String toString(){
         if(isWhite()){
