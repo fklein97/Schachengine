@@ -47,10 +47,10 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        if(currentNode.getRating() >= currentNode.getMinRating()){
+                       /** if(currentNode.getRating() >= currentNode.getMinRating()){
                             //System.out.println("Pruning in depth: " + maxDepth + " on a MaxNote, Nr: ");
                             return currentNode.getMinRating();
-                        }
+                        }*/
 
                     }
                 }
@@ -67,10 +67,10 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        if(currentNode.getRating() <= currentNode.getMaxRating()){
+                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
                             //System.out.println("Pruning in depth: " + maxDepth + " on a MinNote, Nr: ");
                             return currentNode.getMaxRating();
-                        }
+                        }*/
 
                     }
                 }

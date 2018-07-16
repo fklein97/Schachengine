@@ -290,7 +290,7 @@ public class OperationManager {
 
         if(kingindanger == false) {
             MinMaxTree tree = new MinMaxTree(board, Parameters.isEngineWhite);
-            tree.generateTree(2);
+            tree.generateTree(4);
             Move move = tree.getBestMove();
 
             movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
