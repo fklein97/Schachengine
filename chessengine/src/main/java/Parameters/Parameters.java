@@ -6,4 +6,6 @@ package Parameters;
 public class Parameters {
     public static boolean isEngineWhite = false;
     public static boolean isColorSet = false;
+
+    public static int MoveNumber = 0;
 }
