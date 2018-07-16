@@ -28,6 +28,7 @@ public class UCI {
         String input;
         try {
             while (masterExit) {
+                Thread.sleep(1000);
                 input = io.receive();
                 if (!(input.isEmpty())) {
                     commandDetection(input, io.commandCutter(input));

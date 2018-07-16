@@ -14,7 +14,7 @@ public class MinMaxTree {
     private int minRating;
 
     public MinMaxTree (ChessBoard chessBoard, boolean maximize){
-        root        = new Node(chessBoard, maximize, 1000000, -1000000);
+        root        = new Node(chessBoard, maximize, -1000000, 1000000);
         maxRating   = -1000000;
         minRating   = 1000000;
         //root.setParent(root);
@@ -47,10 +47,10 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                       /** if(currentNode.getRating() >= currentNode.getMinRating()){
-                            //System.out.println("Pruning in depth: " + maxDepth + " on a MaxNote, Nr: ");
+                        if(currentNode.getRating() >= currentNode.getMinRating()){
+                            System.out.println("Pruning in depth: " + maxDepth + " on a MaxNote, Nr: ");
                             return currentNode.getMinRating();
-                        }*/
+                        }
 
                     }
                 }
@@ -67,10 +67,10 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
-                            //System.out.println("Pruning in depth: " + maxDepth + " on a MinNote, Nr: ");
+                        if(currentNode.getRating() <= currentNode.getMaxRating()){
+                            System.out.println("Pruning in depth: " + maxDepth + " on a MinNote, Nr: ");
                             return currentNode.getMaxRating();
-                        }*/
+                        }
 
                     }
                 }
@@ -83,7 +83,8 @@ public class MinMaxTree {
 
         }
 
-        return BoardRater.getBoardRating(currentNode.getChessBoard());
+        //return BoardRater.getBoardRating(currentNode.getChessBoard());
+        return currentNode.getRating();
 
     }
 
