@@ -290,7 +290,7 @@ public class OperationManager {
 
         if(kingindanger == false) {
             MinMaxTree tree = new MinMaxTree(board, Parameters.isEngineWhite);
-            tree.generateTree(4);
+            tree.generateTree(Parameters.Depth);
             Move move = tree.getBestMove();
 
             movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
@@ -308,6 +308,7 @@ public class OperationManager {
         }
         board.print();
         System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
+        System.gc();
         return movestring;
     }
 

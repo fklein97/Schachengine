@@ -10,13 +10,9 @@ import java.util.ArrayList;
 public class MinMaxTree {
 
     private Node root;
-    private int maxRating;
-    private int minRating;
 
     public MinMaxTree (ChessBoard chessBoard, boolean maximize){
         root        = new Node(chessBoard, maximize, -1000000, 1000000);
-        maxRating   = -1000000;
-        minRating   = 1000000;
         //root.setParent(root);
     }
 
@@ -41,16 +37,15 @@ public class MinMaxTree {
                         ChessBoard board = new ChessBoard(chessBoard.getPositionsCopy());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, false,currentNode, positions.get(j), moveset.get(i), currentNode.getMaxRating(), currentNode.getMinRating());
-                        board.print();
+                        //board.print();
 
                         currentNode.addChild(childNode);
                         rating = generateTree((maxDepth-1), childNode);
-                        System.out.println("Rating: "+rating);
+                        //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        if(currentNode.getRating() >= currentNode.getMinRating()){
-                            System.out.println("Pruning in depth: " + maxDepth + " on a MaxNote, Nr: ");
-                            return currentNode.getMinRating();
-                        }
+                        /**if(currentNode.getRating() >= currentNode.getMinRating()){
+                            return currentNode.getRating();
+                        }*/
 
                     }
                 }
@@ -61,16 +56,15 @@ public class MinMaxTree {
                         ChessBoard board = new ChessBoard(chessBoard.getPositionsCopy());
                         board.move(positions.get(j), moveset.get(i));
                         Node childNode = new Node(board, true,currentNode, positions.get(j), moveset.get(i), currentNode.getMaxRating(), currentNode.getMinRating());
-                        board.print();
+                        //board.print();
 
                         currentNode.addChild(childNode);
                         rating = generateTree((maxDepth-1), childNode);
-                        System.out.println("Rating: "+rating);
+                        //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        if(currentNode.getRating() <= currentNode.getMaxRating()){
-                            System.out.println("Pruning in depth: " + maxDepth + " on a MinNote, Nr: ");
-                            return currentNode.getMaxRating();
-                        }
+                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
+                            return currentNode.getRating();
+                        }*/
 
                     }
                 }
