@@ -92,7 +92,7 @@ public class BoardRater {
             rating = rating - BOTH_BISHOPS_VALUE;
         }
         Random rd = new Random();
-        rating += rd.nextInt(10);
+        rating += rd.nextInt(100000);
         return rating;
     }
 }
