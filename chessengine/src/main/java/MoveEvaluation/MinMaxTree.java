@@ -44,9 +44,9 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() >= currentNode.getMinRating()){
+                        if(currentNode.getRating() >= currentNode.getMinRating()){
                             return currentNode.getRating();
-                        }*/
+                        }
 
                     }
                 }
@@ -63,9 +63,9 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
+                        if(currentNode.getRating() <= currentNode.getMaxRating()){
                             return currentNode.getRating();
-                        }*/
+                        }
 
                     }
                 }
