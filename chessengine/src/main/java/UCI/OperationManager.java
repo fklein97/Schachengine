@@ -285,18 +285,18 @@ public class OperationManager {
          return move;
          */
 
-        boolean kingindanger = board.isKinginDanger(Parameters.isEngineWhite);
+        //boolean kingindanger = board.isKinginDanger(Parameters.isEngineWhite);
         String movestring = "";
 
-        if(kingindanger == false) {
+        //if(kingindanger == false) {
             MinMaxTree tree = new MinMaxTree(board, Parameters.isEngineWhite);
             tree.generateTree(Parameters.Depth);
             Move move = tree.getBestMove();
 
             movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
             board.move(move.getPositionFrom(), move.getPositionTo());
-        }
-        else{
+        //}
+        /**else{                                                                      //OLD KING DANGER CHECK
             ArrayList<Position> kingmoveset = new ArrayList<>();
             kingmoveset = MoveGenerator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite),board);
             Random rng = new Random();
@@ -305,7 +305,7 @@ public class OperationManager {
 
             movestring = (posToString(board.getKingPosition(Parameters.isEngineWhite)))+ posToString(newPos);
             board.move(board.getKingPosition(Parameters.isEngineWhite),newPos);
-        }
+        }*/
         board.print();
         System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
         System.gc();
