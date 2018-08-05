@@ -10,12 +10,14 @@ public class UCI {
     private IO io;
     private OperationManager manager;
     private boolean masterExit;
+    private boolean readyFEN;
     private Thread goThread;
 
     /**
      * Constructor to set up I /O
      */
     public UCI(){
+        readyFEN = true;
         masterExit = true;
         io = new IO();
         manager = new OperationManager();
@@ -123,6 +125,7 @@ public class UCI {
         // nothing to do here
         manager = new OperationManager();
         Parameters.isColorSet = false;
+        readyFEN = true;
     }
 
     /**
@@ -136,10 +139,10 @@ public class UCI {
         input = input.substring(9);
         if (input.contains(UCI_Commands.STARTPOS)){
 
-        } else if (input.contains(UCI_Commands.FEN)){
+        } else if ((input.contains(UCI_Commands.FEN) && (readyFEN == true))) {
             input = input.substring(4);
             manager.handleFEN(input);
-
+            readyFEN = false;
         }
 
         if (input.contains(UCI_Commands.MOVES)){
