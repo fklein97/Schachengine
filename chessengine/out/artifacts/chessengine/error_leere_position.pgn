@@ -1,0 +1,27 @@
+[Event "Computer chess game"]
+[Site "LENOVO-FLORIAN"]
+[Date "2018.07.18"]
+[Round "?"]
+[White "Chessengine"]
+[Black "Chessengine player2"]
+[Result "*"]
+[BlackElo "2000"]
+[ECO "A00"]
+[Opening "Kadas (Desprez) Opening"]
+[Time "14:10:57"]
+[WhiteElo "2000"]
+[TimeControl "300"]
+[Termination "unterminated"]
+[PlyCount "91"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. h4 Nf6 2. Na3 a6 3. d3 g6 4. Rh2 Ng4 5. Rh1 Nf6 6. Nc4 Nd5 7. f3 Rg8 8.
+e4 Nf6 9. e5 Nd5 10. d4 Rh8 11. Na3 a5 12. Bg5 h5 13. Qb1 Nb4 14. c3 Nd5
+15. c4 Nb6 16. c5 Na4 17. Qd3 Nxb2 18. Qe2 Na4 19. Qc4 Nb2 20. Qb3 f6 21.
+exf6 exf6 22. Qe3+ Qe7 23. Qxe7+ Bxe7 24. Bd2 a4 25. Nc2 Bd8 26. Ne2 Nd3+
+27. Kd1 Nb2+ 28. Kc1 Nc4 29. Bb4 Rh7 30. Be1 Ra7 31. Bb4 Be7 32. Bc3 Na6
+33. Rb1 Nb8 34. Kd1 Nc6 35. Ne1 Ne3+ 36. Kc1 Nxf1 37. Rxf1 Bd8 38. d5 Ne7
+39. Bxf6 Nxd5 40. Bxd8 Kxd8 41. g3 Ke7 42. Rf2 Kf7 43. Ra1 Nf6 44. Kc2 Ke7
+45. Rd1 Ke6 46. Nd4+ *
+

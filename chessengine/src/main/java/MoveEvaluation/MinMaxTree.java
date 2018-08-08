@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class MinMaxTree {
 
     private Node root;
+    int bestRating = 0;
 
     public MinMaxTree (ChessBoard chessBoard, boolean maximize){
         root        = new Node(chessBoard, maximize, -1000000, 1000000);
@@ -43,9 +44,9 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() >= currentNode.getMinRating()){
+                       /**if(currentNode.getRating() >= currentNode.getMinRating()){
                             return currentNode.getRating();
-                        }*/
+                       }*/
 
                     }
                 }
@@ -73,7 +74,11 @@ public class MinMaxTree {
         }
         else{
             //System.out.println("LeafRating" + BoardRater.getBoardRating(currentNode.getChessBoard()));
-            return BoardRater.getBoardRating(currentNode.getChessBoard());
+            int temprating = BoardRater.getBoardRating(currentNode.getChessBoard());
+            if(temprating > bestRating){
+                bestRating = temprating;
+            }
+            return temprating;
 
         }
 
@@ -102,6 +107,8 @@ public class MinMaxTree {
         ArrayList<Node> children = root.getChildren();
         Move bestMove = new Move(null, null);//children.get(2).getMove();                                                                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
+
         for(Node child : children){
             if(max){
                 if(child.getRating() >= rating){
@@ -116,6 +123,8 @@ public class MinMaxTree {
                 }
             }
         }
+        System.out.println("BestMove rating: " +rating);
+        System.out.println("BestRating: " + bestRating);
         return bestMove;
     }
 

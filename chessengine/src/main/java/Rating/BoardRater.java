@@ -16,6 +16,7 @@ public class BoardRater {
     private static final int BISHOP_VALUE = 325;
     private static final int ROOK_VALUE = 500;
     private static final int QUEEN_VALUE = 975;
+    private static final int KING_VALUE = 999999;
     private static final int BOTH_BISHOPS_VALUE = 50;
 
     public static int getBoardRating(ChessBoard chessboard){
@@ -23,6 +24,12 @@ public class BoardRater {
 
         rating = rating + getMaterialRating(chessboard);
         rating = rating + getDangerRating(chessboard);
+
+        return rating;
+    }
+
+    public static int getDangerPositionsRating(ChessBoard chessboard){
+        int rating = 0;
 
         return rating;
     }
@@ -82,6 +89,9 @@ public class BoardRater {
             }
             else if(p.getPiece() instanceof Queen){
                 rating = rating + (multiplier * QUEEN_VALUE);
+            }
+            else if(p.getPiece() instanceof King){
+                rating = rating + (multiplier * KING_VALUE);
             }
         }
 

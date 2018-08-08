@@ -26,11 +26,80 @@ public class MoveGenerator {
      * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
+        ArrayList<Position> boardPositions = chessboard.getPositionsCopy();
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
         if(cp instanceof Pawn){
             moveset = getPawnMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Rook){
+            moveset = getRookMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Knight){
+            moveset = getKnightMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Bishop){
+            moveset = getBishopMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Queen){
+            moveset = getQueenMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof King) {
+            moveset = getKingMoves(currentPos, chessboard, old_chessboard);
+        }
+        else{
+            throw new AssertionError("Unknown Chesspiece");
+        }
+
+        ArrayList<Position> dangermoves = new ArrayList<>();
+        for(Position p : moveset){
+            ChessBoard checkDangerBoard = new ChessBoard(boardPositions);
+            checkDangerBoard.move(currentPos,p);
+            if(checkDangerBoard.isKinginDanger(p.getPiece().isWhite())){
+                dangermoves.add(p);
+            }
+        }
+        moveset.removeAll(dangermoves);
+
+        return moveset;
+    }
+
+    public static ArrayList<Position> getMoveSetwithoutDangerCheck(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        ChessPiece cp = currentPos.getPiece();
+
+        if(cp instanceof Pawn){
+            moveset = getPawnMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Rook){
+            moveset = getRookMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Knight){
+            moveset = getKnightMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Bishop){
+            moveset = getBishopMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof Queen){
+            moveset = getQueenMoves(currentPos, chessboard, old_chessboard);
+        }
+        else if(cp instanceof King) {
+            moveset = getKingMoves(currentPos, chessboard, old_chessboard);
+        }
+        else{
+            throw new AssertionError("Unknown Chesspiece");
+        }
+
+        return moveset;
+    }
+
+    public static ArrayList<Position> getBeatMoveSetwithoutDangerCheck(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        ChessPiece cp = currentPos.getPiece();
+
+        if(cp instanceof Pawn){
+            moveset = getPawnBeatMoves(currentPos, chessboard, old_chessboard);
         }
         else if(cp instanceof Rook){
             moveset = getRookMoves(currentPos, chessboard, old_chessboard);
@@ -131,6 +200,102 @@ public class MoveGenerator {
                 }
             }
 
+            //en passant
+            ChessPiece leftPassant = chessboard.chessPieceAt(p_x-1,p_y);
+            if(leftPassant != null){
+                if(leftPassant instanceof Pawn && leftPassant.isWhite() == true){
+                    if(leftPassant == old_chessboard.chessPieceAt(p_x-1,p_y - 2)){
+                        moveset.add(new Position(p_x - 1, p_y -1,p));
+                    }
+                }
+            }
+            ChessPiece rightPassant = chessboard.chessPieceAt(p_x+1,p_y);
+            if(rightPassant != null){
+                if(rightPassant instanceof Pawn && rightPassant.isWhite() == true){
+                    if(rightPassant == old_chessboard.chessPieceAt(p_x+1,p_y - 2)){
+                        moveset.add(new Position(p_x + 1, p_y -1,p));
+                    }
+                }
+            }
+        }
+        return moveset;
+    }
+
+    /**
+     *
+     * @param currentPos
+     * @param chessboard
+     * @param old_chessboard
+     * @return
+     */
+    private static ArrayList<Position> getPawnBeatMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
+        ArrayList<Position> moveset = new ArrayList<Position>();
+        Pawn p = (Pawn)currentPos.getPiece();
+        int p_x = currentPos.getX();
+        int p_y = currentPos.getY();
+
+        if(p.isWhite() == true) {        // WHITE PAWN
+            //beat moves
+            ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y + 1);
+            ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y + 1);
+            if (p_x - 1 >= 1 && p_y + 1 <= 8) {
+                if (leftTarget != null) {
+                    if (leftTarget.isWhite() == false) {
+                        moveset.add(new Position(p_x - 1, p_y + 1, p));
+                    }
+                } else {
+                    moveset.add(new Position(p_x - 1, p_y + 1, p));
+                }
+            }
+            if (p_x + 1 <= 8 && p_y + 1 <= 8){
+                if (rightTarget != null) {
+                    if (rightTarget.isWhite() == false) {
+                        moveset.add(new Position(p_x + 1, p_y + 1, p));
+                    }
+                } else {
+                    moveset.add(new Position(p_x + 1, p_y + 1, p));
+                }
+            }
+            //en passant
+            ChessPiece leftPassant = chessboard.chessPieceAt(p_x-1,p_y);
+            if(leftPassant != null){
+                if(leftPassant instanceof Pawn && leftPassant.isWhite() == false){
+                    if(leftPassant == old_chessboard.chessPieceAt(p_x-1,p_y + 2)){
+                        moveset.add(new Position(p_x - 1, p_y +1,p));
+                    }
+                }
+            }
+            ChessPiece rightPassant = chessboard.chessPieceAt(p_x+1,p_y);
+            if(rightPassant != null){
+                if(rightPassant instanceof Pawn && rightPassant.isWhite() == false){
+                    if(rightPassant == old_chessboard.chessPieceAt(p_x+1,p_y + 2)){
+                        moveset.add(new Position(p_x + 1, p_y +1,p));
+                    }
+                }
+            }
+        }
+        else{                           // BLACK PAWN
+            //beat moves
+            ChessPiece leftTarget = chessboard.chessPieceAt(p_x - 1, p_y - 1);
+            ChessPiece rightTarget = chessboard.chessPieceAt(p_x + 1, p_y - 1);
+            if(p_x - 1 >= 1 && p_y - 1 >= 1) {
+                if (leftTarget != null) {
+                    if (leftTarget.isWhite()) {
+                        moveset.add(new Position(p_x - 1, p_y - 1, p));
+                    }
+                } else {
+                    moveset.add(new Position(p_x - 1, p_y - 1, p));
+                }
+            }
+            if(p_x + 1 <= 8 && p_y - 1 >= 1) {
+                if (rightTarget != null) {
+                    if (rightTarget.isWhite()) {
+                        moveset.add(new Position(p_x + 1, p_y - 1, p));
+                    }
+                } else {
+                    moveset.add(new Position(p_x + 1, p_y - 1, p));
+                }
+            }
             //en passant
             ChessPiece leftPassant = chessboard.chessPieceAt(p_x-1,p_y);
             if(leftPassant != null){
@@ -445,7 +610,7 @@ public class MoveGenerator {
         int k_y = currentPos.getY();
         ChessPiece target;
 
-        ArrayList<Position> dangers = DangerChecker.getDangerPositions(chessboard,k.isWhite());
+        //ArrayList<Position> dangers = DangerChecker.getDangerPositions(chessboard,k.isWhite());
 
         if(k_x + 1 <= 8) {                                                  //King is also sad hardcoding
             target = chessboard.chessPieceAt(k_x + 1, k_y);
@@ -543,7 +708,7 @@ public class MoveGenerator {
             }
         }
 
-        ArrayList<Position> dangermoves = new ArrayList<>();
+        /**ArrayList<Position> dangermoves = new ArrayList<>();
         for(Position d: dangers){ //prevents that a king moves in a danger position
             for(Position p: moveset){
                 if(p.getX() == d.getX() && p.getY() == d.getY()){
@@ -552,6 +717,7 @@ public class MoveGenerator {
             }
         }
         moveset.removeAll(dangermoves);
+         */
         return moveset;
     }
 }
