@@ -1,7 +1,7 @@
 package UCI;
 
 import Board.*;
-import MoveEvaluation.MinMaxTree;
+import MoveEvaluation.*;
 import MoveGenerator.*;
 import Parameters.Parameters;
 import Rating.BoardRater;
@@ -289,8 +289,8 @@ public class OperationManager {
         String movestring = "";
 
         //if(kingindanger == false) {
-            MinMaxTree tree = new MinMaxTree(board, Parameters.isEngineWhite);
-            tree.generateTree(Parameters.Depth);
+            Min_Max_Tree tree = new Min_Max_Tree(board,Parameters.isEngineWhite);
+            tree.generate_Tree(Parameters.Depth);
             Move move = tree.getBestMove();
 
             movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
