@@ -102,6 +102,7 @@ public class Min_Max_Tree {
             rating = -1000000;
             for(Node n : children){
                 if(n.getRating() >= rating){
+                    rating = n.getRating();
                     bestMove = n.getMove();
                 }
             }
@@ -110,6 +111,7 @@ public class Min_Max_Tree {
             rating = 1000000;
             for(Node n : children){
                 if(n.getRating() <= rating){
+                    rating = n.getRating();
                     bestMove = n.getMove();
                 }
             }
