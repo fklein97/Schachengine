@@ -20,32 +20,37 @@ public class Min_Max_Tree {
 
     public void generate_Tree(int depth){
         if (root.getMaximize()){
-
+            maximize(depth,root,root.getMinRating(), root.getMaxRating());
         } else {
-
+            minimize(depth,root,root.getMinRating(),root.getMaxRating());
         }
     }
 
 
 
     private int maximize(int depth, Node current, int min, int max){
-        int value = 10;
+        int value = 0;
         if (depth >= 1){
-            ArrayList<Position> posiiton = new ArrayList();
-            posiiton.addAll(current.getChessBoard().getPositionsCopy());
-            for(Position p : posiiton){
-                ArrayList<Position> moveset = new ArrayList<>(MoveGenerator.getMoveSet(p, current.getChessBoard()));
+            ArrayList<Position> position = new ArrayList();
+            position.addAll(current.getChessBoard().getPositionsCopy());
+            for(Position p : position){
+                ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
                 ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
                 for (Position k : moveset) {
-                    currentBoard.move(p, k);
-                    Node next = new Node(currentBoard, false, current, p, k, max, min);
-                    current.addChild(next);
-                    value = minimize(depth - 1, next, max , min);
-                    if (value >= current.getRating()) {
-                        current.setRating(value);
-                    }
-                    if(value >= current.getMaxRating()){
-                        return value;
+                    if(k.getPiece().isWhite()) {
+                        currentBoard.move(p, k);
+                        Node next = new Node(currentBoard, false, current, p, k, max, min);
+                        current.addChild(next);
+                        value = minimize(depth - 1, next, min, max);
+                        if (value >= current.getRating()) {
+                            current.setRating(value);
+                        }
+                        if (value >= current.getMaxRating()) {
+                            current.setMaxRating(value);
+                        }
+                        if (value >= current.getMinRating()){
+                            return value;
+                        }
                     }
                 }
             }
@@ -54,26 +59,31 @@ public class Min_Max_Tree {
           return BoardRater.getBoardRating(current.getChessBoard());
         }
         return current.getRating();
-    };
+    }
 
-    private int minimize(int depth, Node current,int max, int min){
-        int value = 10;
+    private int minimize(int depth, Node current,int min, int max){
+        int value = 0;
         if (depth >= 1){
             ArrayList<Position> posiiton = new ArrayList();
             posiiton.addAll(current.getChessBoard().getPositionsCopy());
             for(Position p : posiiton){
-                ArrayList<Position> moveset = new ArrayList<>(MoveGenerator.getMoveSet(p, current.getChessBoard()));
+                ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
                 ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
                 for (Position k : moveset) {
-                    currentBoard.move(p, k);
-                    Node next = new Node(currentBoard, true, current, p, k, max, min);
-                    current.addChild(next);
-                    value = maximize(depth - 1, next, min, max);
-                    if (value <= current.getRating()) {
-                        current.setRating(value);
-                    }
-                    if(value <= current.getMinRating()){
-                        return value;
+                    if(k.getPiece().isWhite() == false) {
+                        currentBoard.move(p, k);
+                        Node next = new Node(currentBoard, true, current, p, k, max, min);
+                        current.addChild(next);
+                        value = maximize(depth - 1, next, min, max);
+                        if (value <= current.getRating()) {
+                            current.setRating(value);
+                        }
+                        if (value <= current.getMinRating()) {
+                            current.setMinRating(value);
+                        }
+                        if(value <= current.getMaxRating()){
+                            return value;
+                        }
                     }
                 }
             }

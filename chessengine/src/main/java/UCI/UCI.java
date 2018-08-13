@@ -150,14 +150,14 @@ public class UCI {
             manager.playerMove(input);
             if(Parameters.isColorSet == false) {
                 Parameters.isEngineWhite = false;
-                System.out.print("DEBUG INFO: IM BLACK!");
+                System.out.println("DEBUG INFO: IM BLACK!");
                 Parameters.isColorSet = true;
             }
         }
         else{
             if(Parameters.isColorSet == false) {
                 Parameters.isEngineWhite = true;
-                System.out.print("DEBUG INFO: IM WHITE!");
+                System.out.println("DEBUG INFO: IM WHITE!");
                 Parameters.isColorSet = true;
             }
         }
