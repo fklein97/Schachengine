@@ -2,6 +2,7 @@ package MoveEvaluation;
 
 import Board.*;
 import MoveGenerator.MoveGenerator;
+import Parameters.Parameters;
 import Rating.BoardRater;
 
 
@@ -44,9 +45,9 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                       /**if(currentNode.getRating() >= currentNode.getMinRating()){
+                       if(currentNode.getRating() >= currentNode.getMinRating() && Parameters.useAlphaBeta){
                             return currentNode.getRating();
-                       }*/
+                       }
 
                     }
                 }
@@ -63,9 +64,9 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
+                        if(currentNode.getRating() <= currentNode.getMaxRating() && Parameters.useAlphaBeta){
                             return currentNode.getRating();
-                        }*/
+                        }
 
                     }
                 }
