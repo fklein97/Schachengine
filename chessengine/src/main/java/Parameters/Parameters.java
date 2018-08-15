@@ -7,7 +7,7 @@ public class Parameters {
     public static boolean isEngineWhite = false;
     public static boolean isColorSet = false;
     public static int Depth = 4;
-    public static boolean useAlphaBeta = false;
+    public static boolean useAlphaBeta = true;
 
     public static int MoveNumber = 0;
 }

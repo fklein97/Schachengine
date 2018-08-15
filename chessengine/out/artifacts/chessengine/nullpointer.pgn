@@ -1,0 +1,22 @@
+[Event "Computer chess game"]
+[Site "LENOVO-FLORIAN"]
+[Date "2018.08.14"]
+[Round "?"]
+[White "FKPro"]
+[Black "Chessengine"]
+[Result "*"]
+[BlackElo "2000"]
+[ECO "B06"]
+[Opening "Modern"]
+[Time "14:38:12"]
+[Variation "Norwegian Defence"]
+[WhiteElo "2400"]
+[TimeControl "300"]
+[Termination "unterminated"]
+[PlyCount "25"]
+[WhiteType "human"]
+[BlackType "program"]
+
+1. d4 g6 2. e4 Nf6 3. Nf3 Nxe4 4. Bd3 Nd6 5. O-O Bg7 6. c4 Kf8 7. Nc3 Ke8
+8. Bg5 h5 9. Re1 Kf8 10. Bxe7+ Qxe7 11. Rxe7 Kxe7 12. c5 Ne8 13. Qe2+ *
+
