@@ -3,6 +3,7 @@ package MoveEvaluation;
 import Board.*;
 import MoveGenerator.MoveGenerator;
 import Rating.BoardRater;
+import UCI.TimeManager;
 
 import java.util.ArrayList;
 

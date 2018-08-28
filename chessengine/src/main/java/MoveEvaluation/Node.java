@@ -158,6 +158,8 @@ public class Node {
         this.parent = parent;
     }
 
+    public void setChessBoard(ChessBoard chessboard) {this.chessBoard = chessboard; }
+
     public int getMinRating(){
         return minRating;
     }

@@ -33,6 +33,7 @@ public class OperationManager {
     private DataManager history;
     private ChessBoard board;
     private MoveGenerator generator;
+    private TimeManager timer;
 
     private boolean debug;
 
@@ -41,7 +42,10 @@ public class OperationManager {
         history = new DataManager();
         board = new ChessBoard();
         generator = new MoveGenerator();
+        timer = new TimeManager();
     }
+
+    public TimeManager getTimer(){ return this.timer; }
 
     public void setDebug(boolean debug) {
         this.debug = debug;
@@ -236,11 +240,16 @@ public class OperationManager {
      * Method go starts the
      */
     public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
-        String movestring = "";
 
+        MinMaxTreeDominic gogoPowerrangers = new MinMaxTreeDominic();
+        Move move = gogoPowerrangers.initialize(new ChessBoard(board.getPositionsCopy()));
+
+        String movestring = "";
+/**
         MinMaxTree tree = new MinMaxTree(board,Parameters.isEngineWhite);
         tree.generateTree(Parameters.Depth);
         Move move = tree.getBestMove();
+**/
 
         movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
         board.move(move.getPositionFrom(), move.getPositionTo());
@@ -249,6 +258,7 @@ public class OperationManager {
         System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
         System.gc();
         return movestring;
+
     }
 
     /**
