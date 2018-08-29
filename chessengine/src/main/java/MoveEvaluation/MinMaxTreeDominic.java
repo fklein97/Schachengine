@@ -17,7 +17,7 @@ public class MinMaxTreeDominic {
     }
 
     public Move initialize(ChessBoard board){
-        ArrayList<Move> list = generateMoves(true, board);
+        ArrayList<Move> list = generateMoves(false, board);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         HashMap<Move,Integer> map = new HashMap();
         for (Move m : list){
@@ -25,6 +25,7 @@ public class MinMaxTreeDominic {
             map.put(m,min(searchDepth,-100000000,100000000,board));
             board = new ChessBoard(origin.getPositionsCopy());
         }
+        map.entrySet().stream().forEach(x -> {System.out.println(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
         return map.entrySet().stream().reduce((curr,next) -> curr.getValue() < next.getValue() ? curr : next).get().getKey();
     }
 
@@ -38,6 +39,7 @@ public class MinMaxTreeDominic {
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
             int value = min(depth - 1, maxValue, beta, board);
+            board = new ChessBoard(origin.getPositionsCopy());
             if (value > maxValue) {
                 maxValue = value;
                 if (maxValue >= beta) {
@@ -49,8 +51,7 @@ public class MinMaxTreeDominic {
              */
             }
         }
-        System.out.println("Value:" + maxValue);
-        board = new ChessBoard(origin.getPositionsCopy());
+
         return maxValue;
     }
 
@@ -84,7 +85,7 @@ public class MinMaxTreeDominic {
         ArrayList<Move> moveset = new ArrayList<>();
         if (max){
             for (Position p : board.getPositions()) {
-                if (!(p.getPiece().isWhite())) {
+                if ((p.getPiece().isWhite())) {
                     ArrayList<Position> tempMove = MoveGenerator.getMoveSet(p, board);
                     if (!(tempMove.isEmpty())) {
                         for (Position po : tempMove) {
@@ -96,7 +97,7 @@ public class MinMaxTreeDominic {
 
         } else {
             for (Position p : board.getPositions()) {
-                if ((p.getPiece().isWhite())) {
+                if (!(p.getPiece().isWhite())) {
                     ArrayList<Position> tempMove = MoveGenerator.getMoveSet(p, board);
                     if (!(tempMove.isEmpty())) {
                         for (Position po : tempMove) {
