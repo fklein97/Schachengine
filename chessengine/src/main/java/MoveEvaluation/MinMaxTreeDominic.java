@@ -67,7 +67,7 @@ public class MinMaxTreeDominic {
             board = new ChessBoard(origin.getPositionsCopy());
             if (value < minValue) {
                 minValue = value;
-                if (minValue <= beta) {
+                if (minValue <= alpha) {
                     break;
                 }
             /*if (depth == anfangstiefe){
