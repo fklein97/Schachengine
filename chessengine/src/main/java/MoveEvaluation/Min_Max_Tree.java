@@ -34,10 +34,10 @@ public class Min_Max_Tree {
             ArrayList<Position> position = new ArrayList();
             position.addAll(current.getChessBoard().getPositionsCopy());
             for(Position p : position){
-                ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
-                ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
-                for (Position k : moveset) {
-                    if(k.getPiece().isWhite()) {
+                if(p.getPiece().isWhite()) {
+                    ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
+                    ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
+                    for (Position k : moveset) {
                         currentBoard.move(p, k);
                         Node next = new Node(currentBoard, false, current, p, k, max, min);
                         current.addChild(next);
@@ -51,8 +51,10 @@ public class Min_Max_Tree {
                         if (value >= current.getMinRating()){
                             return value;
                         }
+
                     }
                 }
+
             }
 
         } else {
@@ -67,10 +69,11 @@ public class Min_Max_Tree {
             ArrayList<Position> posiiton = new ArrayList();
             posiiton.addAll(current.getChessBoard().getPositionsCopy());
             for(Position p : posiiton){
-                ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
-                ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
-                for (Position k : moveset) {
-                    if(k.getPiece().isWhite() == false) {
+                if(p.getPiece().isWhite() == false) {
+                    ArrayList<Position> moveset = MoveGenerator.getMoveSet(p, current.getChessBoard());
+                    ChessBoard currentBoard = new ChessBoard(current.getChessBoard().getPositionsCopy());
+                    for (Position k : moveset) {
+
                         currentBoard.move(p, k);
                         Node next = new Node(currentBoard, true, current, p, k, max, min);
                         current.addChild(next);
@@ -84,8 +87,10 @@ public class Min_Max_Tree {
                         if(value <= current.getMaxRating()){
                             return value;
                         }
+
                     }
                 }
+
             }
 
         } else {
