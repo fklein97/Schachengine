@@ -19,13 +19,13 @@ public class MinMaxTreeDominic {
     public Move initialize(ChessBoard board){
         ArrayList<Move> list = generateMoves(true, board);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
-        HashMap<Integer,Move> map = new HashMap();
+        HashMap<Move,Integer> map = new HashMap();
         for (Move m : list){
             board.move(m.getPositionFrom(),m.getPositionTo());
-            map.put(min(searchDepth,-100000000,100000000,board),m);
+            map.put(m,min(searchDepth,-100000000,100000000,board));
             board = new ChessBoard(origin.getPositionsCopy());
         }
-        return map.entrySet().stream().reduce((curr,next) -> curr.getKey() < next.getKey() ? curr : next).get().getValue();
+        return map.entrySet().stream().reduce((curr,next) -> curr.getValue() < next.getValue() ? curr : next).get().getKey();
     }
 
     public int max(int depth, int alpha, int beta, ChessBoard board) {
