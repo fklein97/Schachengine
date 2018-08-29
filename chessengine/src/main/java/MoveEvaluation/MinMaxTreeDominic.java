@@ -16,17 +16,27 @@ public class MinMaxTreeDominic {
     public MinMaxTreeDominic (){
     }
 
-    public Move initialize(ChessBoard board){
-        ArrayList<Move> list = generateMoves(false, board);
+    public Move initialize(ChessBoard board, boolean max){
+        ArrayList<Move> list = generateMoves(max, board);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         HashMap<Move,Integer> map = new HashMap();
         for (Move m : list){
             board.move(m.getPositionFrom(),m.getPositionTo());
-            map.put(m,max(searchDepth,-100000000,100000000,board));
+            if(max) {
+                map.put(m, min(searchDepth - 1, -100000000, 100000000,board));
+            }
+            else{
+                map.put(m, max(searchDepth - 1, -100000000, 100000000, board));
+            }
             board = new ChessBoard(origin.getPositionsCopy());
         }
         map.entrySet().stream().forEach(x -> {System.out.println(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
-        return map.entrySet().stream().reduce((curr,next) -> curr.getValue() < next.getValue() ? curr : next).get().getKey();
+        if(max){
+            return map.entrySet().stream().reduce((curr, next) -> curr.getValue() > next.getValue() ? curr : next).get().getKey();
+        }
+        else {
+            return map.entrySet().stream().reduce((curr, next) -> curr.getValue() < next.getValue() ? curr : next).get().getKey();
+        }
     }
 
     public int max(int depth, int alpha, int beta, ChessBoard board) {

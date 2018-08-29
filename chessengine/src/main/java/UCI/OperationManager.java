@@ -239,10 +239,10 @@ public class OperationManager {
     /**
      * Method go starts the
      */
-    public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
+    public String go(String input){
 
         MinMaxTreeDominic gogoPowerrangers = new MinMaxTreeDominic();
-        Move move = gogoPowerrangers.initialize(new ChessBoard(board.getPositionsCopy()));
+        Move move = gogoPowerrangers.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";
 /**
