@@ -30,6 +30,7 @@ public class MinMaxTreeDominic {
     }
 
     public int max(int depth, int alpha, int beta, ChessBoard board) {
+        int value = alpha;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         if (depth == 0)
@@ -38,7 +39,7 @@ public class MinMaxTreeDominic {
         moveset = generateMoves(true, board);
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
-            int value = min(depth - 1, maxValue, beta, board);
+            value = min(depth - 1, maxValue, beta, board);
             board = new ChessBoard(origin.getPositionsCopy());
             if (value > maxValue) {
                 maxValue = value;
@@ -56,6 +57,7 @@ public class MinMaxTreeDominic {
     }
 
     public int min(int depth, int alpha, int beta, ChessBoard board){
+        int value = beta;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         if (depth == 0)
@@ -64,7 +66,7 @@ public class MinMaxTreeDominic {
         moveset = generateMoves(false, board);
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
-            int value = max(depth - 1, alpha, minValue, board);
+            value = max(depth - 1, alpha, minValue, board);
             board = new ChessBoard(origin.getPositionsCopy());
             if (value < minValue) {
                 minValue = value;
@@ -77,7 +79,7 @@ public class MinMaxTreeDominic {
              */
             }
         }
-        return minValue;
+        return value;
     }
 
     //Aktuell nur Schwarz TODO

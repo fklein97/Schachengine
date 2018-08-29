@@ -23,8 +23,8 @@
       <file leaf-file-name="MinMaxTreeDominic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="-106">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/NodeDominic.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
         <option value="$PROJECT_DIR$/src/main/java/UCI/OperationManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java" />
         <option value="$PROJECT_DIR$/src/main/java/Parameters/Parameters.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java" />
       </list>
     </option>
   </component>
@@ -358,7 +358,7 @@
       <workItem from="1535372956743" duration="1076000" />
       <workItem from="1535458087241" duration="20010000" />
       <workItem from="1535480189549" duration="581000" />
-      <workItem from="1535546681066" duration="2886000" />
+      <workItem from="1535546681066" duration="3737000" />
     </task>
     <servers />
   </component>
@@ -377,7 +377,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64040000" />
+    <option name="totallyTimeSpent" value="64891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="0" />
@@ -804,8 +804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="-106">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
         </state>
       </provider>
     </entry>
