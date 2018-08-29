@@ -1,6 +1,7 @@
 package Rating;
 
 import Board.*;
+import Parameters.Parameters;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -102,7 +103,7 @@ public class BoardRater {
             rating = rating - BOTH_BISHOPS_VALUE;
         }
         Random rd = new Random();
-        rating += rd.nextInt(10);
+        rating += rd.nextInt(Parameters.randomizerValue);
         return rating;
     }
 }

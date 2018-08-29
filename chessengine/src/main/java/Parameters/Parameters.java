@@ -6,7 +6,10 @@ package Parameters;
 public class Parameters {
     public static boolean isEngineWhite = false;
     public static boolean isColorSet = false;
+
     public static int Depth = 4;
+    public static int randomizerValue = 10;
+
     public static boolean useAlphaBeta = true;
 
     public static int turnTime;
