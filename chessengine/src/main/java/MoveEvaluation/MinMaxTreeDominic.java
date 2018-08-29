@@ -22,7 +22,7 @@ public class MinMaxTreeDominic {
         HashMap<Move,Integer> map = new HashMap();
         for (Move m : list){
             board.move(m.getPositionFrom(),m.getPositionTo());
-            map.put(m,min(searchDepth,-100000000,100000000,board));
+            map.put(m,max(searchDepth,-100000000,100000000,board));
             board = new ChessBoard(origin.getPositionsCopy());
         }
         map.entrySet().stream().forEach(x -> {System.out.println(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
@@ -79,7 +79,7 @@ public class MinMaxTreeDominic {
              */
             }
         }
-        return value;
+        return minValue;
     }
 
     //Aktuell nur Schwarz TODO
