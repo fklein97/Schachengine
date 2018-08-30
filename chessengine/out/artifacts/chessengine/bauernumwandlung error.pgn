@@ -1,0 +1,25 @@
+[Event "Computer chess game"]
+[Site "LENOVO-FLORIAN"]
+[Date "2018.08.30"]
+[Round "?"]
+[White "FKPro"]
+[Black "Chessengine"]
+[Result "1-0"]
+[BlackElo "2000"]
+[ECO "A40"]
+[Opening "Queen's Pawn"]
+[Time "13:30:20"]
+[Variation "Keres Defence"]
+[WhiteElo "2400"]
+[Termination "rules infraction"]
+[PlyCount "67"]
+[WhiteType "human"]
+[BlackType "program"]
+
+1. d4 e6 2. c4 Bb4+ 3. Nc3 f5 4. Nf3 b6 5. e3 Bb7 6. Bd3 Be4 7. O-O Bxd3 8.
+Qxd3 Bxc3 9. bxc3 d5 10. cxd5 Qxd5 11. c4 Qe4 12. Qxe4 fxe4 13. Ng5 Ke7 14.
+Nxe4 h5 15. Ba3+ Kd8 16. Ng5 Kd7 17. Nf7 Rh7 18. Ne5+ Kc8 19. Rad1 Nd7 20.
+Nxd7 Kxd7 21. e4 Nf6 22. e5 Ng4 23. h3 Nh6 24. Rfe1 Nf5 25. d5 exd5 26.
+cxd5 Nh6 27. e6+ Ke8 28. d6 cxd6 29. Rxd6 Rd8 30. Rxd8+ Kxd8 31. e7+ Kd7
+32. Rd1+ Kc7 33. Rd8 a6 34. e8=Q {Arena Adjudication. Illegal move!} 1-0
+

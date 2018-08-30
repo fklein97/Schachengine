@@ -34,6 +34,23 @@ public class DangerChecker {
            }
        }
 
-       return dangers;
+        return dangers;
+    }
+
+    public static ArrayList<Position> getDangerPositionsWithoutDuplicates(ChessBoard chessBoard, boolean forWhite){
+        ArrayList<Position> dangers = getDangerPositions(chessBoard,forWhite);
+
+        ArrayList<Position> duplicates = new ArrayList<>();
+        for(int i = 0; i < dangers.size(); i++){
+            for(int j = i+1; j <dangers.size(); j++){
+                if(dangers.get(i).getX() == dangers.get(j).getX() && dangers.get(i).getY() == dangers.get(j).getY()){
+                    duplicates.add(dangers.get(j));
+                    break;
+                }
+            }
+        }
+        dangers.removeAll(duplicates);
+
+        return dangers;
     }
 }
