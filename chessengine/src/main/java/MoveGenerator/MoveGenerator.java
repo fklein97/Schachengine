@@ -26,7 +26,6 @@ public class MoveGenerator {
      * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
-        ArrayList<Position> boardPositions = chessboard.getPositionsCopy();
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
@@ -54,9 +53,12 @@ public class MoveGenerator {
 
         ArrayList<Position> dangermoves = new ArrayList<>();
         for(Position p : moveset){
+            Position movefrom = new Position(currentPos.getX(),currentPos.getY(), cp);
+            Position moveto = new Position(p.getX(),p.getY(),cp);
+            ArrayList<Position> boardPositions = chessboard.getPositionsCopy();
             ChessBoard checkDangerBoard = new ChessBoard(boardPositions);
-            checkDangerBoard.move(currentPos,p);
-            if(checkDangerBoard.isKinginDanger(p.getPiece().isWhite())){
+            checkDangerBoard.move(movefrom,moveto);
+            if(checkDangerBoard.isKinginDanger(cp.isWhite())){
                 dangermoves.add(p);
             }
         }
