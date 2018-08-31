@@ -260,10 +260,11 @@ public class ChessBoard {
     }
 
     public boolean isKinginDanger(boolean forWhite) {
-        if (this.getKingPosition(forWhite) != null) {
+        Position kingPosition = this.getKingPosition(forWhite);
+        if (kingPosition != null) {
             ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this, forWhite);
             for (Position p : dangerPositions) {
-                if (p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()) {
+                if (p.getX() == kingPosition.getX() && p.getY() == kingPosition.getY()) {
                     return true;
                 }
             }
