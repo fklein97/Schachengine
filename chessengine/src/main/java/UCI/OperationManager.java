@@ -239,8 +239,8 @@ public class OperationManager {
      */
     public String go(String input){
 
-        MinMaxTreeDominic gogoPowerrangers = new MinMaxTreeDominic();
-        Move move = gogoPowerrangers.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
+        MinMaxTreeDominic chessicasBrain = new MinMaxTreeDominic();
+        Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";
 /**
