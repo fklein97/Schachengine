@@ -277,7 +277,11 @@ public class ChessBoard {
     private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece) {
         int from = -1;
         int to = -1;
+
+        positionTo.setPiece(chessPiece);
         move(positionFrom, positionTo);
+
+        /**
         Position[] positionArr = (Position[]) positions.toArray(new Position[positions.size()]);
         for (int i = 0; i < positionArr.length; i++) {
             if (positionTo.equals(positionArr[i])) {
@@ -285,6 +289,7 @@ public class ChessBoard {
             }
         }
         positions.set(to, new Position(positionTo.getX(), positionTo.getY(), chessPiece));
+         **/
     }
 
 

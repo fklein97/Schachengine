@@ -221,15 +221,13 @@ public class OperationManager {
             ChessPiece piece;
 
             switch (pieceName.charAt(0)){
-                case QUEEN: piece = new Queen(cp.isWhite());
-                case ROOK: piece = new Rook(cp.isWhite());
-                case KNIGHT: piece = new Knight(cp.isWhite());
-                case BISHOP: piece = new Bishop(cp.isWhite());
+                case QUEEN: piece = new Queen(cp.isWhite()); break;
+                case ROOK: piece = new Rook(cp.isWhite()); break;
+                case KNIGHT: piece = new Knight(cp.isWhite()); break;
+                case BISHOP: piece = new Bishop(cp.isWhite()); break;
                 default:
                     piece = new Pawn(cp.isWhite());
             }
-            oldPos.setPiece(piece);
-            newPos.setPiece(piece);
             board.move(oldPos, newPos,piece);
         }
         board.print();
