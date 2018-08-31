@@ -170,7 +170,7 @@ public class ChessBoard {
             if (from != null) {
                     positions.remove(from);
                     positionFrom.getPiece().move();
-                    positions.add(new Position(positionTo.getX(), positionTo.getY(), positionFrom.getPiece()));
+                    positions.add(new Position(positionTo.getX(), positionTo.getY(), positionTo.getPiece()));
 
             }
         }

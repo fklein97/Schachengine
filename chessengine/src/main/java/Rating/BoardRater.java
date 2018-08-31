@@ -11,7 +11,7 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
-    private static final int INDANGER_VALUE = -500;
+    private static final int KINGINDANGER_VALUE = -500;
 
     private static final int PAWN_VALUE = 1000;
     private static final int KNIGHT_VALUE = 3250;
@@ -27,7 +27,7 @@ public class BoardRater {
         int rating = 0;
 
         rating = rating + getMaterialRating(chessboard);
-        rating = rating + getDangerRating(chessboard);
+        rating = rating + getKingDangerRating(chessboard);
         rating = rating + getDangerPositionsRating(chessboard);
 
         if(Parameters.randomizerValue > 0) {
@@ -47,14 +47,14 @@ public class BoardRater {
         return rating;
     }
 
-    public static int getDangerRating(ChessBoard chessboard){
+    public static int getKingDangerRating(ChessBoard chessboard){
         int rating = 0;
 
         if(chessboard.isKinginDanger(true)){
-            rating = rating + INDANGER_VALUE;
+            rating = rating + KINGINDANGER_VALUE;
         }
         if(chessboard.isKinginDanger(false)){
-            rating = rating - INDANGER_VALUE;
+            rating = rating - KINGINDANGER_VALUE;
         }
 
         return rating;
