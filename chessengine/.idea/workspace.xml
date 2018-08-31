@@ -24,9 +24,11 @@
       <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
+            <state relative-caret-position="3451">
               <caret line="204" column="17" lean-forward="false" selection-start-line="204" selection-start-column="17" selection-end-line="204" selection-end-column="17" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,7 +36,7 @@
       <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-587">
+            <state relative-caret-position="578">
               <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -56,9 +58,16 @@
       <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2014">
-              <caret line="269" column="13" lean-forward="true" selection-start-line="269" selection-start-column="13" selection-end-line="269" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="-3052">
+              <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <folding>
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#264#265#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,7 +75,7 @@
       <file leaf-file-name="OperationManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="3706">
               <caret line="229" column="13" lean-forward="false" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
               <folding />
             </state>
@@ -108,7 +117,7 @@
       <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessPiece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="459">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#673#674#0" expanded="true" />
@@ -120,7 +129,7 @@
       <file leaf-file-name="DangerChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
+            <state relative-caret-position="867">
               <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding />
             </state>
@@ -205,7 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -424,8 +433,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -917,7 +926,8 @@
       <workItem from="1535615590285" duration="9373000" />
       <workItem from="1535662495655" duration="3472000" />
       <workItem from="1535705511944" duration="457000" />
-      <workItem from="1535713428505" duration="2992000" />
+      <workItem from="1535713428505" duration="3385000" />
+      <workItem from="1535730786040" duration="1392000" />
     </task>
     <servers />
   </component>
@@ -936,10 +946,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86562000" />
+    <option name="totallyTimeSpent" value="88347000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -984,7 +994,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="32" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1267,13 +1277,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-587">
+        <state relative-caret-position="578">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1283,9 +1292,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
+        <state relative-caret-position="3451">
           <caret line="204" column="17" lean-forward="false" selection-start-line="204" selection-start-column="17" selection-end-line="204" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,7 +1328,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UCI/OperationManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="3706">
           <caret line="229" column="13" lean-forward="false" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
           <folding />
         </state>
@@ -1325,7 +1336,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
+        <state relative-caret-position="867">
           <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding />
         </state>
@@ -1333,7 +1344,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessPiece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="459">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#673#674#0" expanded="true" />
@@ -1351,9 +1362,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Board/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2014">
-          <caret line="269" column="13" lean-forward="true" selection-start-line="269" selection-start-column="13" selection-end-line="269" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="-3052">
+          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+          <folding>
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

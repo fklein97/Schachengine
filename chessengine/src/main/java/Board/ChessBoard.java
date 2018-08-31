@@ -18,9 +18,10 @@ public class ChessBoard {
 
     public ArrayList<Position> getPositionsCopy() {
         ArrayList<Position> pos = new ArrayList<Position>();
-        for (int i = 0; i < positions.size(); i++) {
-            pos.add(new Position(positions.get(i).getX(), positions.get(i).getY(), positions.get(i).getPieceCopy()));
+        for(Position p : positions){
+            pos.add(new Position(p.getX(),p.getY(),p.getPieceCopy()));
         }
+
         return pos;
     }
 
@@ -57,13 +58,10 @@ public class ChessBoard {
         return false;
     }
 
-    public ChessPiece chessPieceAt(int xCoordinate, int yCordinate) {
-        Position[] positionsArr = new Position[positions.size()];
-        positionsArr = (Position[]) positions.toArray(positionsArr);
-
-        for (int i = 0; i < positionsArr.length; i++) {
-            if (positionsArr[i].getX() == xCoordinate && positionsArr[i].getY() == yCordinate) {
-                return positionsArr[i].getPiece();
+    public ChessPiece chessPieceAt(int xCoordinate, int yCoordinate) {
+        for(Position p : positions){
+            if(p.getX() == xCoordinate && p.getY() == yCoordinate){
+                return p.getPiece();
             }
         }
 
