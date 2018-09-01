@@ -23,6 +23,139 @@ public class BoardRater {
 
     private static final int POSITION_DANGERED_VALUE = 2;
 
+    private final static int[][][] PAWN_POSITION_VALUE = {
+            {
+                    {  0,   0,   0,    0,   0,   0,   0,   0 },
+                    { 50, 100,  100,-200,-200, 100, 100,  50},
+                    { 50, -50, -100,   0,   0,-100, -50,  50},
+                    { 0 ,  0 ,    0, 200, 200,   0,   0,   0},
+                    { 50,  50,  100, 250, 250, 100,  50,  50},
+                    { 100, 100, 200, 300, 300, 200, 100, 100},
+                    { 500, 500, 500, 500, 500, 500, 500, 500},
+                    { 0,  0   ,  0 ,   0,   0,   0,   0,   0}
+            },{
+                    {   0,   0,   0,   0,   0,   0,   0,   0},
+                    { 500, 500, 500, 500, 500, 500, 500, 500},
+                    { 100, 100, 200, 300, 300, 200, 100, 100},
+                    {  50,  50, 100, 250, 250, 100,  50,  50},
+                    {   0,   0,   0, 200, 200,   0,   0,   0},
+                    {  50, -50,-100,   0,   0,-100, -50,  50},
+                    {  50, 100, 100,-200,-200, 100, 100,  50},
+                    {   0,   0,   0,   0,   0,   0,   0,   0}
+    }
+    };
+
+    private static final int[][][] KNIGHT_POSITION_VALUE = {
+            {
+                    { -500,-400,-300,-300,-300,-300,-400,-500 },
+                    { -400,-200,   0,  50,  50,   0,-200,-400 },
+                    { -300,  50, 100, 150, 150, 100,  50,-300 },
+                    { -300,   0, 150, 200, 200, 150,   0,-300 },
+                    { -300,  50, 150, 200, 200, 150,  50,-300 },
+                    { -300,   0, 100, 150, 150, 100,   0,-300 },
+                    { -400,-200,   0,   0,   0,   0,-200,-400 },
+                    { -500,-400,-300,-300,-300,-300,-400,-500 }
+            },{
+                    { -500,-400,-300,-300,-300,-300,-400,-500 },
+                    { -400,-200,   0,   0,   0,   0,-200,-400 },
+                    { -300,   0, 100, 150, 150, 100,   0,-300 },
+                    { -300,  50, 150, 200, 200, 150,  50,-300 },
+                    { -300,   0, 150, 200, 200, 150,   0,-300},
+                    { -300,  50, 100, 150, 150, 100,  50,-300 },
+                    { -400,-200,   0,  50,  50,   0,-200,-400 },
+                    { -500,-400,-300,-300,-300,-300,-400,-500 }
+    }
+    };
+
+
+    private static final int[][][] BISHOP_POSITION_VALUE = {
+            {
+                    { -200,-100,-100,-100,-100,-100,-100,-200 },
+                    { -100,  50,   0,   0,   0,   0,  50,-100 },
+                    { -100, 100, 100, 100, 100, 100, 100,-100 },
+                    { -100,   0, 100, 100, 100, 100,   0,-100 },
+                    { -100,  50,  50, 100, 100,  50,  50,-100 },
+                    { -100,   0,  50, 100, 100,  50,   0,-100 },
+                    { -100,   0,   0,   0,   0,   0,   0,-100 },
+                    { -200,-100,-100,-100,-100,-100,-100,-200 }
+            },{
+                    { -200,-100,-100,-100,-100,-100,-100,-200 },
+                    { -100,   0,   0,   0,   0,   0,   0,-100 },
+                    { -100,   0,  50, 100, 100,  50,   0,-100 },
+                    { -100,  50,  50, 100, 100,  50,  50,-100},
+                    { -100,   0, 100, 100, 100, 100,   0,-100 },
+                    { -100, 100, 100, 100, 100, 100, 100,-100 },
+                    { -100,  50,   0,   0,   0,   0,  50,-100 },
+                    { -200,-100,-100,-100,-100,-100,-100,-200 }
+    }
+    };
+
+    private static final int[][][] ROOK_POSITION_VALUE = {
+            {
+                    {   0,   0,   0,  50,  50,   0,   0,   0 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    {  50, 100, 100, 100, 100, 100, 100,  50 },
+                    {   0,   0,   0,  50,  50,   0,   0,   0 }
+            },{
+                    {   0,   0,   0,   0,   0,   0,   0,   0 },
+                    {  50, 100, 100, 100, 100, 100, 100,  50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    { -50,   0,   0,   0,   0,   0,   0, -50 },
+                    {   0,   0,   0,  50,  50,   0,   0,   0 }
+    }
+    };
+
+    private static final int[][][] QUEEN_POSITION_VALUE = {
+            {
+                    { -200,-100,-100, -50, -50,-100,-100,-200 },
+                    { -100,   0,  50,   0,   0,   0,   0,-100 },
+                    { -100,  50,  50,  50,  50,  50,   0,-100 },
+                    {    0,   0,  50,  50,  50,  50,   0, -50 },
+                    {  -50,   0,  50,  50,  50,  50,   0, -50 },
+                    { -100,   0,  50,  50,  50,  50,   0,-100 },
+                    { -100,   0,   0,   0,   0,   0,   0,-100 },
+                    { -200,-100,-100, -50, -50,-100,-100,-200 }
+            },{
+                    { -200,-100,-100, -50, -50,-100,-100,-200 },
+                    { -100,   0,   0,   0,   0,  0,    0,-100 },
+                    { -100,   0,  50,  50,  50,  50,   0,-100 },
+                    {  -50,   0,  50,  50,  50,  50,   0, -50 },
+                    {    0,   0,  50,  50,  50,  50,   0, -50 },
+                    { -100,  50,  50,  50,  50,  50,   0,-100 },
+                    { -100,   0,  50,   0,   0,   0,   0,-100 },
+                    { -200,-100,-100, -50, -50,-100,-100,-200 }
+    }
+    };
+
+    private static final int[][][] KING_POSITION_VALUE = {
+            {
+                    {  200, 300,  -50,   0,   0,  -50, 300, 200 },
+                    {  200, 200,    0,   0,   0,    0, 200, 200 },
+                    { -100,-200, -200,-200,-200, -200,-200,-100 },
+                    { -200,-300, -300,-400,-400, -300,-300,-200 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 }
+            },{
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -300,-400, -400,-500,-500, -400,-400,-300 },
+                    { -200,-300, -300,-400,-400, -300,-300,-200 },
+                    { -100,-200, -200,-200,-200, -200,-200,-100 },
+                    {  200, 200,    0,   0,   0,    0, 200, 200 },
+                    {  200, 300,  -50,   0,   0,  -50, 300, 200 }
+    }
+    };
+
     public static int getBoardRating(ChessBoard chessboard){
         int rating = 0;
 
@@ -117,4 +250,141 @@ public class BoardRater {
 
         return rating;
     }
+
+    public static int getPawnStructureValue(ChessBoard chessBoard){
+        int rating = 0;
+        ArrayList<Position> positions = chessBoard.getPositions();
+        ArrayList<Position> pawnList = new ArrayList<Position>();
+        ArrayList<Position> blackPawnList = new ArrayList<Position>();
+        ArrayList<Position> whitePawnList = new ArrayList<Position>();
+
+        for(Position p : positions){
+            if(p.getPiece().toString() == "white pawn" || p.getPiece().toString() == "black pawn"){
+                pawnList.add(p);
+            }
+        }
+        for(Position p : pawnList){
+            if(p.getPiece().isWhite()){
+                whitePawnList.add(p);
+            }else{
+                blackPawnList.add(p);
+            }
+        }
+
+        rating = rating + doublePawn(whitePawnList, blackPawnList);
+        rating = rating + freePawn(whitePawnList, blackPawnList);
+        return rating;
+    }
+
+    private static int freePawn(ArrayList<Position> whitePawnList, ArrayList<Position> blackPawnList){
+        int rating = 0;
+        boolean free = true;
+            if(whitePawnList.size() < 7 && blackPawnList.size()<7){
+                for(int i = 0; i < whitePawnList.size(); i++){
+                    for(int j = 0; j <= blackPawnList.size()  ;j++){
+                        if(whitePawnList.get(i).getY() != blackPawnList.get(j).getY() && whitePawnList.get(i).getY() != blackPawnList.get(j).getY()+1 && whitePawnList.get(i).getY()-1 != blackPawnList.get(j).getY()){
+                            rating = rating + 500;
+                        }
+                    }
+                }
+                for(int i = 0; i < blackPawnList.size(); i++){
+                    for(int j = 0; j <= whitePawnList.size()  ;j++){
+                        if(blackPawnList.get(i).getY() != whitePawnList.get(j).getY() && blackPawnList.get(i).getY()+1 != whitePawnList.get(j).getY() && blackPawnList.get(i).getY()-1 != whitePawnList.get(j).getY()){
+                            rating = rating -500;
+                        }
+                    }
+                }
+            }
+
+        return rating;
+    }
+
+    private static int doublePawn(ArrayList<Position> whitePawnList, ArrayList<Position> blackPawnList){
+        int rating = 0;
+        int black = 0;
+        int white = 0;
+
+        for(int i = 0; i < whitePawnList.size(); i++){
+            for(int j = i+1; j <= whitePawnList.size()  ;j++){
+                if(whitePawnList.get(i).getY() == whitePawnList.get(j).getY()){
+                    white++;
+                }
+            }
+        }
+        for(int i = 0; i < blackPawnList.size(); i++){
+            for(int j = i+1; j <= blackPawnList.size()  ;j++){
+                if(blackPawnList.get(i).getY() == blackPawnList.get(j).getY()){
+                    black++;
+                }
+            }
+        }
+        rating = (-500 * white) + (500 * black);
+        return rating;
+    }
+
+    public static int getPositionRating(ChessBoard chessBoard){
+        int rating = 0;
+        ArrayList<Position> positions =  chessBoard.getPositions();
+        for(Position p : positions){
+            rating = rating + getPiecePositionRating(p);
+        }
+
+        return rating;
+    }
+
+    private static int getPiecePositionRating(Position position){
+        ChessPiece  chessPiece   = position.getPiece();
+        int         rating       = 0;
+
+        if(chessPiece.isWhite()){
+            switch(position.getPiece().toString()){
+                case "white pawn":
+                    rating = PAWN_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+                case "white rook":
+                    rating = ROOK_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+                case "white bishop":
+                    rating = BISHOP_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+                case "white knight":
+                    rating = KNIGHT_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+                case "white queen":
+                    rating = QUEEN_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+                case "white king":
+                    rating = KING_POSITION_VALUE[1][position.getX()][position.getY()];
+                    break;
+            }
+        }else {
+            switch (position.getPiece().toString()) {
+                case "black pawn":
+                    rating = PAWN_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+                case "black rook":
+                    rating = ROOK_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+                case "black bishop":
+                    rating = BISHOP_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+                case "black knight":
+                    rating = KNIGHT_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+                case "black queen":
+                    rating = QUEEN_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+                case "black king":
+                    rating = KING_POSITION_VALUE[0][position.getX()][position.getY()];
+                    break;
+            }
+            rating = rating * -1;
+
+        }
+        return rating;
+    }
+
+
+
 }
+
