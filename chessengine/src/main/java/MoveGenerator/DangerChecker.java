@@ -16,18 +16,17 @@ public class DangerChecker {
      */
     public static ArrayList<Position> getDangerPositions(ChessBoard chessBoard, boolean forWhite){
        ArrayList<Position> dangers = new ArrayList<>();
+       ArrayList<Position> boardPositions = chessBoard.getPositions();
 
        if(forWhite){
-           ArrayList<Position> black_positions = chessBoard.getPositions();
-           for (Position p : black_positions) {
+           for (Position p : boardPositions) {
                if(!p.getPiece().isWhite()){
                    dangers.addAll(MoveGenerator.getBeatMoveSetwithoutDangerCheck(p,chessBoard,chessBoard));
                }
            }
        }
        else{
-           ArrayList<Position> white_positions = chessBoard.getPositions();
-           for (Position p : white_positions) {
+           for (Position p : boardPositions) {
                if(p.getPiece().isWhite()){
                    dangers.addAll(MoveGenerator.getBeatMoveSetwithoutDangerCheck(p,chessBoard,chessBoard));
                }
@@ -39,8 +38,8 @@ public class DangerChecker {
 
     public static ArrayList<Position> getDangerPositionsWithoutDuplicates(ChessBoard chessBoard, boolean forWhite){
         ArrayList<Position> dangers = getDangerPositions(chessBoard,forWhite);
-
         ArrayList<Position> duplicates = new ArrayList<>();
+
         for(int i = 0; i < dangers.size(); i++){
             for(int j = i+1; j <dangers.size(); j++){
                 if(dangers.get(i).getX() == dangers.get(j).getX() && dangers.get(i).getY() == dangers.get(j).getY()){
