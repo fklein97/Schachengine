@@ -1,6 +1,8 @@
 package Rating;
 
 import Board.*;
+import MoveGenerator.DangerChecker;
+import Parameters.Parameters;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,39 +11,50 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
-    private static final int INDANGER_VALUE = -50;
+    private static final int KINGINDANGER_VALUE = -500;
 
-    private static final int PAWN_VALUE = 100;
-    private static final int KNIGHT_VALUE = 325;
-    private static final int BISHOP_VALUE = 325;
-    private static final int ROOK_VALUE = 500;
-    private static final int QUEEN_VALUE = 975;
+    private static final int PAWN_VALUE = 1000;
+    private static final int KNIGHT_VALUE = 3250;
+    private static final int BISHOP_VALUE = 3250;
+    private static final int ROOK_VALUE = 5000;
+    private static final int QUEEN_VALUE = 9750;
     private static final int KING_VALUE = 999999;
-    private static final int BOTH_BISHOPS_VALUE = 50;
+    private static final int BOTH_BISHOPS_VALUE = 500;
+
+    private static final int POSITION_DANGERED_VALUE = 2;
 
     public static int getBoardRating(ChessBoard chessboard){
         int rating = 0;
 
         rating = rating + getMaterialRating(chessboard);
-        rating = rating + getDangerRating(chessboard);
+        rating = rating + getKingDangerRating(chessboard);
+        rating = rating + getDangerPositionsRating(chessboard);
+
+        if(Parameters.randomizerValue > 0) {
+            Random rd = new Random();
+            rating += rd.nextInt(Parameters.randomizerValue);
+        }
 
         return rating;
     }
 
     public static int getDangerPositionsRating(ChessBoard chessboard){
         int rating = 0;
+        ArrayList<Position> whiteDangerPositions = DangerChecker.getDangerPositionsWithoutDuplicates(chessboard,false);
+        ArrayList<Position> blackDangerPositions = DangerChecker.getDangerPositionsWithoutDuplicates(chessboard, true);
 
+        rating = (whiteDangerPositions.size() * POSITION_DANGERED_VALUE ) - (blackDangerPositions.size() * POSITION_DANGERED_VALUE );
         return rating;
     }
 
-    public static int getDangerRating(ChessBoard chessboard){
+    public static int getKingDangerRating(ChessBoard chessboard){
         int rating = 0;
 
         if(chessboard.isKinginDanger(true)){
-            rating = rating + INDANGER_VALUE;
+            rating = rating + KINGINDANGER_VALUE;
         }
         if(chessboard.isKinginDanger(false)){
-            rating = rating - INDANGER_VALUE;
+            rating = rating - KINGINDANGER_VALUE;
         }
 
         return rating;
@@ -101,8 +114,7 @@ public class BoardRater {
         if(black_bishops >= 2){
             rating = rating - BOTH_BISHOPS_VALUE;
         }
-        Random rd = new Random();
-        rating += rd.nextInt(10);
+
         return rating;
     }
 }

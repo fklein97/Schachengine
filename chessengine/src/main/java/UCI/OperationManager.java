@@ -33,6 +33,7 @@ public class OperationManager {
     private DataManager history;
     private ChessBoard board;
     private MoveGenerator generator;
+    private TimeManager timer;
 
     private boolean debug;
 
@@ -41,7 +42,10 @@ public class OperationManager {
         history = new DataManager();
         board = new ChessBoard();
         generator = new MoveGenerator();
+        timer = new TimeManager();
     }
+
+    public TimeManager getTimer(){ return this.timer; }
 
     public void setDebug(boolean debug) {
         this.debug = debug;
@@ -217,15 +221,13 @@ public class OperationManager {
             ChessPiece piece;
 
             switch (pieceName.charAt(0)){
-                case QUEEN: piece = new Queen(cp.isWhite());
-                case ROOK: piece = new Rook(cp.isWhite());
-                case KNIGHT: piece = new Knight(cp.isWhite());
-                case BISHOP: piece = new Bishop(cp.isWhite());
+                case QUEEN: piece = new Queen(cp.isWhite()); break;
+                case ROOK: piece = new Rook(cp.isWhite()); break;
+                case KNIGHT: piece = new Knight(cp.isWhite()); break;
+                case BISHOP: piece = new Bishop(cp.isWhite()); break;
                 default:
                     piece = new Pawn(cp.isWhite());
             }
-            oldPos.setPiece(piece);
-            newPos.setPiece(piece);
             board.move(oldPos, newPos,piece);
         }
         board.print();
@@ -235,81 +237,26 @@ public class OperationManager {
     /**
      * Method go starts the
      */
-    public String go(String input){ //TODO unrandomize as soon as the engine knows whats a good move
-        /**Random ran = new Random();
-        ArrayList<Position> moveSet;                                                            //RANDOMIZED GO METHOD
-        Position testPos;
-        int randomOne = ran.nextInt(board.getPositions().size());
+    public String go(String input){
 
-        boolean kingindanger = false;
-        ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(board,Parameters.isEngineWhite);
-        for(Position p : dangerPositions){
-            if(p.getX() == board.getKingPosition(Parameters.isEngineWhite).getX() && p.getY() == board.getKingPosition(Parameters.isEngineWhite).getY()){
-                kingindanger = true;
-                break;
-            }
-        }
+        MinMaxTreeDominic gogoPowerrangers = new MinMaxTreeDominic();
+        Move move = gogoPowerrangers.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
-        if(kingindanger == false) {
-            while ((board.getPositions().get(randomOne).getPiece().isWhite() != Parameters.isEngineWhite)) {
-                randomOne = ran.nextInt(board.getPositions().size());
-            }
-            moveSet = generator.getMoveSet(board.getPositions().get(randomOne), board);
-
-            //TODO
-            if (moveSet.size() <= 0) {
-                return go(input);
-            }
-        }
-        else{
-            moveSet = generator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite), board);
-        }
-        int randomTwo = ran.nextInt(moveSet.size());
-
-        String move;
-
-        if(kingindanger == false) {
-            move = (posToString(board.getPositions().get(randomOne)) + posToString(moveSet.get(randomTwo)));
-            board.getPositions().get(randomOne).getPiece().move();
-            board.move(board.getPositions().get(randomOne), moveSet.get(randomTwo));
-        }
-        else{
-            move = (posToString(board.getKingPosition(Parameters.isEngineWhite)) + posToString(moveSet.get(randomTwo)));
-            board.getKingPosition(Parameters.isEngineWhite).getPiece().move();
-            board.move(board.getKingPosition(Parameters.isEngineWhite), moveSet.get(randomTwo));
-        }
-        //TODO
-         board.print();
-
-         history.addBoard(board);
-         return move;
-         */
-
-        //boolean kingindanger = board.isKinginDanger(Parameters.isEngineWhite);
         String movestring = "";
+/**
+        MinMaxTree tree = new MinMaxTree(board,Parameters.isEngineWhite);
+        tree.generateTree(Parameters.Depth);
+        Move move = tree.getBestMove();
+**/
 
-        //if(kingindanger == false) {
-            Min_Max_Tree tree = new Min_Max_Tree(board,Parameters.isEngineWhite);
-            tree.generate_Tree(Parameters.Depth);
-            Move move = tree.getBestMove();
+        movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
+        board.move(move.getPositionFrom(), move.getPositionTo());
 
-            movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
-            board.move(move.getPositionFrom(), move.getPositionTo());
-        //}
-        /**else{                                                                      //OLD KING DANGER CHECK
-            ArrayList<Position> kingmoveset = new ArrayList<>();
-            kingmoveset = MoveGenerator.getMoveSet(board.getKingPosition(Parameters.isEngineWhite),board);
-            Random rng = new Random();
-            int randomkingmove = rng.nextInt(kingmoveset.size());
-            Position newPos = kingmoveset.get(randomkingmove);
-
-            movestring = (posToString(board.getKingPosition(Parameters.isEngineWhite)))+ posToString(newPos);
-            board.move(board.getKingPosition(Parameters.isEngineWhite),newPos);
-        }*/
         board.print();
         System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
         System.gc();
         return movestring;
+
     }
 
     /**

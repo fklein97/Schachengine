@@ -2,6 +2,10 @@ package UCI;
 
 import Parameters.Parameters;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * Class UCI that interprets given Strings as UCI commands and launches related methods
  */
@@ -144,7 +148,6 @@ public class UCI {
             manager.handleFEN(input);
             readyFEN = false;
         }
-
         if (input.contains(UCI_Commands.MOVES)){
             input = input.substring(input.length()-5).trim();
             manager.playerMove(input);
@@ -169,6 +172,24 @@ public class UCI {
      * Starts the calculation of the best possible move
      */
     public void go(String input){
+
+        /**
+         * Set up time management
+         */
+        ArrayList<String> times = new ArrayList<>();
+        if (input.contains("wtime") && input.contains("btime")) {
+            String temp = input;
+            temp = temp.replaceAll("[^0-9]+", " ");
+            times.addAll(Arrays.asList(temp.trim().split(" ")));
+            if (Parameters.isEngineWhite) {
+                manager.getTimer().setEngineTime(Integer.parseInt(times.get(0)));
+                manager.getTimer().setPlayerTime(Integer.parseInt(times.get(1)));
+            } else {
+                manager.getTimer().setEngineTime(Integer.parseInt(times.get(1)));
+                manager.getTimer().setPlayerTime(Integer.parseInt(times.get(0)));
+            }
+        }
+
         io.answer("INFO: Start go");
         goThread = new Thread() {
             @Override

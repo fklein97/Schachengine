@@ -2,6 +2,7 @@ package MoveEvaluation;
 
 import Board.*;
 import MoveGenerator.MoveGenerator;
+import Parameters.Parameters;
 import Rating.BoardRater;
 
 
@@ -44,10 +45,16 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                       /**if(currentNode.getRating() >= currentNode.getMinRating()){
-                            return currentNode.getRating();
-                       }*/
-
+                        if(currentNode.getParent() != null) {
+                            if (currentNode.getRating() >= currentNode.getParent().getMinRating() && Parameters.useAlphaBeta) {
+                                return currentNode.getRating();
+                            }
+                        }
+                        else {
+                            if(currentNode.getRating() >= currentNode.getMinRating() && Parameters.useAlphaBeta){
+                                return currentNode.getRating();
+                            }
+                        }
                     }
                 }
 
@@ -63,10 +70,16 @@ public class MinMaxTree {
                         rating = generateTree((maxDepth-1), childNode);
                         //System.out.println("Rating: "+rating);
                         update(currentNode, rating);
-                        /**if(currentNode.getRating() <= currentNode.getMaxRating()){
-                            return currentNode.getRating();
-                        }*/
-
+                        if(currentNode.getParent() != null){
+                            if (currentNode.getRating() <= currentNode.getParent().getMaxRating() && Parameters.useAlphaBeta) {
+                                return currentNode.getRating();
+                            }
+                        }
+                        else {
+                            if(currentNode.getRating() <= currentNode.getMaxRating() && Parameters.useAlphaBeta){
+                                return currentNode.getRating();
+                            }
+                        }
                     }
                 }
             }

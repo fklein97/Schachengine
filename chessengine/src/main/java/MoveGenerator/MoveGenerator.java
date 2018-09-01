@@ -26,7 +26,6 @@ public class MoveGenerator {
      * @return moveset of the chesspiece
      */
     public static ArrayList<Position> getMoveSet(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
-        ArrayList<Position> boardPositions = chessboard.getPositionsCopy();
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
 
@@ -54,9 +53,12 @@ public class MoveGenerator {
 
         ArrayList<Position> dangermoves = new ArrayList<>();
         for(Position p : moveset){
+            Position movefrom = new Position(currentPos.getX(),currentPos.getY(), cp);
+            Position moveto = new Position(p.getX(),p.getY(),cp);
+            ArrayList<Position> boardPositions = chessboard.getPositionsCopy();
             ChessBoard checkDangerBoard = new ChessBoard(boardPositions);
-            checkDangerBoard.move(currentPos,p);
-            if(checkDangerBoard.isKinginDanger(p.getPiece().isWhite())){
+            checkDangerBoard.move(movefrom,moveto);
+            if(checkDangerBoard.isKinginDanger(cp.isWhite())){
                 dangermoves.add(p);
             }
         }
@@ -138,7 +140,15 @@ public class MoveGenerator {
 
         if(p.isWhite() == true){        // WHITE PAWN
             if((p_y + 1 <= 8) && (chessboard.chessPieceAt(p_x,p_y+1) == null)) { //Check if legal move
-                moveset.add(new Position(p_x, p_y + 1, p));
+                if(p_y + 1 < 8) {
+                    moveset.add(new Position(p_x, p_y + 1, p));
+                }
+                else{ //Pawn Transformation
+                    moveset.add(new Position(p_x, p_y + 1, new Queen(true)));
+                    moveset.add(new Position(p_x, p_y + 1, new Rook(true)));
+                    moveset.add(new Position(p_x, p_y + 1, new Knight(true)));
+                    moveset.add(new Position(p_x, p_y + 1, new Bishop(true)));
+                }
                 if (p.moved() == false) { //has moved?
                     if ((p_y + 2 <= 8) && (chessboard.chessPieceAt(p_x, p_y + 2) == null)) { //Check if legal move
                         moveset.add(new Position(p_x, p_y + 2, p));
@@ -179,7 +189,15 @@ public class MoveGenerator {
         }
         else{                           // BLACK PAWN
             if((p_y - 1 >= 1) && (chessboard.chessPieceAt(p_x,p_y-1) == null)) { //Check if legal move
-                moveset.add(new Position(p_x, p_y - 1, p));
+                if(p_y - 1 > 1) {
+                    moveset.add(new Position(p_x, p_y - 1, p));
+                }
+                else{ //Pawn Transformation
+                    moveset.add(new Position(p_x, p_y - 1, new Queen(false)));
+                    moveset.add(new Position(p_x, p_y - 1, new Rook(false)));
+                    moveset.add(new Position(p_x, p_y - 1, new Knight(false)));
+                    moveset.add(new Position(p_x, p_y - 1, new Bishop(false)));
+                }
                 if (p.moved() == false) { //has moved?
                     if ((p_y - 2 >= 1) && (chessboard.chessPieceAt(p_x, p_y - 2) == null)) { //Check if legal move
                         moveset.add(new Position(p_x, p_y - 2, p));

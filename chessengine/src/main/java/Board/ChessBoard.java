@@ -170,7 +170,7 @@ public class ChessBoard {
             if (from != null) {
                     positions.remove(from);
                     positionFrom.getPiece().move();
-                    positions.add(new Position(positionTo.getX(), positionTo.getY(), positionFrom.getPiece()));
+                    positions.add(new Position(positionTo.getX(), positionTo.getY(), positionTo.getPiece()));
 
             }
         }
@@ -261,16 +261,14 @@ public class ChessBoard {
 
     public boolean isKinginDanger(boolean forWhite) {
         if (this.getKingPosition(forWhite) != null) {
-            boolean kingindanger = false;
             ArrayList<Position> dangerPositions = DangerChecker.getDangerPositions(this, forWhite);
             for (Position p : dangerPositions) {
                 if (p.getX() == this.getKingPosition(forWhite).getX() && p.getY() == this.getKingPosition(forWhite).getY()) {
-                    kingindanger = true;
-                    break;
+                    return true;
                 }
             }
 
-            return kingindanger;
+            return false;
         } else {
             return true;
         }
@@ -279,7 +277,11 @@ public class ChessBoard {
     private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece) {
         int from = -1;
         int to = -1;
+
+        positionTo.setPiece(chessPiece);
         move(positionFrom, positionTo);
+
+        /**
         Position[] positionArr = (Position[]) positions.toArray(new Position[positions.size()]);
         for (int i = 0; i < positionArr.length; i++) {
             if (positionTo.equals(positionArr[i])) {
@@ -287,6 +289,7 @@ public class ChessBoard {
             }
         }
         positions.set(to, new Position(positionTo.getX(), positionTo.getY(), chessPiece));
+         **/
     }
 
 
