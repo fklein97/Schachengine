@@ -149,7 +149,7 @@ public class MoveGenerator {
                     moveset.add(new Position(p_x, p_y + 1, new Knight(true)));
                     moveset.add(new Position(p_x, p_y + 1, new Bishop(true)));
                 }
-                if (p.moved() == false) { //has moved?
+                if (p.moved() == false && p_y == 2) { //is on startposition
                     if ((p_y + 2 <= 8) && (chessboard.chessPieceAt(p_x, p_y + 2) == null)) { //Check if legal move
                         moveset.add(new Position(p_x, p_y + 2, p));
                     }
@@ -198,7 +198,7 @@ public class MoveGenerator {
                     moveset.add(new Position(p_x, p_y - 1, new Knight(false)));
                     moveset.add(new Position(p_x, p_y - 1, new Bishop(false)));
                 }
-                if (p.moved() == false) { //has moved?
+                if (p.moved() == false && p_y == 7) { //is on startposition
                     if ((p_y - 2 >= 1) && (chessboard.chessPieceAt(p_x, p_y - 2) == null)) { //Check if legal move
                         moveset.add(new Position(p_x, p_y - 2, p));
                     }
