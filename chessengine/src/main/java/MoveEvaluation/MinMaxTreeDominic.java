@@ -6,6 +6,7 @@ import Parameters.Parameters;
 import Rating.BoardRater;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class MinMaxTreeDominic {
@@ -18,9 +19,10 @@ public class MinMaxTreeDominic {
 
     public Move initialize(ChessBoard board, boolean max){
         ArrayList<Move> list = generateMoves(max, board);
+        ArrayList<Move> sortedlist = getPreSortedMoves(list,board,max);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         HashMap<Move,Integer> map = new HashMap();
-        for (Move m : list){
+        for (Move m : sortedlist){
             board.move(m.getPositionFrom(),m.getPositionTo());
             if(max) {
                 map.put(m, min(searchDepth - 1, -100000000, 100000000,board));
@@ -39,6 +41,46 @@ public class MinMaxTreeDominic {
         }
     }
 
+    private ArrayList<Move> getPreSortedMoves(ArrayList<Move> movelist, ChessBoard board, boolean max){
+        Move movearray[] = movelist.toArray(new Move[movelist.size()]);
+        int max_i = movearray.length -1;
+        int insert_i = 0;
+        while(insert_i < max_i){
+            int bestPosition = insert_i;
+            for(int i = insert_i + 1; i <= max_i; i++){
+                ChessBoard sortboard = new ChessBoard(board.getPositionsCopy());
+                ChessBoard sortboardbest = new ChessBoard(board.getPositionsCopy());
+                sortboard.move(movearray[i].getPositionFrom(),movearray[i].getPositionTo());
+                sortboardbest.move(movearray[bestPosition].getPositionFrom(),movearray[bestPosition].getPositionTo());
+                int rating = BoardRater.getBoardRating(sortboard);
+                int bestrating = BoardRater.getBoardRating(sortboardbest);
+                if(max){
+                    if (rating > bestrating) {
+                        bestPosition = i;
+                    }
+                }
+                else {
+                    if (rating < bestrating) {
+                        bestPosition = i;
+                    }
+                }
+            }
+            movearray = swap(movearray, bestPosition, insert_i);
+            insert_i++;
+        }
+        ArrayList<Move> sortedmoves = new ArrayList<Move>(Arrays.asList(movearray));
+
+        return sortedmoves;
+    }
+
+    private Move[] swap(Move[] movearray, int i, int j){
+        Move temp = null;
+        temp = movearray[i];
+        movearray[i] = movearray[j];
+        movearray[j] = temp;
+        return movearray;
+    }
+
     public int max(int depth, int alpha, int beta, ChessBoard board) {
         int value = alpha;
         ArrayList<Move> moveset = new ArrayList<>();
@@ -47,6 +89,9 @@ public class MinMaxTreeDominic {
             return BoardRater.getBoardRating(board);
         int maxValue = alpha;
         moveset = generateMoves(true, board);
+        if(depth == Parameters.Depth - 1){
+            moveset = getPreSortedMoves(moveset,board,true);
+        }
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
             value = min(depth - 1, maxValue, beta, board);
@@ -74,6 +119,9 @@ public class MinMaxTreeDominic {
             return BoardRater.getBoardRating(board);
         int minValue = beta;
         moveset = generateMoves(false, board);
+        if(depth == Parameters.Depth - 1){
+            moveset = getPreSortedMoves(moveset,board,false);
+        }
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
             value = max(depth - 1, alpha, minValue, board);
@@ -92,7 +140,7 @@ public class MinMaxTreeDominic {
         return minValue;
     }
 
-    //Aktuell nur Schwarz TODO
+
     public ArrayList<Move> generateMoves(boolean max, ChessBoard board){
         ArrayList<Move> moveset = new ArrayList<>();
         if (max){
