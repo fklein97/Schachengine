@@ -361,43 +361,43 @@ public class BoardRater {
         if(chessPiece.isWhite()){
             switch(position.getPiece().toString()){
                 case "white pawn":
-                    rating = PAWN_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = PAWN_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
                 case "white rook":
-                    rating = ROOK_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = ROOK_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
                 case "white bishop":
-                    rating = BISHOP_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = BISHOP_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
                 case "white knight":
-                    rating = KNIGHT_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = KNIGHT_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
                 case "white queen":
-                    rating = QUEEN_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = QUEEN_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
                 case "white king":
-                    rating = KING_POSITION_VALUE[1][position.getX()-1][position.getY()-1];
+                    rating = KING_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
             }
         }else {
             switch (position.getPiece().toString()) {
                 case "black pawn":
-                    rating = PAWN_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = PAWN_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
                 case "black rook":
-                    rating = ROOK_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = ROOK_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
                 case "black bishop":
-                    rating = BISHOP_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = BISHOP_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
                 case "black knight":
-                    rating = KNIGHT_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = KNIGHT_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
                 case "black queen":
-                    rating = QUEEN_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = QUEEN_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
                 case "black king":
-                    rating = KING_POSITION_VALUE[0][position.getX()-1][position.getY()-1];
+                    rating = KING_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
             }
             rating = rating * -1;
