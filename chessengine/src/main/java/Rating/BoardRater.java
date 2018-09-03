@@ -298,9 +298,9 @@ public class BoardRater {
                     free = true;
                 }
                 for(int i = 0; i < blackPawnList.size(); i++){
-                    for(int j = 0; j <= whitePawnList.size()  ;j++){
+                    for(int j = 0; j < whitePawnList.size()  ;j++){
                         if(blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()+1 == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()-1 == whitePawnList.get(j).getX()){
-                            free = true;
+                            free = false;
                         }
                         if(free == true){
                             rating = rating - 500;
@@ -351,7 +351,7 @@ public class BoardRater {
         int         rating       = 0;
 
         if(chessPiece.isWhite()){
-            switch(position.getPiece().toString()){
+            switch(chessPiece.toString()){
                 case "white pawn":
                     rating = PAWN_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
@@ -372,7 +372,7 @@ public class BoardRater {
                     break;
             }
         }else {
-            switch (position.getPiece().toString()) {
+            switch (chessPiece.toString()) {
                 case "black pawn":
                     rating = PAWN_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
