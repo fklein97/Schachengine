@@ -288,21 +288,21 @@ public class BoardRater {
             if(whitePawnList.size() < 6 && blackPawnList.size() < 6){
                 for(int i = 0; i < whitePawnList.size(); i++){
                     for(int j = 0; j <= blackPawnList.size()  ;j++){
-                        if(whitePawnList.get(i).getY() == blackPawnList.get(j).getY() || whitePawnList.get(i).getY() == blackPawnList.get(j).getY()+1 || whitePawnList.get(i).getY()-1 == blackPawnList.get(j).getY()){
+                        if(whitePawnList.get(i).getX() == blackPawnList.get(j).getX() || whitePawnList.get(i).getX() == blackPawnList.get(j).getX()+1 || whitePawnList.get(i).getX()-1 == blackPawnList.get(j).getX()){
                             free = false;
                         }
                     }
-                    if(free = true){
+                    if(free == true){
                         rating = rating + 500;
                     }
                     free = true;
                 }
                 for(int i = 0; i < blackPawnList.size(); i++){
                     for(int j = 0; j <= whitePawnList.size()  ;j++){
-                        if(blackPawnList.get(i).getY() == whitePawnList.get(j).getY() || blackPawnList.get(i).getY()+1 == whitePawnList.get(j).getY() || blackPawnList.get(i).getY()-1 == whitePawnList.get(j).getY()){
+                        if(blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()+1 == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()-1 == whitePawnList.get(j).getX()){
                             free = true;
                         }
-                        if(free = true){
+                        if(free == true){
                             rating = rating - 500;
                         }
                         free = true;
@@ -319,15 +319,15 @@ public class BoardRater {
         int white = 0;
 
         for(int i = 0; i < whitePawnList.size(); i++){
-            for(int j = i+1; j <= whitePawnList.size()  ;j++){
-                if(whitePawnList.get(i).getY() == whitePawnList.get(j).getY()){
+            for(int j = i+1; j < whitePawnList.size()  ;j++){
+                if(whitePawnList.get(i).getX() == whitePawnList.get(j).getX()){
                     white++;
                 }
             }
         }
         for(int i = 0; i < blackPawnList.size(); i++){
-            for(int j = i+1; j <= blackPawnList.size()  ;j++){
-                if(blackPawnList.get(i).getY() == blackPawnList.get(j).getY()){
+            for(int j = i+1; j < blackPawnList.size()  ;j++){
+                if(blackPawnList.get(i).getX() == blackPawnList.get(j).getX()){
                     black++;
                 }
             }
