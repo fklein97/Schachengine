@@ -21,7 +21,7 @@ public class BoardRater {
     private static final int KING_VALUE = 999999;
     private static final int BOTH_BISHOPS_VALUE = 500;
 
-    private static final int POSITION_DANGERED_VALUE = 2;
+    private static final int POSITION_DANGERED_VALUE = 3;
 
     private final static int[][][] PAWN_POSITION_VALUE = {
             {
@@ -387,6 +387,7 @@ public class BoardRater {
             rating = rating * -1;
 
         }
+        rating = rating / 2;
         return rating;
     }
 
