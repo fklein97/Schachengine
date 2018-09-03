@@ -8,7 +8,7 @@ public class Parameters {
     public static boolean isColorSet = false;
 
     public static int Depth = 4;
-    public static int randomizerValue = 5;
+    public static int randomizerValue = 0;
 
     public static boolean useAlphaBeta = true;
 

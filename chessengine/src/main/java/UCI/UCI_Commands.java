@@ -109,7 +109,7 @@ final class UCI_Commands {
     /**
      * Offers all the configurable options to the GUI
      */
-    static final String OPTION = "option";
+    static final String OPTION = "option name ";
 
     /**
      * Debug information must be flagged with info
