@@ -160,7 +160,11 @@ public class BoardRater {
         int rating = 0;
 
         rating = rating + getMaterialRating(chessboard);
-        rating = rating + getKingDangerRating(chessboard);
+
+        if(chessboard.getPositions().size() <= 10) {
+            rating = rating + getKingDangerRating(chessboard);
+        }
+
         rating = rating + getDangerPositionsRating(chessboard);
 
         if(Parameters.randomizerValue > 0) {
@@ -186,7 +190,7 @@ public class BoardRater {
         if(chessboard.isKinginDanger(true)){
             rating = rating + KINGINDANGER_VALUE;
         }
-        if(chessboard.isKinginDanger(false)){
+        else if(chessboard.isKinginDanger(false)){
             rating = rating - KINGINDANGER_VALUE;
         }
 

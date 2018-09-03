@@ -79,8 +79,8 @@ public class UCI {
      * Method to register the Engine
      */
     public void uci(){
-        io.answer(UCI_Commands.ID + "test"/*TODO + NAMENSKONSTANTE*/);
-        io.answer(UCI_Commands.AUTHOR + "test"/*TODO + AUTORENKONSTANTE*/);
+        io.answer(UCI_Commands.ID + "Chessica"/*TODO + NAMENSKONSTANTE*/);
+        io.answer(UCI_Commands.AUTHOR + "htw saar"/*TODO + AUTORENKONSTANTE*/);
 
         offerOptions();
 
@@ -91,8 +91,9 @@ public class UCI {
      * Method to send all possible options to the GUI
      */
     public void offerOptions(){
-
-        // io.answer(UCI_Commands.OPTION);
+        io.answer(UCI_Commands.OPTION + "Depth type spin default " + Parameters.Depth + " min 2 max 10");
+        io.answer(UCI_Commands.OPTION + "use_AlphaBeta type check default " + Boolean.toString(Parameters.useAlphaBeta));
+        io.answer(UCI_Commands.OPTION + "RandomizerValue type spin default " + Parameters.randomizerValue + " min 0 max 100");
     }
 
     /**
@@ -106,7 +107,25 @@ public class UCI {
      * receives the parameters for the offered options and sets them
      */
     public void setOption(String input){
-        //TODO
+        String[] input_array = input.split(" ");
+        if(input_array[2].equals("Depth")){
+            Parameters.Depth = Integer.parseInt(input_array[4]);
+            System.out.println("INFO: Engine Depth has been changed!");
+        }
+        else if (input_array[2].equals("use_AlphaBeta")){
+            if(input_array[4].equals("true")){
+                Parameters.useAlphaBeta = true;
+                System.out.println("INFO: The Engine now uses AlphaBeta!");
+            }
+            else if(input_array[4].equals("false")){
+                Parameters.useAlphaBeta = false;
+                System.out.println("INFO: The Engine now doesnt use AlphaBeta!");
+            }
+        }
+        else if(input_array[2].equals("RandomizerValue")){
+            Parameters.randomizerValue = Integer.parseInt(input_array[4]);
+            System.out.println("INFO: The Randomizer Value has been changed!");
+        }
     }
 
     /**
