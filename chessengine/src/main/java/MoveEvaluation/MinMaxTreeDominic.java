@@ -18,6 +18,8 @@ public class MinMaxTreeDominic {
     }
 
     public Move initialize(ChessBoard board, boolean max){
+        int alpha = -100000000;
+        int beta = 100000000;
         ArrayList<Move> list = generateMoves(max, board);
         ArrayList<Move> sortedlist = getPreSortedMoves(list,board,max);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
@@ -25,10 +27,18 @@ public class MinMaxTreeDominic {
         for (Move m : sortedlist){
             board.move(m.getPositionFrom(),m.getPositionTo());
             if(max) {
-                map.put(m, min(searchDepth - 1, -100000000, 100000000,board));
+                int min_value = min(searchDepth - 1, alpha, beta,board);
+                map.put(m, min_value);
+                if(min_value < alpha){
+                    alpha = min_value;
+                }
             }
             else{
-                map.put(m, max(searchDepth - 1, -100000000, 100000000, board));
+                int max_value =  max(searchDepth - 1, alpha, beta, board);
+                map.put(m,max_value);
+                if(max_value > beta){
+                    beta = max_value;
+                }
             }
             board = new ChessBoard(origin.getPositionsCopy());
         }
