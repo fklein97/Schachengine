@@ -279,19 +279,27 @@ public class BoardRater {
     private static int freePawn(ArrayList<Position> whitePawnList, ArrayList<Position> blackPawnList){
         int rating = 0;
         boolean free = true;
-            if(whitePawnList.size() < 7 && blackPawnList.size()<7){
+            if(whitePawnList.size() < 6 && blackPawnList.size() < 6){
                 for(int i = 0; i < whitePawnList.size(); i++){
                     for(int j = 0; j <= blackPawnList.size()  ;j++){
-                        if(whitePawnList.get(i).getY() != blackPawnList.get(j).getY() && whitePawnList.get(i).getY() != blackPawnList.get(j).getY()+1 && whitePawnList.get(i).getY()-1 != blackPawnList.get(j).getY()){
-                            rating = rating + 500;
+                        if(whitePawnList.get(i).getY() == blackPawnList.get(j).getY() || whitePawnList.get(i).getY() == blackPawnList.get(j).getY()+1 || whitePawnList.get(i).getY()-1 == blackPawnList.get(j).getY()){
+                            free = false;
                         }
                     }
+                    if(free = true){
+                        rating = rating + 500;
+                    }
+                    free = true;
                 }
                 for(int i = 0; i < blackPawnList.size(); i++){
                     for(int j = 0; j <= whitePawnList.size()  ;j++){
-                        if(blackPawnList.get(i).getY() != whitePawnList.get(j).getY() && blackPawnList.get(i).getY()+1 != whitePawnList.get(j).getY() && blackPawnList.get(i).getY()-1 != whitePawnList.get(j).getY()){
-                            rating = rating -500;
+                        if(blackPawnList.get(i).getY() == whitePawnList.get(j).getY() || blackPawnList.get(i).getY()+1 == whitePawnList.get(j).getY() || blackPawnList.get(i).getY()-1 == whitePawnList.get(j).getY()){
+                            free = true;
                         }
+                        if(free = true){
+                            rating = rating - 500;
+                        }
+                        free = true;
                     }
                 }
             }
