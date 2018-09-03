@@ -99,9 +99,6 @@ public class MinMaxTreeDominic {
             return BoardRater.getBoardRating(board);
         int maxValue = alpha;
         moveset = generateMoves(true, board);
-        if(depth == Parameters.Depth - 1){
-            moveset = getPreSortedMoves(moveset,board,true);
-        }
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
             value = min(depth - 1, maxValue, beta, board);
@@ -129,9 +126,6 @@ public class MinMaxTreeDominic {
             return BoardRater.getBoardRating(board);
         int minValue = beta;
         moveset = generateMoves(false, board);
-        if(depth == Parameters.Depth - 1){
-            moveset = getPreSortedMoves(moveset,board,false);
-        }
         for (Move p : moveset) {
             board.move(p.getPositionFrom(), p.getPositionTo());
             value = max(depth - 1, alpha, minValue, board);
