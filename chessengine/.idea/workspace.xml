@@ -26,7 +26,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3383">
               <caret line="200" column="50" lean-forward="false" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,8 +36,8 @@
       <file leaf-file-name="MinMaxTreeDominic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="408">
+              <caret line="112" column="17" lean-forward="true" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -44,8 +46,8 @@
       <file leaf-file-name="UCI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UCI/UCI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+            <state relative-caret-position="484">
+              <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -67,7 +69,7 @@
       <file leaf-file-name="IO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UCI/IO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408">
+            <state relative-caret-position="-468">
               <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
@@ -77,8 +79,8 @@
       <file leaf-file-name="Parameters.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Parameters/Parameters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="391">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,9 +89,12 @@
       <file leaf-file-name="BoardRater.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
-              <folding />
+            <state relative-caret-position="329">
+              <caret line="166" column="63" lean-forward="false" selection-start-line="166" selection-start-column="63" selection-end-line="166" selection-end-column="63" />
+              <folding>
+                <element signature="e#11491#11501#0" expanded="true" />
+                <element signature="e#11562#11572#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,19 +104,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#232#233#0" expanded="false" />
-                <element signature="e#264#265#0" expanded="false" />
-                <element signature="e#586#587#0" expanded="false" />
-                <element signature="e#628#629#0" expanded="false" />
-                <element signature="e#783#784#0" expanded="false" />
-                <element signature="e#825#826#0" expanded="false" />
-                <element signature="e#1581#1582#0" expanded="false" />
-                <element signature="e#1604#1605#0" expanded="false" />
-                <element signature="e#1662#1663#0" expanded="false" />
-                <element signature="e#1704#1705#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,16 +115,7 @@
             <state relative-caret-position="459">
               <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
-                <element signature="e#612#613#0" expanded="false" />
-                <element signature="e#638#639#0" expanded="false" />
-                <element signature="e#663#664#0" expanded="false" />
-                <element signature="e#687#688#0" expanded="false" />
-                <element signature="e#718#719#0" expanded="false" />
-                <element signature="e#744#745#0" expanded="false" />
-                <element signature="e#780#781#0" expanded="false" />
-                <element signature="e#808#809#0" expanded="false" />
-                <element signature="e#1638#1639#0" expanded="false" />
-                <element signature="e#1672#1673#0" expanded="false" />
+                <element signature="e#581#582#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,11 +165,11 @@
         <option value="$PROJECT_DIR$/src/main/java/UCI/OperationManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/DangerChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Parameters/Parameters.java" />
         <option value="$PROJECT_DIR$/src/main/java/UCI/UCI_Commands.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UCI/UCI.java" />
         <option value="$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Parameters/Parameters.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rating/BoardRater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UCI/UCI.java" />
       </list>
     </option>
   </component>
@@ -936,7 +920,8 @@
       <workItem from="1535818363540" duration="5840000" />
       <workItem from="1535889613056" duration="4236000" />
       <workItem from="1535898013228" duration="4068000" />
-      <workItem from="1535968159427" duration="8647000" />
+      <workItem from="1535968159427" duration="9168000" />
+      <workItem from="1535989913196" duration="7029000" />
     </task>
     <servers />
   </component>
@@ -955,11 +940,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113864000" />
+    <option name="totallyTimeSpent" value="121414000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1292,21 +1277,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Board/Position.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/UCI_Commands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="569">
+          <caret line="111" column="46" lean-forward="false" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="200" column="50" lean-forward="false" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
           <folding>
-            <element signature="e#612#613#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#663#664#0" expanded="false" />
-            <element signature="e#687#688#0" expanded="false" />
-            <element signature="e#718#719#0" expanded="false" />
-            <element signature="e#744#745#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-            <element signature="e#808#809#0" expanded="false" />
-            <element signature="e#1638#1639#0" expanded="false" />
-            <element signature="e#1672#1673#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1315,34 +1299,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#232#233#0" expanded="false" />
-            <element signature="e#264#265#0" expanded="false" />
-            <element signature="e#586#587#0" expanded="false" />
-            <element signature="e#628#629#0" expanded="false" />
-            <element signature="e#783#784#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#1581#1582#0" expanded="false" />
-            <element signature="e#1604#1605#0" expanded="false" />
-            <element signature="e#1662#1663#0" expanded="false" />
-            <element signature="e#1704#1705#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parameters/Parameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/IO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Board/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="459">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#581#582#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="112" column="17" lean-forward="true" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1358,43 +1332,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/UCI_Commands.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parameters/Parameters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="111" column="46" lean-forward="false" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UCI/IO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UCI/UCI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveGenerator/MoveGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3383">
-          <caret line="200" column="50" lean-forward="false" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MoveEvaluation/MinMaxTreeDominic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+        <state relative-caret-position="484">
+          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Rating/BoardRater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="389" column="27" lean-forward="true" selection-start-line="389" selection-start-column="27" selection-end-line="389" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="329">
+          <caret line="166" column="63" lean-forward="false" selection-start-line="166" selection-start-column="63" selection-end-line="166" selection-end-column="63" />
+          <folding>
+            <element signature="e#11491#11501#0" expanded="true" />
+            <element signature="e#11562#11572#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

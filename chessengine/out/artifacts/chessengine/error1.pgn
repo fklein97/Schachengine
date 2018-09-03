@@ -1,0 +1,23 @@
+[Event "Computer chess game"]
+[Site "LENOVO-FLORIAN"]
+[Date "2018.09.03"]
+[Round "?"]
+[White "Chessica player2"]
+[Black "Chessica"]
+[Result "*"]
+[BlackElo "2000"]
+[ECO "A00"]
+[Opening "Dunst (Sleipner-Heinrichsen-Van Geet) Opening"]
+[Time "18:39:21"]
+[WhiteElo "2000"]
+[TimeControl "0+60"]
+[Termination "unterminated"]
+[PlyCount "50"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. Nc3 c6 2. Nf3 Qa5 3. Nb1 Nf6 4. h3 Ne4 5. Nc3 Nd6 6. a3 Na6 7. e4 Nc7 8.
+e5 Nf5 9. Bd3 Nh6 10. b4 Qa6 11. Bxa6 Nxa6 12. b5 Nc7 13. bxc6 bxc6 14. d3
+Ne6 15. Bxh6 gxh6 16. Kf1 f5 17. Nh4 f4 18. Nf5 Ng7 19. Nxg7+ Bxg7 20. d4
+Ba6+ 21. Kg1 Bc4 22. Qg4 Bf8 23. Kh2 h5 24. Qxh5+ Kd8 25. Qg5 Kc8 *
+

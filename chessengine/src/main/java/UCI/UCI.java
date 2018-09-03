@@ -94,6 +94,12 @@ public class UCI {
         io.answer(UCI_Commands.OPTION + "Depth type spin default " + Parameters.Depth + " min 2 max 10");
         io.answer(UCI_Commands.OPTION + "use_AlphaBeta type check default " + Boolean.toString(Parameters.useAlphaBeta));
         io.answer(UCI_Commands.OPTION + "RandomizerValue type spin default " + Parameters.randomizerValue + " min 0 max 100");
+        io.answer(UCI_Commands.OPTION + "use_Material_Rating type check default " + Boolean.toString(Parameters.useMaterialRating));
+        io.answer(UCI_Commands.OPTION + "use_KinginDanger_Rating type check default " + Boolean.toString(Parameters.useKinginDangerRating));
+        io.answer(UCI_Commands.OPTION + "KinginDanger_PieceCount type spin default " + Parameters.KinginDangerPieceCount + " min 1 max 50");
+        io.answer(UCI_Commands.OPTION + "use_DangerPositions_Rating type check default " + Boolean.toString(Parameters.useDangerPositionsRating));
+        io.answer(UCI_Commands.OPTION + "use_Position_Rating type check default " + Boolean.toString(Parameters.usePositionRating));
+        io.answer(UCI_Commands.OPTION + "use_PawnStructure_Rating type check default " + Boolean.toString(Parameters.usePawnStructureRating));
     }
 
     /**
@@ -110,7 +116,7 @@ public class UCI {
         String[] input_array = input.split(" ");
         if(input_array[2].equals("Depth")){
             Parameters.Depth = Integer.parseInt(input_array[4]);
-            System.out.println("INFO: Engine Depth has been changed!");
+            System.out.println("INFO: Engine Depth has been set!");
         }
         else if (input_array[2].equals("use_AlphaBeta")){
             if(input_array[4].equals("true")){
@@ -124,7 +130,56 @@ public class UCI {
         }
         else if(input_array[2].equals("RandomizerValue")){
             Parameters.randomizerValue = Integer.parseInt(input_array[4]);
-            System.out.println("INFO: The Randomizer Value has been changed!");
+            System.out.println("INFO: The Randomizer Value has been set!");
+        }
+        else if (input_array[2].equals("use_Material_Rating")) {
+            if (input_array[4].equals("true")) {
+                Parameters.useMaterialRating = true;
+                System.out.println("INFO: The Engine now uses MaterialRating!");
+            } else if (input_array[4].equals("false")) {
+                Parameters.useMaterialRating = false;
+                System.out.println("INFO: The Engine now doesnt use MaterialRating!");
+            }
+        }
+        else if (input_array[2].equals("use_KinginDanger_Rating")) {
+            if (input_array[4].equals("true")) {
+                Parameters.useKinginDangerRating = true;
+                System.out.println("INFO: The Engine now uses KinginDangerRating!");
+            } else if (input_array[4].equals("false")) {
+                Parameters.useKinginDangerRating = false;
+                System.out.println("INFO: The Engine now doesnt use KinginDangerRating!");
+            }
+        }
+        else if(input_array[2].equals("KinginDanger_PieceCount")){
+            Parameters.KinginDangerPieceCount = Integer.parseInt(input_array[4]);
+            System.out.println("INFO: The KinginDanger Piececount has been set!");
+        }
+        else if (input_array[2].equals("use_DangerPositions_Rating")) {
+            if (input_array[4].equals("true")) {
+                Parameters.useDangerPositionsRating = true;
+                System.out.println("INFO: The Engine now uses DangerPositionsRating!");
+            } else if (input_array[4].equals("false")) {
+                Parameters.useDangerPositionsRating = false;
+                System.out.println("INFO: The Engine now doesnt use DangerPositionsRating!");
+            }
+        }
+        else if (input_array[2].equals("use_Position_Rating")) {
+            if (input_array[4].equals("true")) {
+                Parameters.usePositionRating = true;
+                System.out.println("INFO: The Engine now uses PositionRating!");
+            } else if (input_array[4].equals("false")) {
+                Parameters.usePositionRating = false;
+                System.out.println("INFO: The Engine now doesnt use PositionRating!");
+            }
+        }
+        else if (input_array[2].equals("use_PawnStructure_Rating")) {
+            if (input_array[4].equals("true")) {
+                Parameters.usePawnStructureRating = true;
+                System.out.println("INFO: The Engine now uses PawnStructureRating!");
+            } else if (input_array[4].equals("false")) {
+                Parameters.usePawnStructureRating = false;
+                System.out.println("INFO: The Engine now doesnt use PawnStructureRating!");
+            }
         }
     }
 

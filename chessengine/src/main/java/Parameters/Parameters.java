@@ -12,5 +12,12 @@ public class Parameters {
 
     public static boolean useAlphaBeta = true;
 
+    public static boolean useMaterialRating = true;
+    public static boolean useKinginDangerRating = true;
+    public static int KinginDangerPieceCount = 15;
+    public static boolean useDangerPositionsRating = true;
+    public static boolean usePositionRating = true;
+    public static boolean usePawnStructureRating = true;
+
     public static int turnTime;
 }

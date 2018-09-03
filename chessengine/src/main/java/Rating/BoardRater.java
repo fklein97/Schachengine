@@ -159,15 +159,27 @@ public class BoardRater {
     public static int getBoardRating(ChessBoard chessboard){
         int rating = 0;
 
-        rating = rating + getMaterialRating(chessboard);
-
-        if(chessboard.getPositions().size() <= 15) {
-            rating = rating + getKingDangerRating(chessboard);
+        if(Parameters.useMaterialRating) {
+            rating = rating + getMaterialRating(chessboard);
         }
 
-        rating = rating + getDangerPositionsRating(chessboard);
+        if(Parameters.useKinginDangerRating) {
+            if (chessboard.getPositions().size() <= Parameters.KinginDangerPieceCount) {
+                rating = rating + getKingDangerRating(chessboard);
+            }
+        }
 
-        rating = rating + getPositionRating(chessboard);
+        if(Parameters.useDangerPositionsRating) {
+            rating = rating + getDangerPositionsRating(chessboard);
+        }
+
+        if(Parameters.usePositionRating) {
+            rating = rating + getPositionRating(chessboard);
+        }
+
+        if(Parameters.usePawnStructureRating) {
+            rating = rating + getPawnStructureValue(chessboard);
+        }
 
         if(Parameters.randomizerValue > 0) {
             Random rd = new Random();
@@ -260,22 +272,18 @@ public class BoardRater {
     public static int getPawnStructureValue(ChessBoard chessBoard){
         int rating = 0;
         ArrayList<Position> positions = chessBoard.getPositions();
-        ArrayList<Position> pawnList = new ArrayList<Position>();
         ArrayList<Position> blackPawnList = new ArrayList<Position>();
         ArrayList<Position> whitePawnList = new ArrayList<Position>();
 
         for(Position p : positions){
-            if(p.getPiece().toString() == "white pawn" || p.getPiece().toString() == "black pawn"){
-                pawnList.add(p);
-            }
-        }
-        for(Position p : pawnList){
-            if(p.getPiece().isWhite()){
+            if(p.getPiece().toString().equals("white pawn")){
                 whitePawnList.add(p);
-            }else{
+            }
+            else if(p.getPiece().toString().equals("black pawn")){
                 blackPawnList.add(p);
             }
         }
+
 
         rating = rating + doublePawn(whitePawnList, blackPawnList);
         rating = rating + freePawn(whitePawnList, blackPawnList);
@@ -287,7 +295,7 @@ public class BoardRater {
         boolean free = true;
             if(whitePawnList.size() < 6 && blackPawnList.size() < 6){
                 for(int i = 0; i < whitePawnList.size(); i++){
-                    for(int j = 0; j <= blackPawnList.size()  ;j++){
+                    for(int j = 0; j < blackPawnList.size()  ;j++){
                         if(whitePawnList.get(i).getX() == blackPawnList.get(j).getX() || whitePawnList.get(i).getX() == blackPawnList.get(j).getX()+1 || whitePawnList.get(i).getX()-1 == blackPawnList.get(j).getX()){
                             free = false;
                         }
