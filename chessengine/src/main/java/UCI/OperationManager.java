@@ -13,22 +13,22 @@ import java.util.Random;
  */
 public class OperationManager {
 
-    private final int ASCII_a = 96;
-    private final int ASCII_1 = 48;
+    private static final int ASCII_a = 96;
+    private static final int ASCII_1 = 48;
 
-    private final char QUEEN = 'q';
-    private final char ROOK = 'r';
-    private final char KNIGHT = 'n';
-    private final char PAWN = 'p';
-    private final char KING = 'k';
-    private final char BISHOP = 'b';
+    private static final char QUEEN = 'q';
+    private static final char ROOK = 'r';
+    private static final char KNIGHT = 'n';
+    private static final char PAWN = 'p';
+    private static final char KING = 'k';
+    private static final char BISHOP = 'b';
 
-    private final char WQUEEN = 'Q';
-    private final char WROOK = 'R';
-    private final char WKNIGHT = 'N';
-    private final char WPAWN = 'P';
-    private final char WKING = 'K';
-    private final char WBISHOP = 'B';
+    private static final char WQUEEN = 'Q';
+    private static final char WROOK = 'R';
+    private static final char WKNIGHT = 'N';
+    private static final char WPAWN = 'P';
+    private static final char WKING = 'K';
+    private static final char WBISHOP = 'B';
 
     private DataManager history;
     private ChessBoard board;
@@ -253,7 +253,14 @@ public class OperationManager {
         board.move(move.getPositionFrom(), move.getPositionTo());
 
         board.print();
-        System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
+        int boardrating = BoardRater.getBoardRating(board);
+        System.out.println("INFO: CURRENT BOARD RATING: " + boardrating);
+        if(Parameters.isEngineWhite) {
+            System.out.println("info score cp " + boardrating/10);
+        }
+        else{
+            System.out.println("info score cp " + boardrating/-10);
+        }
         System.gc();
         return movestring;
 
@@ -264,7 +271,7 @@ public class OperationManager {
      * @param pos Input position
      * @return String of position
      */
-    public String posToString(Position pos){
+    public static String posToString(Position pos){
 
        int x = pos.getX();
        int y = pos.getY();

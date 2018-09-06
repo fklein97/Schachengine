@@ -4,6 +4,7 @@ import Board.*;
 import MoveGenerator.*;
 import Parameters.Parameters;
 import Rating.BoardRater;
+import UCI.OperationManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,6 +42,8 @@ public class MinMaxTreeDominic {
                 }
             }
             board = new ChessBoard(origin.getPositionsCopy());
+
+            System.out.println("info currmove " + OperationManager.posToString(m.getPositionFrom()) + OperationManager.posToString(m.getPositionTo()) + " currmovenumber " + sortedlist.indexOf(m));
         }
         map.entrySet().stream().forEach(x -> {System.out.println(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
         if(max){
