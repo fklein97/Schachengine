@@ -3,6 +3,7 @@ package Rating;
 import Board.*;
 import MoveGenerator.DangerChecker;
 import Parameters.Parameters;
+import org.omg.CORBA.FREE_MEM;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -197,7 +198,7 @@ public class BoardRater {
             if(Parameters.usePawnStructureRating) {
                 if (p.getPiece().isWhite() && p.getPiece() instanceof Pawn) {
                     for (Position po : blackPawnList) {
-                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX() - 1 == po.getX()) {
+                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX()  == po.getX()- 1) {
                             free = false;
                         }
                         if (free == true) {
@@ -214,7 +215,7 @@ public class BoardRater {
                 }
                 if (!p.getPiece().isWhite() && p.getPiece() instanceof Pawn) {
                     for (Position po : whitePawnList) {
-                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX() - 1 == po.getX()) {
+                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX()  == po.getX()- 1) {
                             free = false;
                         }
                         if (free == true) {
@@ -419,30 +420,30 @@ public class BoardRater {
     private static int freePawn(ArrayList<Position> whitePawnList, ArrayList<Position> blackPawnList){
         int rating = 0;
         boolean free = true;
-            if(whitePawnList.size() < 6 && blackPawnList.size() < 6){
+        if(whitePawnList.size() < 6 && blackPawnList.size() < 6){
                 for(int i = 0; i < whitePawnList.size(); i++){
                     for(int j = 0; j < blackPawnList.size()  ;j++){
-                        if(whitePawnList.get(i).getX() == blackPawnList.get(j).getX() || whitePawnList.get(i).getX() == blackPawnList.get(j).getX()+1 || whitePawnList.get(i).getX()-1 == blackPawnList.get(j).getX()){
+                        if(whitePawnList.get(i).getX() == blackPawnList.get(j).getX() || whitePawnList.get(i).getX() == blackPawnList.get(j).getX()+1 || whitePawnList.get(i).getX() == blackPawnList.get(j).getX()-1){
                             free = false;
                         }
                     }
                     if(free == true){
-                        rating = rating + DOUBLE_PAWN_PENALTY;
+                        rating = rating + FREE_PAWN_VALUE;
                     }
                     free = true;
                 }
                 for(int i = 0; i < blackPawnList.size(); i++){
                     for(int j = 0; j < whitePawnList.size()  ;j++){
-                        if(blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()+1 == whitePawnList.get(j).getX() || blackPawnList.get(i).getX()-1 == whitePawnList.get(j).getX()){
+                        if(blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX() == whitePawnList.get(j).getX()+1 || blackPawnList.get(i).getX() == whitePawnList.get(j).getX()-1){
                             free = false;
                         }
                         if(free == true){
-                            rating = rating - DOUBLE_PAWN_PENALTY;
+                            rating = rating - FREE_PAWN_VALUE;
                         }
                         free = true;
                     }
                 }
-            }
+        }
 
         return rating;
     }
@@ -466,7 +467,7 @@ public class BoardRater {
                 }
             }
         }
-        rating = (-500 * white) + (500 * black);
+        rating = (-1 * DOUBLE_PAWN_PENALTY * white) + (DOUBLE_PAWN_PENALTY * black);
         return rating;
     }
 
