@@ -433,16 +433,17 @@ public class BoardRater {
                     free = true;
                 }
                 for(int i = 0; i < blackPawnList.size(); i++){
-                    for(int j = 0; j < whitePawnList.size()  ;j++){
-                        if(blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX() == whitePawnList.get(j).getX()+1 || blackPawnList.get(i).getX() == whitePawnList.get(j).getX()-1){
+                    for(int j = 0; j < whitePawnList.size()  ;j++) {
+                        if (blackPawnList.get(i).getX() == whitePawnList.get(j).getX() || blackPawnList.get(i).getX() == whitePawnList.get(j).getX() + 1 || blackPawnList.get(i).getX() == whitePawnList.get(j).getX() - 1) {
                             free = false;
                         }
+                    }
                         if(free == true){
                             rating = rating - FREE_PAWN_VALUE;
                         }
                         free = true;
                     }
-                }
+
         }
 
         return rating;
