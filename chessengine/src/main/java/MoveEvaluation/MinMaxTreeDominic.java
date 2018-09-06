@@ -13,6 +13,7 @@ import java.util.HashMap;
 public class MinMaxTreeDominic {
 
     private int searchDepth = Parameters.Depth;
+    private ArrayList<Move> killmoves = new ArrayList<>();
    // private int searchTime; TODO
 
     public MinMaxTreeDominic (){
@@ -55,7 +56,17 @@ public class MinMaxTreeDominic {
     }
 
     private ArrayList<Move> getPreSortedMoves(ArrayList<Move> movelist, ChessBoard board, boolean max){
+        ArrayList<Move> arekillmoves = new ArrayList<>();
+        for(Move m : movelist){
+            if(killmoves.contains(m)){
+                arekillmoves.add(m);
+            }
+
+        }
+        movelist.removeAll(arekillmoves);
+
         Move movearray[] = movelist.toArray(new Move[movelist.size()]);
+
         int max_i = movearray.length -1;
         int insert_i = 0;
         while(insert_i < max_i){
@@ -81,7 +92,8 @@ public class MinMaxTreeDominic {
             movearray = swap(movearray, bestPosition, insert_i);
             insert_i++;
         }
-        ArrayList<Move> sortedmoves = new ArrayList<Move>(Arrays.asList(movearray));
+        ArrayList<Move> sortedmoves = arekillmoves;
+        sortedmoves.addAll(new ArrayList<Move>(Arrays.asList(movearray)));
 
         return sortedmoves;
     }
@@ -112,7 +124,15 @@ public class MinMaxTreeDominic {
             if (value > maxValue) {
                 maxValue = value;
                 if (maxValue >= beta && Parameters.useAlphaBeta) {
+                    if(killmoves.contains(p) == false) {
+                        killmoves.add(p);
+                    }
                     break;
+                }
+                else{
+                    if(killmoves.contains(p) == true){
+                        killmoves.remove(p);
+                    }
                 }
             /*if (depth == anfangstiefe){
             gespeicherterZug = Zug;
@@ -142,7 +162,15 @@ public class MinMaxTreeDominic {
             if (value < minValue) {
                 minValue = value;
                 if (minValue <= alpha && Parameters.useAlphaBeta) {
+                    if(killmoves.contains(p) == false) {
+                        killmoves.add(p);
+                    }
                     break;
+                }
+                else{
+                    if(killmoves.contains(p) == true){
+                        killmoves.remove(p);
+                    }
                 }
             /*if (depth == anfangstiefe){
             gespeicherterZug = Zug;
