@@ -11,15 +11,17 @@ import java.util.Random;
  * Created by FKPro on 07.07.2018.
  */
 public class BoardRater {
-    private static final int KINGINDANGER_VALUE = -500;
+    private static final int KINGINDANGER_VALUE     = -500;
 
-    private static final int PAWN_VALUE = 1000;
-    private static final int KNIGHT_VALUE = 3250;
-    private static final int BISHOP_VALUE = 3250;
-    private static final int ROOK_VALUE = 5000;
-    private static final int QUEEN_VALUE = 9750;
-    private static final int KING_VALUE = 999999;
-    private static final int BOTH_BISHOPS_VALUE = 500;
+    private static final int PAWN_VALUE             = 1000;
+    private static final int KNIGHT_VALUE           = 3250;
+    private static final int BISHOP_VALUE           = 3250;
+    private static final int ROOK_VALUE             = 5000;
+    private static final int QUEEN_VALUE            = 9750;
+    private static final int KING_VALUE             = 999999;
+    private static final int BOTH_BISHOPS_VALUE     = 500;
+    private static final int DOUBLE_PAWN_PENALTY    = 500;
+    private static final int FREE_PAWN_VALUE        = 500;
 
     private static final int POSITION_DANGERED_VALUE = 3;
 
@@ -155,6 +157,111 @@ public class BoardRater {
                     {  200, 300,  -50,   0,   0,  -50, 300, 200 }
     }
     };
+
+    public static int getCombinedBoardRating(ChessBoard chessboard){
+        int rating = 0;
+        int white_bishops = 0;
+        int black_bishops = 0;
+        Boolean free = true;
+        ArrayList<Position> whitePawnList = new ArrayList<Position>();
+        ArrayList<Position> blackPawnList = new ArrayList<Position>();
+        ArrayList<Position> positions = chessboard.getPositions();
+
+        for (Position p: positions) {
+            int multiplier;
+            if(p.getPiece().isWhite()){
+                multiplier = 1;
+                if(p.getPiece() instanceof  Bishop){
+                    white_bishops++;
+                }
+                if(p.getPiece() instanceof Pawn){
+                    whitePawnList.add(p);
+                }
+            }
+            else{
+                multiplier = -1;
+                if(p.getPiece() instanceof Bishop){
+                    black_bishops++;
+                }
+                if(p.getPiece() instanceof Pawn){
+                    blackPawnList.add(p);
+                }
+            }
+
+            // Position Rating
+            rating = rating + getPiecePositionRating(p);
+
+            // Free Pawn + Double Pawn
+            if(p.getPiece().isWhite() && p.getPiece() instanceof Pawn){
+                for(Position po : blackPawnList){
+                    if(p.getX() == po.getX() || p.getX() == po.getX()+1 || p.getX()-1 == po.getX()){
+                        free = false;
+                    }
+                    if(free == true){
+                        rating = rating + FREE_PAWN_VALUE;
+                    }
+                    free = true;
+                }
+                for(Position po : whitePawnList){
+                    if(p.getX() == po.getX() && p.getY() != po.getY()){
+                        rating = rating - DOUBLE_PAWN_PENALTY;
+
+                    }
+                }
+            }
+            if(!p.getPiece().isWhite() && p.getPiece() instanceof Pawn){
+                for(Position po : whitePawnList){
+                    if(p.getX() == po.getX() || p.getX() == po.getX()+1 || p.getX()-1 == po.getX()){
+                        free = false;
+                    }
+                    if(free == true){
+                        rating = rating - FREE_PAWN_VALUE;
+                    }
+                    free = true;
+                }
+                for(Position po : blackPawnList){
+                    if(p.getX() == po.getX() && p.getY() != po.getY()){
+                        rating = rating + DOUBLE_PAWN_PENALTY;
+
+                    }
+                }
+            }
+
+
+
+
+            // Material Rating
+            if(p.getPiece() instanceof Pawn){
+                rating = rating + (multiplier * PAWN_VALUE);
+            }
+            else if(p.getPiece() instanceof Knight){
+                rating = rating + (multiplier * KNIGHT_VALUE);
+            }
+            else if(p.getPiece() instanceof Bishop){
+                rating = rating + (multiplier * BISHOP_VALUE);
+            }
+            else if(p.getPiece() instanceof Rook){
+                rating = rating + (multiplier * ROOK_VALUE);
+            }
+            else if(p.getPiece() instanceof Queen){
+                rating = rating + (multiplier * QUEEN_VALUE);
+            }
+            else if(p.getPiece() instanceof King){
+                rating = rating + (multiplier * KING_VALUE);
+            }
+
+
+        }
+
+        if(white_bishops >= 2){
+            rating = rating + BOTH_BISHOPS_VALUE;
+        }
+        if(black_bishops >= 2){
+            rating = rating - BOTH_BISHOPS_VALUE;
+        }
+
+        return rating;
+    }
 
     public static int getBoardRating(ChessBoard chessboard){
         int rating = 0;
@@ -301,7 +408,7 @@ public class BoardRater {
                         }
                     }
                     if(free == true){
-                        rating = rating + 500;
+                        rating = rating + DOUBLE_PAWN_PENALTY;
                     }
                     free = true;
                 }
@@ -311,7 +418,7 @@ public class BoardRater {
                             free = false;
                         }
                         if(free == true){
-                            rating = rating - 500;
+                            rating = rating - DOUBLE_PAWN_PENALTY;
                         }
                         free = true;
                     }
