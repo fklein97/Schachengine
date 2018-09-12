@@ -21,7 +21,7 @@ public class BoardRater {
     private static final int QUEEN_VALUE            = 9750;
     private static final int KING_VALUE             = 999999;
     private static final int BOTH_BISHOPS_VALUE     = 500;
-    private static final int DOUBLE_PAWN_PENALTY    = 500;
+    private static final int DOUBLE_PAWN_PENALTY    = 250;
     private static final int FREE_PAWN_VALUE        = 500;
 
     private static final int POSITION_DANGERED_VALUE = 3;
@@ -197,38 +197,38 @@ public class BoardRater {
             // Free Pawn + Double Pawn
             if(Parameters.usePawnStructureRating) {
                 if (p.getPiece().isWhite() && p.getPiece() instanceof Pawn) {
-                    for (Position po : blackPawnList) {
-                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX()  == po.getX()- 1) {
-                            free = false;
-                        }
-                        if (free == true) {
-                            rating = rating + FREE_PAWN_VALUE;
-                        }
-                        free = true;
-                    }
-                    for (Position po : whitePawnList) {
-                        if (p.getX() == po.getX() && p.getY() != po.getY()) {
-                            rating = rating - DOUBLE_PAWN_PENALTY;
+                    for (Position po : positions) {
+                        if(po.getPiece() instanceof  Pawn) {
+                            if ((p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX() == po.getX() - 1) && !po.getPiece().isWhite()) {
+                                free = false;
+                            }
+                            if (p.getX() == po.getX() && p.getY() != po.getY() && po.getPiece().isWhite()) {
+                                rating = rating - DOUBLE_PAWN_PENALTY;
 
+                            }
                         }
                     }
+                    if (free == true) {
+                        rating = rating + FREE_PAWN_VALUE;
+                    }
+                    free = true;
                 }
                 if (!p.getPiece().isWhite() && p.getPiece() instanceof Pawn) {
-                    for (Position po : whitePawnList) {
-                        if (p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX()  == po.getX()- 1) {
-                            free = false;
-                        }
-                        if (free == true) {
-                            rating = rating - FREE_PAWN_VALUE;
-                        }
-                        free = true;
-                    }
-                    for (Position po : blackPawnList) {
-                        if (p.getX() == po.getX() && p.getY() != po.getY()) {
-                            rating = rating + DOUBLE_PAWN_PENALTY;
+                    for (Position po : positions) {
+                        if(po.getPiece() instanceof  Pawn) {
+                            if ((p.getX() == po.getX() || p.getX() == po.getX() + 1 || p.getX() == po.getX() - 1) && po.getPiece().isWhite()) {
+                                free = false;
+                            }
+                            if (p.getX() == po.getX() && p.getY() != po.getY() && !po.getPiece().isWhite()) {
+                                rating = rating + DOUBLE_PAWN_PENALTY;
 
+                            }
                         }
                     }
+                    if (free == true) {
+                        rating = rating - FREE_PAWN_VALUE;
+                    }
+                    free = true;
                 }
             }
 

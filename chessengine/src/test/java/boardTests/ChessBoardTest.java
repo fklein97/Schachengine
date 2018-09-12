@@ -22,6 +22,7 @@ public class ChessBoardTest {
         positions.add(new Position(6, 2, new Pawn(true)));
         positions.add(new Position(7, 2, new Pawn(true)));
         positions.add(new Position(8, 2, new Pawn(true)));
+        positions.add(new Position(1, 1, new Rook(true)));
         positions.add(new Position(2, 1, new Knight(true)));
         positions.add(new Position(3, 1, new Bishop(true)));
         positions.add(new Position(4, 1, new King(true)));
