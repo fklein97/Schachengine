@@ -1,6 +1,7 @@
 package Board;
 
 import MoveGenerator.DangerChecker;
+import UCI.IO;
 
 import java.util.*;
 
@@ -77,7 +78,7 @@ public class ChessBoard {
     }
 
     public void print() {
-        System.out.print("INFO: 0 1 2 3 4 5 6 7 8\n");
+        System.out.print("DEBUG INFO: 0 1 2 3 4 5 6 7 8\n");
         printBoardRow(8);
         printBoardRow(7);
         printBoardRow(6);
@@ -90,7 +91,7 @@ public class ChessBoard {
 
     private void printBoardRow(int row) {
         //TODO Info Methode erstellen
-        System.out.print("INFO: " + row + " ");
+        System.out.print("DEBUG INFO: " + row + " ");
         for (int i = 1; i <= 8; i++) {
             ChessPiece nextPiece = chessPieceAt(i, row);
             if (nextPiece != null) {
@@ -196,15 +197,15 @@ public class ChessBoard {
                 positionFrom.getPiece().move();
                 move(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
                 move(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             } else if (positionFrom.equals(Constant.WHITE_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_SHORT_TO))) {
-                System.out.println("INFO: Rochade + found equals");
+                IO.sendDebugInfo("Rochade + found equals");
                 positionFrom.getPiece().move();
                 move(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
                 move(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             }
         }
@@ -214,14 +215,14 @@ public class ChessBoard {
                 positionFrom.getPiece().move();
                 move(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
                 move(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             } else if (positionFrom.equals(Constant.BLACK_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_SHORT_TO))) {
                 positionFrom.getPiece().move();
                 move(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
                 move(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             }
         }

@@ -231,7 +231,7 @@ public class OperationManager {
             board.move(oldPos, newPos,piece);
         }
         board.print();
-        System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
+        IO.sendDebugInfo("CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
     }
 
     /**
@@ -254,12 +254,12 @@ public class OperationManager {
 
         board.print();
         int boardrating = BoardRater.getBoardRating(board);
-        System.out.println("INFO: CURRENT BOARD RATING: " + boardrating);
+        IO.sendDebugInfo("CURRENT BOARD RATING: " + boardrating);
         if(Parameters.isEngineWhite) {
-            System.out.println("info score cp " + boardrating/10);
+            IO.answer("info score cp " + boardrating/10);
         }
         else{
-            System.out.println("info score cp " + boardrating/-10);
+            IO.answer("info score cp " + boardrating/-10);
         }
         System.gc();
         return movestring;

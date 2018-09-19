@@ -5,7 +5,7 @@ import Board.*;
 /**
  * Generates the movesets of all chesspieces
  * @author Florian
- * @version 2
+ * @version 12,5?
  */
 public class MoveGenerator {
     /**
