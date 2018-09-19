@@ -203,7 +203,6 @@ public class UCI {
         manager = new OperationManager();
         Parameters.isColorSet = false;
         readyFEN = true;
-        IO.newLogFile();
     }
 
     /**
@@ -234,7 +233,7 @@ public class UCI {
         else{
             if(Parameters.isColorSet == false) {
                 Parameters.isEngineWhite = true;
-                IO.sendDebugInfo("WHITE!");
+                IO.sendDebugInfo("IM WHITE!");
                 Parameters.isColorSet = true;
             }
         }

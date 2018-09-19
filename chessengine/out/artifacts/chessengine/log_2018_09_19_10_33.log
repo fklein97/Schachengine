@@ -1,0 +1,201 @@
+---> : uci
+<--- : id name Chessica
+<--- : id author htw saar
+<--- : option name Depth type spin default 4 min 2 max 10
+<--- : option name use_AlphaBeta type check default true
+<--- : option name RandomizerValue type spin default 0 min 0 max 100
+<--- : option name use_Material_Rating type check default true
+<--- : option name use_KinginDanger_Rating type check default true
+<--- : option name KinginDanger_PieceCount type spin default 15 min 1 max 50
+<--- : option name use_DangerPositions_Rating type check default true
+<--- : option name use_Position_Rating type check default true
+<--- : option name use_PawnStructure_Rating type check default true
+<--- : uciok
+---> : setoption name use_PawnStructure_Rating value false
+---> : isready
+<--- : readyok
+---> : ucinewgame
+---> : isready
+<--- : readyok
+---> : position fen r7/8/1k1b4/8/8/4K1B1/8/7R b - - 0 1
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: Move succesful
+---> : go infinite
+<--- : INFO DEBUG: start go
+<--- : info currmove d6g3 currmovenumber 0
+<--- : info currmove a8e8 currmovenumber 1
+<--- : info currmove d6c5 currmovenumber 2
+<--- : info currmove d6f4 currmovenumber 3
+<--- : info currmove a8a3 currmovenumber 4
+<--- : info currmove b6b7 currmovenumber 5
+<--- : info currmove b6a7 currmovenumber 6
+<--- : info currmove b6c7 currmovenumber 7
+<--- : info currmove b6a6 currmovenumber 8
+<--- : info currmove a8a2 currmovenumber 9
+<--- : info currmove a8d8 currmovenumber 10
+<--- : info currmove a8h8 currmovenumber 11
+<--- : info currmove d6e5 currmovenumber 12
+<--- : info currmove a8f8 currmovenumber 13
+<--- : info currmove b6c6 currmovenumber 14
+<--- : info currmove a8a1 currmovenumber 15
+<--- : info currmove a8g8 currmovenumber 16
+<--- : info currmove a8c8 currmovenumber 17
+<--- : info currmove a8b8 currmovenumber 18
+<--- : info currmove b6a5 currmovenumber 19
+<--- : info currmove a8a4 currmovenumber 20
+<--- : info currmove a8a5 currmovenumber 21
+<--- : info currmove a8a7 currmovenumber 22
+<--- : info currmove d6b4 currmovenumber 23
+<--- : info currmove a8a6 currmovenumber 24
+<--- : info currmove b6c5 currmovenumber 25
+<--- : info currmove b6b5 currmovenumber 26
+<--- : info currmove d6e7 currmovenumber 27
+<--- : info currmove d6c7 currmovenumber 28
+<--- : info currmove d6f8 currmovenumber 29
+<--- : info currmove d6a3 currmovenumber 30
+<--- : info currmove d6b8 currmovenumber 31
+<--- : INFO DEBUG: 489 black bishop
+<--- : INFO DEBUG: 3396 black rook
+<--- : INFO DEBUG: -2888 black bishop
+<--- : INFO DEBUG: 2262 black rook
+<--- : INFO DEBUG: 421 black bishop
+<--- : INFO DEBUG: 3139 black king
+<--- : INFO DEBUG: 3455 black bishop
+<--- : INFO DEBUG: 3420 black rook
+<--- : INFO DEBUG: 3301 black king
+<--- : INFO DEBUG: 3273 black king
+<--- : INFO DEBUG: 3316 black bishop
+<--- : INFO DEBUG: 3139 black rook
+<--- : INFO DEBUG: 483 black bishop
+<--- : INFO DEBUG: 4839 black rook
+<--- : INFO DEBUG: 3614 black king
+<--- : INFO DEBUG: 3104 black bishop
+<--- : INFO DEBUG: -2733 black rook
+<--- : INFO DEBUG: 3333 black king
+<--- : INFO DEBUG: 3698 black rook
+<--- : INFO DEBUG: 3384 black bishop
+<--- : INFO DEBUG: 3292 black rook
+<--- : INFO DEBUG: -34 black rook
+<--- : INFO DEBUG: 3396 black rook
+<--- : INFO DEBUG: 3417 black rook
+<--- : INFO DEBUG: 179 black bishop
+<--- : INFO DEBUG: 3799 black king
+<--- : INFO DEBUG: 3446 black king
+<--- : INFO DEBUG: 3755 black king
+<--- : INFO DEBUG: 3129 black rook
+<--- : INFO DEBUG: 356 black bishop
+<--- : INFO DEBUG: 3396 black rook
+<--- : INFO DEBUG: 3695 black rook
+<--- : INFO DEBUG: CURRENT BOARD RATING: -3262
+<--- : info score cp 326
+<--- : bestmove d6g3
+<--- : INFO DEBUG: Go succesful
+---> : ucinewgame
+---> : isready
+<--- : readyok
+---> : position startpos moves b1c3
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: CURRENT BOARD RATING: 262
+<--- : INFO DEBUG: IM BLACK!
+<--- : INFO DEBUG: Move succesful
+---> : go infinite
+<--- : INFO DEBUG: start go
+<--- : info currmove b8c6 currmovenumber 0
+<--- : info currmove g8f6 currmovenumber 1
+<--- : info currmove e7e5 currmovenumber 2
+<--- : info currmove d7d5 currmovenumber 3
+<--- : info currmove e7e6 currmovenumber 4
+<--- : info currmove d7d6 currmovenumber 5
+<--- : info currmove b8a6 currmovenumber 6
+<--- : info currmove g8h6 currmovenumber 7
+<--- : info currmove h7h6 currmovenumber 8
+<--- : info currmove a7a6 currmovenumber 9
+<--- : info currmove h7h5 currmovenumber 10
+<--- : info currmove a7a5 currmovenumber 11
+<--- : info currmove c7c5 currmovenumber 12
+<--- : info currmove g7g5 currmovenumber 13
+<--- : info currmove b7b5 currmovenumber 14
+<--- : info currmove f7f5 currmovenumber 15
+<--- : info currmove b7b6 currmovenumber 16
+<--- : info currmove g7g6 currmovenumber 17
+<--- : info currmove c7c6 currmovenumber 18
+<--- : info currmove f7f6 currmovenumber 19
+<--- : INFO DEBUG: 888 black pawn
+<--- : INFO DEBUG: 1206 black pawn
+<--- : INFO DEBUG: 950 black knight
+<--- : INFO DEBUG: 744 black knight
+<--- : INFO DEBUG: 1206 black pawn
+<--- : INFO DEBUG: 928 black pawn
+<--- : INFO DEBUG: 1034 black pawn
+<--- : INFO DEBUG: 1075 black pawn
+<--- : INFO DEBUG: 888 black knight
+<--- : INFO DEBUG: 1006 black pawn
+<--- : INFO DEBUG: 1047 black pawn
+<--- : INFO DEBUG: 562 black pawn
+<--- : INFO DEBUG: 978 black knight
+<--- : INFO DEBUG: 1025 black pawn
+<--- : INFO DEBUG: 565 black pawn
+<--- : INFO DEBUG: 1047 black pawn
+<--- : INFO DEBUG: 2053 black pawn
+<--- : INFO DEBUG: 1003 black pawn
+<--- : INFO DEBUG: 1103 black pawn
+<--- : INFO DEBUG: 1078 black pawn
+<--- : INFO DEBUG: CURRENT BOARD RATING: 300
+<--- : info score cp -30
+<--- : bestmove c7c5
+<--- : INFO DEBUG: Go succesful
+---> : position startpos moves b1c3 c7c5 g1f3
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: CURRENT BOARD RATING: 562
+<--- : INFO DEBUG: Move succesful
+---> : go infinite
+<--- : INFO DEBUG: start go
+<--- : info currmove g8f6 currmovenumber 0
+<--- : info currmove b8c6 currmovenumber 1
+<--- : info currmove d7d5 currmovenumber 2
+<--- : info currmove e7e5 currmovenumber 3
+<--- : info currmove d7d6 currmovenumber 4
+<--- : info currmove e7e6 currmovenumber 5
+<--- : info currmove d8c7 currmovenumber 6
+<--- : info currmove d8b6 currmovenumber 7
+<--- : info currmove g8h6 currmovenumber 8
+<--- : info currmove b8a6 currmovenumber 9
+<--- : info currmove c5c4 currmovenumber 10
+<--- : info currmove d8a5 currmovenumber 11
+<--- : info currmove h7h6 currmovenumber 12
+<--- : info currmove a7a6 currmovenumber 13
+<--- : info currmove h7h5 currmovenumber 14
+<--- : info currmove a7a5 currmovenumber 15
+<--- : info currmove b7b5 currmovenumber 16
+<--- : info currmove g7g5 currmovenumber 17
+<--- : info currmove f7f5 currmovenumber 18
+<--- : info currmove g7g6 currmovenumber 19
+<--- : info currmove b7b6 currmovenumber 20
+<--- : info currmove f7f6 currmovenumber 21
+<--- : INFO DEBUG: 798 black pawn
+<--- : INFO DEBUG: 1203 black pawn
+<--- : INFO DEBUG: 1256 black knight
+<--- : INFO DEBUG: 2353 black pawn
+<--- : INFO DEBUG: 1359 black pawn
+<--- : INFO DEBUG: 1334 black pawn
+<--- : INFO DEBUG: 1306 black pawn
+<--- : INFO DEBUG: 1621 black pawn
+<--- : INFO DEBUG: 1266 black queen
+<--- : INFO DEBUG: 1237 black pawn
+<--- : INFO DEBUG: 1412 black pawn
+<--- : INFO DEBUG: 1053 black knight
+<--- : INFO DEBUG: 1440 black pawn
+<--- : INFO DEBUG: 1197 black knight
+<--- : INFO DEBUG: 1350 black queen
+<--- : INFO DEBUG: 1378 black pawn
+<--- : INFO DEBUG: 2203 black pawn
+<--- : INFO DEBUG: 1525 black queen
+<--- : INFO DEBUG: 1446 black knight
+<--- : INFO DEBUG: 1331 black pawn
+<--- : INFO DEBUG: 1793 black pawn
+<--- : INFO DEBUG: 1303 black pawn
+<--- : INFO DEBUG: CURRENT BOARD RATING: 603
+<--- : info score cp -60
+<--- : bestmove f7f5
+<--- : INFO DEBUG: Go succesful
+---> : quit

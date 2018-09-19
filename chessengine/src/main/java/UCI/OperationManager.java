@@ -72,6 +72,15 @@ public class OperationManager {
 
         ArrayList<Position> arr = new ArrayList();
 
+        if(fen.contains("w")){
+            Parameters.isEngineWhite = true;
+            Parameters.isColorSet = true;
+        }
+        else{
+            Parameters.isEngineWhite = false;
+            Parameters.isColorSet = true;
+        }
+
         charIndex = fen.indexOf(' ')+1;
         if (fen.charAt(charIndex) == 'w'){
             Parameters.isEngineWhite = true;
