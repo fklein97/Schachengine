@@ -40,7 +40,8 @@ public class IO {
      */
     public String receive() {
         input = scann.nextLine();
-        log("---> : " + input);
+        LocalDateTime writetime = LocalDateTime.now();
+        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " ---> : " + input);
         return input;
     }
 
@@ -49,7 +50,8 @@ public class IO {
      * @param output String that is send to GUI
      */
     public static void answer(String output){
-        log("<--- : " + output);
+        LocalDateTime writetime = LocalDateTime.now();
+        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " <--- : " + output);
         System.out.println(output);
     }
 
@@ -58,7 +60,8 @@ public class IO {
         if(Parameters.debugMode == true){
             System.out.println(debugOutput);
         }
-        log("<--- : " + debugOutput);
+        LocalDateTime writetime = LocalDateTime.now();
+        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " <--- : " + debugOutput);
     }
 
     /**
