@@ -15,7 +15,6 @@ public class MinMaxTreeDominic {
 
     private int searchDepth = Parameters.Depth;
     private ArrayList<Move> killmoves = new ArrayList<>();
-   // private int searchTime; TODO
 
     public MinMaxTreeDominic (){
     }
@@ -28,6 +27,9 @@ public class MinMaxTreeDominic {
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         HashMap<Move,Integer> map = new HashMap();
         for (Move m : sortedlist){
+            if (Thread.currentThread().isInterrupted()){
+                break;
+            }
             board.move(m.getPositionFrom(),m.getPositionTo());
             if(max) {
                 int min_value = min(searchDepth - 1, alpha, beta,board);
@@ -108,6 +110,9 @@ public class MinMaxTreeDominic {
     }
 
     public int max(int depth, int alpha, int beta, ChessBoard board) {
+        if (Thread.currentThread().isInterrupted()){
+            return alpha;
+        }
         int value = alpha;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
@@ -146,6 +151,9 @@ public class MinMaxTreeDominic {
     }
 
     public int min(int depth, int alpha, int beta, ChessBoard board){
+        if (Thread.currentThread().isInterrupted()){
+            return beta;
+        }
         int value = beta;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());

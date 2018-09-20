@@ -1,3 +1,5 @@
+package MoveGenerator;
+
 import Board.*;
 import MoveGenerator.*;
 

@@ -47,6 +47,8 @@ public class OperationManager {
 
     public TimeManager getTimer(){ return this.timer; }
 
+    public ChessBoard getBoard(){return this.board; }
+
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
