@@ -5,12 +5,23 @@ public class ChessPiece {
     private boolean white;
     private boolean moved;
 
+    /**
+     * ChessPiece Constructor
+     * @param white color of the ChessPiece (true = white; false = black)
+     * @param value ChessPiece Value
+     */
     public ChessPiece(boolean white, int value){
         this.value  = value;
         this.white  = white;
         this.moved  = false;
     }
 
+    /**
+     *
+     * @param white
+     * @param moved
+     * @param value
+     */
     public ChessPiece(boolean white, boolean moved, int value){
         this.white = white;
         this.moved = moved;

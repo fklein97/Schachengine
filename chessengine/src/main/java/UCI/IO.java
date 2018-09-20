@@ -4,6 +4,7 @@ import Parameters.Parameters;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -22,6 +23,7 @@ public class IO {
     private Scanner scann;
     private static FileWriter writer = null;
     private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+    private static DateTimeFormatter logtimeformat = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static LocalDateTime now = LocalDateTime.now();
 
 
@@ -40,8 +42,7 @@ public class IO {
      */
     public String receive() {
         input = scann.nextLine();
-        LocalDateTime writetime = LocalDateTime.now();
-        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " ---> : " + input);
+        log(" ---> : " + input);
         return input;
     }
 
@@ -50,8 +51,7 @@ public class IO {
      * @param output String that is send to GUI
      */
     public static void answer(String output){
-        LocalDateTime writetime = LocalDateTime.now();
-        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " <--- : " + output);
+        log(" <--- : " + output);
         System.out.println(output);
     }
 
@@ -60,8 +60,7 @@ public class IO {
         if(Parameters.debugMode == true){
             System.out.println(debugOutput);
         }
-        LocalDateTime writetime = LocalDateTime.now();
-        log(writetime.getHour() + ":" + writetime.getMinute()+ ":" + writetime.getSecond() + " <--- : " + debugOutput);
+        log(" <--- : " + debugOutput);
     }
 
     /**
@@ -74,7 +73,8 @@ public class IO {
                 newLogFile();
             }
             writer = new FileWriter("log_" + now.format(dtf) + ".log", true);
-            writer.write(input + "\n");
+            LocalDateTime writetime = LocalDateTime.now();
+            writer.write( writetime.format(logtimeformat)+ input + "\n");
             if(writer != null){
                 writer.flush();
                 writer.close();

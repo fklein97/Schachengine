@@ -5,18 +5,27 @@ import UCI.IO;
 
 import java.util.*;
 
-
+/**
+ * ChessBoard Objects manage a Chessboard
+ */
 public class ChessBoard {
 
     private final static int NULL = 0;
 
     private ArrayList<Position> positions;
 
-
+    /**
+     * Returns all Positions inside this ChessBoard
+     * @return ArrayList that contains all Positions inside this Chessboard
+     */
     public ArrayList<Position> getPositions(){
         return positions;
     }
 
+    /**
+     * Returns copies of all Positions inside this Chessboard
+     * @return ArrayList that contains copies of all Positions inside this Chessboard
+     */
     public ArrayList<Position> getPositionsCopy() {
         ArrayList<Position> pos = new ArrayList<Position>();
         for(Position p : positions){
@@ -26,17 +35,27 @@ public class ChessBoard {
         return pos;
     }
 
+    /**
+     * Overrides the Positions of this Chessboard
+     * @param positions new Positions the board should be overwritten with
+     */
     public void setPositions(ArrayList<Position> positions) {
         this.positions = positions;
     }
 
-
+    /**
+     * Constructs a chessboard with the standart positions
+     */
     public ChessBoard() {
         positions = new ArrayList<Position>();
 
         setUp();
     }
 
+    /**
+     * Constructs a chessboard with the given positions
+     * @param positions Positions of the new board
+     */
     public ChessBoard(ArrayList<Position> positions) {
         this.positions = positions;
     }
@@ -51,6 +70,12 @@ public class ChessBoard {
         return null;
     }
 
+    /**
+     * Checks if a given position on the board is taken or not
+     * @param x x-Parameter of the position
+     * @param y y-Parameter of the position
+     * @return true, if the position is taken, false, if not
+     */
     public boolean positionIsTaken(int x, int y) {
         ChessPiece chessPiece = chessPieceAt(x, y);
         if (chessPiece != null) {
@@ -59,9 +84,15 @@ public class ChessBoard {
         return false;
     }
 
-    public ChessPiece chessPieceAt(int xCoordinate, int yCoordinate) {
+    /**
+     * Returns the ChessPiecce on a given position
+     * @param x x-Parameter of the position
+     * @param y y-Parameter of the position
+     * @return ChessPiece on the given Position or null if position is not taken
+     */
+    public ChessPiece chessPieceAt(int x, int y) {
         for(Position p : positions){
-            if(p.getX() == xCoordinate && p.getY() == yCoordinate){
+            if(p.getX() == x && p.getY() == y){
                 return p.getPiece();
             }
         }
@@ -69,14 +100,9 @@ public class ChessBoard {
         return null;
     }
 
-    public void newGame() {
-        setUp();
-    }
-
-    public void newGame(ArrayList<Position> positions) {
-        this.positions = positions;
-    }
-
+    /**
+     * prints this chessboard
+     */
     public void print() {
         System.out.print("DEBUG INFO: 0 1 2 3 4 5 6 7 8\n");
         printBoardRow(8);
@@ -89,6 +115,10 @@ public class ChessBoard {
         printBoardRow(1);
     }
 
+    /**
+     * prints a row of this chessboard
+     * @param row Row that should be printed
+     */
     private void printBoardRow(int row) {
         //TODO Info Methode erstellen
         System.out.print("DEBUG INFO: " + row + " ");
@@ -140,13 +170,17 @@ public class ChessBoard {
         System.out.print("\n");
     }
 
+    /**
+     * Moves a ChessPiece on this Board
+     * @param positionFrom old Position of the Chesspiece
+     * @param positionTo new Position of the Chesspiece
+     */
     public void move(Position positionFrom, Position positionTo) {
         Boolean didSpecialMove = false;
         Position from = null;
         Position to = null;
 
         didSpecialMove = castling(positionFrom,positionTo);
-     //   System.out.println("INFO DEBUG: " + didSpecialMove.toString());
 
         if(didSpecialMove == false) {
             for (Position p : positions) {
@@ -175,19 +209,11 @@ public class ChessBoard {
         }
     }
 
-    public boolean checkforSpecialMoves(Position positionFrom, Position positionTo){
-        if(positionFrom.getPiece() instanceof King && positionFrom.getPiece().moved() == false){ //ROCHADE
-
-        }
-
-        return false;
-    }
-
     /**
      * Castling method
-     * @param positionFrom
-     * @param positionTo
-     * @return false if cast was successful
+     * @param positionFrom old Position
+     * @param positionTo new Position
+     * @return true if cast was successful
      */
     public boolean castling(Position positionFrom, Position positionTo) {
         boolean back = false;
@@ -229,35 +255,21 @@ public class ChessBoard {
         return back;
     }
 
-
     /**
-     * public void move(Position positionFrom, Position positionTo){ //moritz move method
-     * int from    = -1;
-     * int to      = -1;
-     * Position[] positionArr =  (Position[]) positions.toArray(new Position[positions.size()]);
-     * for(int i = 0; i < positionArr.length; i++){
-     * if(positionFrom.equals(positionArr[i])){
-     * from = i;
-     * }
-     * if(positionTo.equals(positionArr[i])){
-     * to = i;
-     * }
-     * }
-     * if(from >= 0){
-     * positions.set(from, new Position(positionTo.getX(),positionTo.getY(), positionFrom.getPiece()));
-     * positions.get(from).getPiece().move();
-     * }
-     * if(to >= 0){
-     * positions.remove(to);
-     * }
-     * <p>
-     * }
+     * Move method for promotions
+     * @param positionFrom old Position
+     * @param positionTo new Position
+     * @param chessPiece new Chesspiece that the pawn gets promoted to
      */
-
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece) {
         promote(positionFrom, positionTo, chessPiece);
     }
 
+    /**
+     * Checks if a King is in danger on this board
+     * @param forWhite true if white king should be checked, false if black king should be checked
+     * @return true if King is in Danger, false if not
+     */
     public boolean isKinginDanger(boolean forWhite) {
         Position kingPosition = this.getKingPosition(forWhite);
         if (kingPosition != null) {
@@ -274,6 +286,12 @@ public class ChessBoard {
         }
     }
 
+    /**
+     * Promotes a Pawn
+     * @param positionFrom old Position of the Pawn
+     * @param positionTo new Position of the Pawn
+     * @param chessPiece Chesspiece the Pawn should be turned into
+     */
     private void promote(Position positionFrom, Position positionTo, ChessPiece chessPiece) {
         int from = -1;
         int to = -1;
@@ -292,7 +310,9 @@ public class ChessBoard {
          **/
     }
 
-
+    /**
+     * Adds the standart positions to the Chessboard
+     */
     private void setUp() {
 
         positions.add(new Position(1, 2, new Pawn(true)));
