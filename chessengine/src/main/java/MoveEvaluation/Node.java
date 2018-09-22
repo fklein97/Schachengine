@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 import static Rating.BoardRater.*;
 
-
+/**
+ * @deprecated
+ */
 public class Node {
     private int minRating;
     private int maxRating;

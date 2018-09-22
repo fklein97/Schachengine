@@ -8,6 +8,9 @@ import Rating.BoardRater;
 
 import java.util.ArrayList;
 
+/**
+ * @deprecated
+ */
 public class MinMaxTree {
 
     private Node root;

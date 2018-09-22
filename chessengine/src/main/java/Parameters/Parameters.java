@@ -19,6 +19,6 @@ public class Parameters {
     public static boolean usePositionRating = true;
     public static boolean usePawnStructureRating = true;
 
-    public static int turnTime;
+    public static double turnTime = 0;
     public static boolean debugMode = false;
 }

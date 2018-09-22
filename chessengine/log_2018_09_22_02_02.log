@@ -1,0 +1,7 @@
+---> : position startpos moves e2e3
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: CURRENT BOARD RATING: 121
+<--- : INFO DEBUG: IM BLACK!
+<--- : INFO DEBUG: Move succesful
+---> : go wtime 1 btime 1
+<--- : INFO DEBUG: start go
