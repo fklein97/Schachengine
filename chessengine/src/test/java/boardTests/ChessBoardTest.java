@@ -99,4 +99,21 @@ public class ChessBoardTest {
 
     }
 
+    @Test
+    public void castling() {
+        ArrayList<Position> positions = new ArrayList<Position>();
+        Position king = new Position(5, 1, new King(true));
+        Position rook = new Position(8, 1, new Rook(true));
+        positions.add(king);
+        positions.add(rook);
+        Position kingCastle = new Position(7,1, new King(true));
+        Position rookCastle = new Position(6,1,new Rook(true));
+        ChessBoard chessBoard2 = new ChessBoard(positions);
+
+
+        chessBoard2.move(king, kingCastle );
+        Assert.assertEquals(kingCastle.equals(chessBoard2.getPositions().get(0)), true);
+        Assert.assertEquals(rookCastle.equals(chessBoard2.getPositions().get(1)), true);
+    }
+
 }

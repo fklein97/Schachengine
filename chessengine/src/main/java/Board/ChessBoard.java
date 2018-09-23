@@ -143,6 +143,7 @@ public class ChessBoard {
         Boolean didSpecialMove = false;
         Position from = null;
         Position to = null;
+        Position position = null;
 
         didSpecialMove = castling(positionFrom,positionTo);
      //   System.out.println("INFO DEBUG: " + didSpecialMove.toString());
@@ -174,6 +175,37 @@ public class ChessBoard {
         }
     }
 
+    private void moveCastling(Position positionFrom, Position positionTo){
+        Position from = null;
+        Position to = null;
+        Position position = null;
+
+
+            for (Position p : positions) {
+                if (p.getX() == positionTo.getX() && p.getY() == positionTo.getY()) {
+                    to = p;
+                }
+            }
+
+
+            if (to != null) {
+                positions.remove(to);
+            }
+
+            for (Position p : positions) {
+                if (p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()) {
+                    from = p;
+                }
+            }
+
+            if (from != null) {
+                positions.remove(from);
+                positionFrom.getPiece().move();
+                positions.add(new Position(positionTo.getX(), positionTo.getY(), positionTo.getPiece()));
+
+            }
+    }
+
     public boolean checkforSpecialMoves(Position positionFrom, Position positionTo){
         if(positionFrom.getPiece() instanceof King && positionFrom.getPiece().moved() == false){ //ROCHADE
 
@@ -194,17 +226,16 @@ public class ChessBoard {
             if (positionFrom.equals(Constant.WHITE_CASTLING_LONG_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_LONG_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
-                move(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                moveCastling(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
+                moveCastling(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals white long");
                 back = true;
             } else if (positionFrom.equals(Constant.WHITE_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_SHORT_TO))) {
-                System.out.println("INFO: Rochade + found equals");
                 positionFrom.getPiece().move();
-                move(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
-                move(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                moveCastling(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
+                moveCastling(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals white short");
                 back = true;
             }
         }
@@ -212,16 +243,16 @@ public class ChessBoard {
             if (positionFrom.equals(Constant.BLACK_CASTLING_LONG_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_LONG_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
-                move(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                moveCastling(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
+                moveCastling(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals black long");
                 back = true;
             } else if (positionFrom.equals(Constant.BLACK_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_SHORT_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
-                move(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
-                System.out.println("INFO: Rochade + found equals");
+                moveCastling(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
+                moveCastling(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
+                System.out.println("INFO: Rochade + found equals black short");
                 back = true;
             }
         }
@@ -289,6 +320,28 @@ public class ChessBoard {
         }
         positions.set(to, new Position(positionTo.getX(), positionTo.getY(), chessPiece));
          **/
+    }
+
+    public boolean equals(ChessBoard chessBoard){
+        boolean found = false;
+
+        if(chessBoard.getPositions().size() != positions.size()){
+            return false;
+        }
+
+        for(int i = 0; i < chessBoard.getPositions().size(); i++){
+            for(int j = 0; j < positions.size(); j++) {
+                if (chessBoard.getPositions().get(i).equals(positions.get(j))) {
+                    found = true;
+                }
+            }
+            if(!found){
+                return false;
+            }
+            found = false;
+        }
+
+        return true;
     }
 
 
