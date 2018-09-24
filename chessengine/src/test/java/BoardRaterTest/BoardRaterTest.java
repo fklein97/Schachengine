@@ -11,8 +11,12 @@ public class BoardRaterTest {
 
     private ChessBoard chessBoard1 = new ChessBoard();
     private ChessBoard chessBoard2 = new ChessBoard();
+    private ChessBoard chessBoard3 = new ChessBoard();
+
     private ArrayList<Position> positions1 = new ArrayList<Position>();
     private ArrayList<Position> positions2 = new ArrayList<Position>();
+    private ArrayList<Position> positions3 = new ArrayList<Position>();
+
 
     private void setUp() {
         positions1.add(new Position(1, 2, new Pawn(true)));
@@ -57,6 +61,11 @@ public class BoardRaterTest {
         //positions2.add(new Position(1, 3, new Pawn(true)));
         positions2.add(new Position(1, 7, new Pawn(false)));
 
+        positions3.add(new Position(1,8 ,new Rook(true)));
+        positions3.add(new Position(1,1 ,new Rook(false)));
+        positions3.add(new Position(2,2 ,new King(true)));
+        positions3.add(new Position(2,7 ,new King(false)));
+
     }
 
 
@@ -69,10 +78,19 @@ public class BoardRaterTest {
     }
 
     @Test
-    public void getBoardRatingTest2() throws Exception{
+    public void getBoardRatingTestPawnStructure() throws Exception{
         setUp();
         chessBoard2.setPositions(positions2);
         Assert.assertEquals(BoardRater.getBoardRating(chessBoard2), 0);
     }
+
+    @Test
+    public void boardRatingTestDanger(){
+        setUp();
+        chessBoard3.setPositions(positions3);
+        Assert.assertEquals(BoardRater.getBoardRating(chessBoard3), 0);
+
+    }
+
 
 }
