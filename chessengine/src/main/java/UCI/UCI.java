@@ -79,8 +79,8 @@ public class UCI {
      * Method to register the Engine
      */
     public void uci(){
-        io.answer(UCI_Commands.ID + "Chessica"/*TODO + NAMENSKONSTANTE*/);
-        io.answer(UCI_Commands.AUTHOR + "htw saar"/*TODO + AUTORENKONSTANTE*/);
+        io.answer(UCI_Commands.ID + "Chessica");
+        io.answer(UCI_Commands.AUTHOR + "htw saar");
 
         offerOptions();
 
@@ -187,11 +187,11 @@ public class UCI {
      * Toggle to enable/disable "info" messages
      */
     public void debug() {
-
-        if (manager.isDebug() == false) {
-            manager.setDebug(true);
+        if (Parameters.debugMode == false) {
+            Parameters.debugMode = true;
+            IO.sendDebugInfo("Debug Mode now activ");
         } else {
-            manager.setDebug(false);
+            Parameters.debugMode = false;
         }
     }
 
@@ -200,7 +200,6 @@ public class UCI {
      */
 
     public void ucinewgame(){
-        // nothing to do here
         manager = new OperationManager();
         Parameters.isColorSet = false;
         readyFEN = true;
@@ -211,8 +210,7 @@ public class UCI {
      */
     public void position(String input){
 
-        //TODO
-        io.answer("INFO: Start moving");
+        IO.sendDebugInfo("Start moving");
 
         input = input.substring(9);
         if (input.contains(UCI_Commands.STARTPOS)){
@@ -227,19 +225,18 @@ public class UCI {
             manager.playerMove(input);
             if(Parameters.isColorSet == false) {
                 Parameters.isEngineWhite = false;
-                System.out.println("DEBUG INFO: IM BLACK!");
+                IO.sendDebugInfo("IM BLACK!");
                 Parameters.isColorSet = true;
             }
         }
         else{
             if(Parameters.isColorSet == false) {
                 Parameters.isEngineWhite = true;
-                System.out.println("DEBUG INFO: IM WHITE!");
+                IO.sendDebugInfo("IM WHITE!");
                 Parameters.isColorSet = true;
             }
         }
-        //TODO
-        io.answer("INFO: Move succesful");
+        IO.sendDebugInfo("Move succesful");
     }
 
     /**
@@ -264,13 +261,13 @@ public class UCI {
             }
         }
 
-        io.answer("INFO: Start go");
+        IO.sendDebugInfo("start go");
         goThread = new Thread() {
             @Override
             public void run(){
                 String response = manager.go(input);
                 io.answer(UCI_Commands.BEST_MOVE + response);
-                io.answer("INFO: Go succesful");
+                IO.sendDebugInfo("Go succesful");
             }
         };
         goThread.setDaemon(true);

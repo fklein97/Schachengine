@@ -47,6 +47,8 @@ public class OperationManager {
 
     public TimeManager getTimer(){ return this.timer; }
 
+    public ChessBoard getBoard(){return this.board; }
+
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
@@ -71,6 +73,15 @@ public class OperationManager {
                 castlingWShort = true, castlingWLong = true;
 
         ArrayList<Position> arr = new ArrayList();
+
+        if(fen.contains("w")){
+            Parameters.isEngineWhite = true;
+            Parameters.isColorSet = true;
+        }
+        else{
+            Parameters.isEngineWhite = false;
+            Parameters.isColorSet = true;
+        }
 
         charIndex = fen.indexOf(' ')+1;
         if (fen.charAt(charIndex) == 'w'){
@@ -231,7 +242,7 @@ public class OperationManager {
             board.move(oldPos, newPos,piece);
         }
         board.print();
-        System.out.println("INFO: CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
+        IO.sendDebugInfo("CURRENT BOARD RATING: " + BoardRater.getBoardRating(board));
     }
 
     /**
@@ -243,23 +254,18 @@ public class OperationManager {
         Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";
-/**
-        MinMaxTree tree = new MinMaxTree(board,Parameters.isEngineWhite);
-        tree.generateTree(Parameters.Depth);
-        Move move = tree.getBestMove();
-**/
 
         movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
         board.move(move.getPositionFrom(), move.getPositionTo());
 
         board.print();
         int boardrating = BoardRater.getBoardRating(board);
-        System.out.println("INFO: CURRENT BOARD RATING: " + boardrating);
+        IO.sendDebugInfo("CURRENT BOARD RATING: " + boardrating);
         if(Parameters.isEngineWhite) {
-            System.out.println("info score cp " + boardrating/10);
+            IO.answer("info score cp " + boardrating/10);
         }
         else{
-            System.out.println("info score cp " + boardrating/-10);
+            IO.answer("info score cp " + boardrating/-10);
         }
         System.gc();
         return movestring;

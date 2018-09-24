@@ -21,4 +21,19 @@ public class Move {
     public Position getPositionTo() {
         return positionTo;
     }
+
+    public boolean equals(Object o){
+        Move m = (Move) o;
+        if(m.getPositionFrom().getPiece().toString().equals(this.getPositionFrom().getPiece().toString())
+                && m.getPositionTo().getPiece().toString().equals(this.getPositionTo().getPiece().toString())
+                && m.getPositionFrom().getX() == this.getPositionFrom().getX()
+                && m.getPositionFrom().getY() == this.getPositionFrom().getY()
+                && m.getPositionTo().getX() == this.getPositionTo().getX()
+                && m.getPositionTo().getY() == this.getPositionTo().getY()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

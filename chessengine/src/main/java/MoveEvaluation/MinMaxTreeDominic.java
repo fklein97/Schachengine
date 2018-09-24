@@ -4,6 +4,7 @@ import Board.*;
 import MoveGenerator.*;
 import Parameters.Parameters;
 import Rating.BoardRater;
+import UCI.IO;
 import UCI.OperationManager;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 public class MinMaxTreeDominic {
 
     private int searchDepth = Parameters.Depth;
-   // private int searchTime; TODO
+    private ArrayList<Move> killmoves = new ArrayList<>();
 
     public MinMaxTreeDominic (){
     }
@@ -21,11 +22,19 @@ public class MinMaxTreeDominic {
     public Move initialize(ChessBoard board, boolean max){
         int alpha = -100000000;
         int beta = 100000000;
+        long startTime = 0;
+        long endTime = 0;
         ArrayList<Move> list = generateMoves(max, board);
         ArrayList<Move> sortedlist = getPreSortedMoves(list,board,max);
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
         HashMap<Move,Integer> map = new HashMap();
+
+        startTime = System.currentTimeMillis();
+        endTime = startTime;
         for (Move m : sortedlist){
+            if ((Thread.currentThread().isInterrupted()) || (endTime-startTime > Parameters.turnTime)){
+                break;
+            }
             board.move(m.getPositionFrom(),m.getPositionTo());
             if(max) {
                 int min_value = min(searchDepth - 1, alpha, beta,board);
@@ -43,9 +52,10 @@ public class MinMaxTreeDominic {
             }
             board = new ChessBoard(origin.getPositionsCopy());
 
-            System.out.println("info currmove " + OperationManager.posToString(m.getPositionFrom()) + OperationManager.posToString(m.getPositionTo()) + " currmovenumber " + sortedlist.indexOf(m));
+            IO.answer("info currmove " + OperationManager.posToString(m.getPositionFrom()) + OperationManager.posToString(m.getPositionTo()) + " currmovenumber " + sortedlist.indexOf(m));
+            endTime = System.currentTimeMillis();
         }
-        map.entrySet().stream().forEach(x -> {System.out.println(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
+        map.entrySet().stream().forEach(x -> {IO.sendDebugInfo(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
         if(max){
             return map.entrySet().stream().reduce((curr, next) -> curr.getValue() > next.getValue() ? curr : next).get().getKey();
         }
@@ -55,7 +65,17 @@ public class MinMaxTreeDominic {
     }
 
     private ArrayList<Move> getPreSortedMoves(ArrayList<Move> movelist, ChessBoard board, boolean max){
+        ArrayList<Move> arekillmoves = new ArrayList<>();
+        for(Move m : movelist){
+            if(killmoves.contains(m)){
+                arekillmoves.add(m);
+            }
+
+        }
+        movelist.removeAll(arekillmoves);
+
         Move movearray[] = movelist.toArray(new Move[movelist.size()]);
+
         int max_i = movearray.length -1;
         int insert_i = 0;
         while(insert_i < max_i){
@@ -81,7 +101,8 @@ public class MinMaxTreeDominic {
             movearray = swap(movearray, bestPosition, insert_i);
             insert_i++;
         }
-        ArrayList<Move> sortedmoves = new ArrayList<Move>(Arrays.asList(movearray));
+        ArrayList<Move> sortedmoves = arekillmoves;
+        sortedmoves.addAll(new ArrayList<Move>(Arrays.asList(movearray)));
 
         return sortedmoves;
     }
@@ -95,6 +116,9 @@ public class MinMaxTreeDominic {
     }
 
     public int max(int depth, int alpha, int beta, ChessBoard board) {
+        if (Thread.currentThread().isInterrupted()){
+            return alpha;
+        }
         int value = alpha;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
@@ -112,7 +136,15 @@ public class MinMaxTreeDominic {
             if (value > maxValue) {
                 maxValue = value;
                 if (maxValue >= beta && Parameters.useAlphaBeta) {
+                    if(killmoves.contains(p) == false) {
+                        killmoves.add(p);
+                    }
                     break;
+                }
+                else{
+                    if(killmoves.contains(p) == true){
+                        killmoves.remove(p);
+                    }
                 }
             /*if (depth == anfangstiefe){
             gespeicherterZug = Zug;
@@ -125,6 +157,9 @@ public class MinMaxTreeDominic {
     }
 
     public int min(int depth, int alpha, int beta, ChessBoard board){
+        if (Thread.currentThread().isInterrupted()){
+            return beta;
+        }
         int value = beta;
         ArrayList<Move> moveset = new ArrayList<>();
         ChessBoard origin = new ChessBoard(board.getPositionsCopy());
@@ -142,7 +177,15 @@ public class MinMaxTreeDominic {
             if (value < minValue) {
                 minValue = value;
                 if (minValue <= alpha && Parameters.useAlphaBeta) {
+                    if(killmoves.contains(p) == false) {
+                        killmoves.add(p);
+                    }
                     break;
+                }
+                else{
+                    if(killmoves.contains(p) == true){
+                        killmoves.remove(p);
+                    }
                 }
             /*if (depth == anfangstiefe){
             gespeicherterZug = Zug;

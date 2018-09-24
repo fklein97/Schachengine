@@ -1,0 +1,30 @@
+---> : position startpos moves e2e3
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: CURRENT BOARD RATING: 121
+<--- : INFO DEBUG: IM BLACK!
+<--- : INFO DEBUG: Move succesful
+---> : go
+<--- : INFO DEBUG: start go
+<--- : info currmove b8c6 currmovenumber 0
+<--- : INFO DEBUG: 908 black knight
+<--- : INFO DEBUG: CURRENT BOARD RATING: -141
+<--- : info score cp 14
+<--- : bestmove b8c6
+<--- : INFO DEBUG: Go succesful
+---> : position startpos moves e2e3
+<--- : INFO DEBUG: Start moving
+<--- : INFO DEBUG: CURRENT BOARD RATING: 121
+<--- : INFO DEBUG: IM BLACK!
+<--- : INFO DEBUG: Move succesful
+---> : go
+<--- : INFO DEBUG: start go
+<--- : info currmove b8c6 currmovenumber 0
+<--- : info currmove g8f6 currmovenumber 1
+<--- : info currmove e7e5 currmovenumber 2
+<--- : INFO DEBUG: 1223 black knight
+<--- : INFO DEBUG: 833 black pawn
+<--- : INFO DEBUG: 908 black knight
+<--- : INFO DEBUG: CURRENT BOARD RATING: -103
+<--- : info score cp 10
+<--- : bestmove e7e5
+<--- : INFO DEBUG: Go succesful

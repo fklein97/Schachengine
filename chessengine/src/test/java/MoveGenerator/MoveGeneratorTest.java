@@ -1,3 +1,5 @@
+package MoveGenerator;
+
 import org.junit.*;
 import java.util.ArrayList;
 import Board.*;

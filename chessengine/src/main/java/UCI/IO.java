@@ -1,5 +1,9 @@
 
 package UCI;
+import Parameters.Parameters;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -16,7 +20,10 @@ public class IO {
     private String input;
     private String command;
     private Scanner scann;
-    private BufferedWriter writer;
+    private static FileWriter writer = null;
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+    private static LocalDateTime now = LocalDateTime.now();
+
 
     /**
      * Constructor to set up the scanner
@@ -25,12 +32,7 @@ public class IO {
             input = EMPTY;
             command = EMPTY;
             scann = new Scanner(System.in);
-            try {
-                writer = new BufferedWriter(new FileWriter(FILENAME));
-            } catch (IOException e){
-                //TODO FEHLERMELDUNG LOG KANN NICHT GEÖFNNET WERDEN
-            }
-
+            newLogFile();
     }
 
     /**
@@ -38,7 +40,7 @@ public class IO {
      */
     public String receive() {
         input = scann.nextLine();
-        log(input);
+        log("---> : " + input);
         return input;
     }
 
@@ -46,23 +48,52 @@ public class IO {
      * Method to answer the GUI via std.out
      * @param output String that is send to GUI
      */
-    public void answer(String output){
-        log(output);
+    public static void answer(String output){
+        log("<--- : " + output);
         System.out.println(output);
+    }
+
+    public static void sendDebugInfo(String output){
+        String debugOutput = "INFO DEBUG: " + output;
+        if(Parameters.debugMode == true){
+            System.out.println(debugOutput);
+        }
+        log("<--- : " + debugOutput);
     }
 
     /**
      * Method to log messages
      * @param input message
      */
-    public void log(String input){
-        /**
+    public static void log(String input){
         try {
-            writer.write(input);
-         }catch (IOException e){
-            //TODO FEHLERMELDUNG LOG schreiben fehlgeschlagen
+            if (writer == null) {
+                newLogFile();
+            }
+            writer = new FileWriter("log_" + now.format(dtf) + ".log", true);
+            writer.write(input + "\n");
+            if(writer != null){
+                writer.flush();
+                writer.close();
+            }
         }
-         **/
+        catch(IOException e){
+            System.out.println("ERROR: couldnt write log");
+        }
+    }
+
+    public static void newLogFile(){
+        try {
+            if(writer != null){
+                writer.flush();
+                writer.close();
+            }
+            now = LocalDateTime.now();
+            writer = new FileWriter("log_" + now.format(dtf) + ".log", true);
+        }
+        catch(IOException e){
+            System.out.println("ERROR: couldnt create a new Logfile");
+        }
     }
 
     /**

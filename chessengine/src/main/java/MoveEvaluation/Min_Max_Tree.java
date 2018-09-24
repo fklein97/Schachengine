@@ -7,6 +7,9 @@ import UCI.TimeManager;
 
 import java.util.ArrayList;
 
+/**
+ * @deprecated
+ */
 public class Min_Max_Tree {
 
     private Node root;
