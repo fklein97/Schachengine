@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created by FKPro on 07.07.2018.
+ * Rates Chessboards
+ * @author Florian Klein, Moritz Grill
  */
 public class BoardRater {
     private static final int KINGINDANGER_VALUE     = -500;
@@ -159,6 +160,11 @@ public class BoardRater {
     }
     };
 
+    /**
+     * Generates the combined Boardrating for a Chessboard
+     * @param chessboard Chessboard that should be rated
+     * @return rating of the board
+     */
     public static int getBoardRating(ChessBoard chessboard){
         int rating = 0;
         int white_bishops = 0;
@@ -283,6 +289,11 @@ public class BoardRater {
         return rating;
     }
 
+    /**
+     * Generates the boardrating for chessboard using all rating-methods seperated
+     * @param chessboard Chessboard that should be rated
+     * @return boardrating
+     */
     public static int getSeperateBoardRating(ChessBoard chessboard){
         int rating = 0;
 
@@ -316,6 +327,11 @@ public class BoardRater {
         return rating;
     }
 
+    /**
+     * Rates a chessboard based on positions that are endangered
+     * @param chessboard Chessboard that should be rated
+     * @return Boardrating
+     */
     public static int getDangerPositionsRating(ChessBoard chessboard){
         int rating = 0;
         ArrayList<Position> whiteDangerPositions = DangerChecker.getDangerPositionsWithoutDuplicates(chessboard,false);
@@ -325,6 +341,11 @@ public class BoardRater {
         return rating;
     }
 
+    /**
+     * Rates a chessboard based on kings in danger
+     * @param chessboard Chessboard that should be rated
+     * @return Boardrating
+     */
     public static int getKingDangerRating(ChessBoard chessboard){
         int rating = 0;
 
@@ -337,6 +358,7 @@ public class BoardRater {
 
         return rating;
     }
+
     /**
      * Rates a chessboard based on piece values.
      * Uses int so 1 Pawn = 100
@@ -396,6 +418,11 @@ public class BoardRater {
         return rating;
     }
 
+    /**
+     * Rates a chessboard based on pawnstructure
+     * @param chessBoard Chessboard that should be rated
+     * @return boardrating
+     */
     public static int getPawnStructureValue(ChessBoard chessBoard){
         int rating = 0;
         ArrayList<Position> positions = chessBoard.getPositions();
@@ -472,6 +499,11 @@ public class BoardRater {
         return rating;
     }
 
+    /**
+     * Rates a chessboard based on position-maps
+     * @param chessBoard chessboard that should be rated
+     * @return Boardrating
+     */
     public static int getPositionRating(ChessBoard chessBoard){
         int rating = 0;
         ArrayList<Position> positions =  chessBoard.getPositions();

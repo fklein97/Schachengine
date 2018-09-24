@@ -4,8 +4,7 @@ import Board.*;
 
 /**
  * Generates the movesets of all chesspieces
- * @author Florian
- * @version 12,5?
+ * @author Florian Klein
  */
 public class MoveGenerator {
     /**
@@ -67,6 +66,13 @@ public class MoveGenerator {
         return moveset;
     }
 
+    /**
+     * Returns the Moveset of a Chesspiece on a given position without looking for DangerPositions
+     * @param currentPos current position of the chesspiece
+     * @param chessboard current chessboard
+     * @param old_chessboard chessboard one move ago (en passant moves)
+     * @return moveset of the chesspiece
+     */
     public static ArrayList<Position> getMoveSetwithoutDangerCheck(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
@@ -96,6 +102,13 @@ public class MoveGenerator {
         return moveset;
     }
 
+    /**
+     * Returns the Beatmoveset of a Chesspiece on a given position without looking for DangerPositions
+     * @param currentPos current position of the chesspiece
+     * @param chessboard current chessboard
+     * @param old_chessboard chessboard one move ago (en passant moves)
+     * @return moveset of the chesspiece
+     */
     public static ArrayList<Position> getBeatMoveSetwithoutDangerCheck(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();
         ChessPiece cp = currentPos.getPiece();
@@ -240,11 +253,11 @@ public class MoveGenerator {
     }
 
     /**
-     *
-     * @param currentPos
-     * @param chessboard
+     * Generates the Beatmoveset for a Pawn
+     * @param currentPos Position of the pawn
+     * @param chessboard current chessboard
      * @param old_chessboard
-     * @return
+     * @return moveset of the pawn
      */
     private static ArrayList<Position> getPawnBeatMoves(Position currentPos, ChessBoard chessboard, ChessBoard old_chessboard){
         ArrayList<Position> moveset = new ArrayList<Position>();

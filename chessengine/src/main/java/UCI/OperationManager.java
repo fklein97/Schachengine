@@ -7,7 +7,7 @@ import Parameters.Parameters;
 import Rating.BoardRater;
 
 import java.util.ArrayList;
-import java.util.Random;
+
 /**
  * Class that handles all further task management in the engine after receiving a command
  */
@@ -248,7 +248,7 @@ public class OperationManager {
      */
     public String go(String input){
 
-        MinMaxTreeDominic chessicasBrain = new MinMaxTreeDominic();
+        MinMaxTree chessicasBrain = new MinMaxTree();
         Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";

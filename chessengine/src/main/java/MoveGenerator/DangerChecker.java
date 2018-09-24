@@ -5,14 +5,14 @@ import Board.*;
 import java.util.ArrayList;
 
 /**
- * Created by FKPro on 07.07.2018.
+ * @author Florian Klein
  */
 public class DangerChecker {
     /**
-     * Calculates all Danger Positions for a King of a given color
-     * @param chessBoard
-     * @param forWhite
-     * @return
+     * Calculates all Danger Positions for a given color
+     * @param chessBoard ChessBoard
+     * @param forWhite true = for white , false = for black
+     * @return all Danger Positions
      */
     public static ArrayList<Position> getDangerPositions(ChessBoard chessBoard, boolean forWhite){
        ArrayList<Position> dangers = new ArrayList<>();
@@ -36,6 +36,12 @@ public class DangerChecker {
         return dangers;
     }
 
+    /**
+     * Calculates all Danger Positions for a given color without duplicates
+     * @param chessBoard ChessBoard
+     * @param forWhite true = for white , false = for black
+     * @return
+     */
     public static ArrayList<Position> getDangerPositionsWithoutDuplicates(ChessBoard chessBoard, boolean forWhite){
         ArrayList<Position> dangers = getDangerPositions(chessBoard,forWhite);
         ArrayList<Position> duplicates = new ArrayList<>();
