@@ -6,6 +6,7 @@ import Parameters.Parameters;
 import Rating.BoardRater;
 import UCI.IO;
 import UCI.OperationManager;
+import Parameters.Strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +56,7 @@ public class MinMaxTree {
             }
             board = new ChessBoard(origin.getPositionsCopy());
 
-            IO.answer("info currmove " + OperationManager.posToString(m.getPositionFrom()) + OperationManager.posToString(m.getPositionTo()) + " currmovenumber " + sortedlist.indexOf(m));
+            IO.answer( Strings.COMMAND_INFO + Strings.COMMAND_CURRMOVE + OperationManager.posToString(m.getPositionFrom()) + OperationManager.posToString(m.getPositionTo()) + " " + Strings.COMMAND_CURRMOVENUMBER + sortedlist.indexOf(m));
         }
         map.entrySet().stream().forEach(x -> {IO.sendDebugInfo(x.getValue() + " " + x.getKey().getPositionTo().getPiece());});
         if(max){

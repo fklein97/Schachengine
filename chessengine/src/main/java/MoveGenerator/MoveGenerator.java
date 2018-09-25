@@ -1,6 +1,7 @@
 package  MoveGenerator;
 import java.util.ArrayList;
 import Board.*;
+import Parameters.Strings;
 
 /**
  * Generates the movesets of all chesspieces
@@ -96,7 +97,7 @@ public class MoveGenerator {
             moveset = getKingMoves(currentPos, chessboard, old_chessboard);
         }
         else{
-            throw new AssertionError("Unknown Chesspiece");
+            throw new AssertionError(Strings.UNKNOWN_CHESSPIECE);
         }
 
         return moveset;
@@ -132,7 +133,7 @@ public class MoveGenerator {
             moveset = getKingMoves(currentPos, chessboard, old_chessboard);
         }
         else{
-            throw new AssertionError("Unknown Chesspiece");
+            throw new AssertionError(Strings.UNKNOWN_CHESSPIECE);
         }
 
         return moveset;

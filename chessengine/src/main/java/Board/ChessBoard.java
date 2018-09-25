@@ -1,6 +1,7 @@
 package Board;
 
 import MoveGenerator.DangerChecker;
+import Parameters.Strings;
 import UCI.IO;
 
 import java.util.*;
@@ -104,7 +105,7 @@ public class ChessBoard {
      * prints this chessboard
      */
     public void print() {
-        System.out.print("DEBUG INFO: 0 1 2 3 4 5 6 7 8\n");
+        System.out.print(Strings.DEBUG_INFO + Strings.CB_HEADER);
         printBoardRow(8);
         printBoardRow(7);
         printBoardRow(6);
@@ -121,45 +122,45 @@ public class ChessBoard {
      */
     private void printBoardRow(int row) {
         //TODO Info Methode erstellen
-        System.out.print("DEBUG INFO: " + row + " ");
+        System.out.print(Strings.DEBUG_INFO + row + " ");
         for (int i = 1; i <= 8; i++) {
             ChessPiece nextPiece = chessPieceAt(i, row);
             if (nextPiece != null) {
                 if (nextPiece instanceof Pawn) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("P ");
+                        System.out.print(Strings.P_UPPERCASE + " ");
                     } else {
-                        System.out.print("p ");
+                        System.out.print(Strings.P_LOWERCASE + " ");
                     }
                 } else if (nextPiece instanceof Rook) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("R ");
+                        System.out.print(Strings.R_UPPERCASE + " ");
                     } else {
-                        System.out.print("r ");
+                        System.out.print(Strings.R_LOWERCASE + " ");
                     }
                 } else if (nextPiece instanceof Bishop) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("B ");
+                        System.out.print(Strings.B_UPPERCASE + " ");
                     } else {
-                        System.out.print("b ");
+                        System.out.print(Strings.B_LOWERCASE + " ");
                     }
                 } else if (nextPiece instanceof Knight) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("N ");
+                        System.out.print(Strings.N_UPPERCASE + " ");
                     } else {
-                        System.out.print("n ");
+                        System.out.print(Strings.N_LOWERCASE + " ");
                     }
                 } else if (nextPiece instanceof Queen) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("Q ");
+                        System.out.print(Strings.Q_UPPERCASE + " ");
                     } else {
-                        System.out.print("q ");
+                        System.out.print(Strings.Q_LOWERCASE + " ");
                     }
                 } else if (nextPiece instanceof King) {
                     if (nextPiece.isWhite()) {
-                        System.out.print("K ");
+                        System.out.print(Strings.K_UPPERCASE + " ");
                     } else {
-                        System.out.print("k ");
+                        System.out.print(Strings.K_LOWERCASE + " ");
                     }
                 }
             } else {
@@ -223,15 +224,15 @@ public class ChessBoard {
                 positionFrom.getPiece().move();
                 move(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
                 move(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
-                IO.sendDebugInfo("Rochade + found equals");
+                IO.sendDebugInfo(Strings.ROCHADE_EQUALS);
                 back = true;
             } else if (positionFrom.equals(Constant.WHITE_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_SHORT_TO))) {
-                IO.sendDebugInfo("Rochade + found equals");
+                IO.sendDebugInfo(Strings.ROCHADE_EQUALS);
                 positionFrom.getPiece().move();
                 move(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
                 move(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
-                IO.sendDebugInfo("Rochade + found equals");
+                IO.sendDebugInfo(Strings.ROCHADE_EQUALS);
                 back = true;
             }
         }
@@ -241,14 +242,14 @@ public class ChessBoard {
                 positionFrom.getPiece().move();
                 move(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
                 move(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
-                IO.sendDebugInfo("Rochade + found equals");
+                IO.sendDebugInfo(Strings.ROCHADE_EQUALS);
                 back = true;
             } else if (positionFrom.equals(Constant.BLACK_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_SHORT_TO))) {
                 positionFrom.getPiece().move();
                 move(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
                 move(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
-                IO.sendDebugInfo("Rochade + found equals");
+                IO.sendDebugInfo(Strings.ROCHADE_EQUALS);
                 back = true;
             }
         }

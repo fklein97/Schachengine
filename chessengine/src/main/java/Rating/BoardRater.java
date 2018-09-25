@@ -2,7 +2,7 @@ package Rating;
 
 import Board.*;
 import MoveGenerator.DangerChecker;
-import Parameters.Parameters;
+import Parameters.*;
 import org.omg.CORBA.FREE_MEM;
 
 import java.util.ArrayList;
@@ -520,43 +520,43 @@ public class BoardRater {
 
         if(chessPiece.isWhite()){
             switch(chessPiece.toString()){
-                case "white pawn":
+                case Strings.WHITE_PAWN:
                     rating = PAWN_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
-                case "white rook":
+                case Strings.WHITE_ROOK:
                     rating = ROOK_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
-                case "white bishop":
+                case Strings.WHITE_BISHOP:
                     rating = BISHOP_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
-                case "white knight":
+                case Strings.WHITE_KNIGHT:
                     rating = KNIGHT_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
-                case "white queen":
+                case Strings.WHITE_QUEEN:
                     rating = QUEEN_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
-                case "white king":
+                case Strings.WHITE_KING:
                     rating = KING_POSITION_VALUE[0][position.getY()-1][position.getX()-1];
                     break;
             }
         }else {
             switch (chessPiece.toString()) {
-                case "black pawn":
+                case Strings.BLACK_PAWN:
                     rating = PAWN_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
-                case "black rook":
+                case Strings.BLACK_ROOK:
                     rating = ROOK_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
-                case "black bishop":
+                case Strings.BLACK_BISHOP:
                     rating = BISHOP_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
-                case "black knight":
+                case Strings.BLACK_KNIGHT:
                     rating = KNIGHT_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
-                case "black queen":
+                case Strings.BLACK_QUEEN:
                     rating = QUEEN_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
-                case "black king":
+                case Strings.BLACK_KING:
                     rating = KING_POSITION_VALUE[1][position.getY()-1][position.getX()-1];
                     break;
             }
