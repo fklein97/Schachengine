@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 /**
  *  Class Input/Output managing all communication tasks
+ *  @author Dominic Buech, Florian Klein
  */
 public class IO {
 
@@ -39,6 +40,7 @@ public class IO {
 
     /**
      * Method to read a full line from System.in
+     * @return input
      */
     public String receive() {
         input = scann.nextLine();
@@ -55,6 +57,10 @@ public class IO {
         System.out.println(output);
     }
 
+    /**
+     * Sends debug infos to the GUI if debug-mode is activ. Also logs the infos
+     * @param output infos that should be send
+     */
     public static void sendDebugInfo(String output){
         String debugOutput = "INFO DEBUG: " + output;
         if(Parameters.debugMode == true){
@@ -85,6 +91,9 @@ public class IO {
         }
     }
 
+    /**
+     * Creates a new LogFile
+     */
     public static void newLogFile(){
         try {
             if(writer != null){

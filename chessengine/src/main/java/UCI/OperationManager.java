@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Class that handles all further task management in the engine after receiving a command
+ * @author Dominic Büch, Florian Klein, Moritz Grill
  */
 public class OperationManager {
 
@@ -37,6 +38,9 @@ public class OperationManager {
 
     private boolean debug;
 
+    /**
+     * Constructor
+     */
     public OperationManager(){
 
         history = new DataManager();
@@ -45,15 +49,12 @@ public class OperationManager {
         timer = new TimeManager();
     }
 
+    /**
+     * Returns the timemanager
+     * @return
+     */
     public TimeManager getTimer(){ return this.timer; }
 
-    public void setDebug(boolean debug) {
-        this.debug = debug;
-    }
-
-    public boolean isDebug() {
-        return debug;
-    }
 
     /**
      *  Method to handle Fenstring inputs
@@ -244,7 +245,9 @@ public class OperationManager {
     }
 
     /**
-     * Method go starts the
+     * Starts engine calculating
+     * @param input detailed go input (not used anymore)
+     * @return best move as string
      */
     public String go(String input){
 
@@ -252,11 +255,6 @@ public class OperationManager {
         Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";
-/**
-        MinMaxTree tree = new MinMaxTree(board,Parameters.isEngineWhite);
-        tree.generateTree(Parameters.Depth);
-        Move move = tree.getBestMove();
-**/
 
         movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
         board.move(move.getPositionFrom(), move.getPositionTo());

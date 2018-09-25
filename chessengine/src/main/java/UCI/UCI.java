@@ -79,8 +79,8 @@ public class UCI {
      * Method to register the Engine
      */
     public void uci(){
-        io.answer(UCI_Commands.ID + "Chessica"/*TODO + NAMENSKONSTANTE*/);
-        io.answer(UCI_Commands.AUTHOR + "htw saar"/*TODO + AUTORENKONSTANTE*/);
+        io.answer(UCI_Commands.ID + "Chessica");
+        io.answer(UCI_Commands.AUTHOR + "htw saar");
 
         offerOptions();
 
@@ -111,6 +111,7 @@ public class UCI {
 
     /**
      * receives the parameters for the offered options and sets them
+     * @param input info string by the GUI to set the options
      */
     public void setOption(String input){
         String[] input_array = input.split(" ");
@@ -206,11 +207,11 @@ public class UCI {
     }
 
     /**
-     * This method receives the board from the GUI
+     * This method receives the board from the GUI and handles player movement
+     * @param input board and moving infos
      */
     public void position(String input){
 
-        //TODO
         IO.sendDebugInfo("Start moving");
 
         input = input.substring(9);
@@ -237,12 +238,13 @@ public class UCI {
                 Parameters.isColorSet = true;
             }
         }
-        //TODO
+
         IO.sendDebugInfo("Move succesful");
     }
 
     /**
      * Starts the calculation of the best possible move
+     * @param input infos
      */
     public void go(String input){
 
@@ -282,7 +284,7 @@ public class UCI {
     public void stop(){
         if (goThread.isAlive()) {
             goThread.interrupt();
-        };
+        }
     }
 
     /**
