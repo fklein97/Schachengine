@@ -55,10 +55,8 @@ public class ChessBoard {
 
     /**
      * Constructs a chessboard with the given positions
-     * @param positions Positions of the new board
+     * @param position Positions of the new board
      */
-    public ChessBoard(ArrayList<Position> positions) {
-        this.positions = positions;
     public ChessBoard(ArrayList<Position> position) {
         this.positions = new ArrayList<Position>();
         for(Position pos : position){

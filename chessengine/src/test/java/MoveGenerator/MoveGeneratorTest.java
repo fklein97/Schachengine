@@ -55,12 +55,21 @@ public class MoveGeneratorTest {
 
     @Test
     public void MovedBlackPawnMoveSetTest(){
-        setUp();
-        ArrayList<Position> expectedMoveset = new ArrayList<Position>();
-        ArrayList<Position> calculatedMoveset = MoveGenerator.getMoveSet(new Position(7,7,movedblackpawn), new ChessBoard(positions));
-        expectedMoveset.add(new Position(7,6, movedblackpawn));
+        ArrayList<Position> expectedMoveset = new ArrayList<>();
+        ArrayList<Position> testBoardPosition = new ArrayList<>();
 
-        Assert.assertEquals(expectedMoveset.get(0).equals(calculatedMoveset.get(0)), true);
+        Position testPawn = new Position(1,7, new Pawn(false));
+        testBoardPosition.add(testPawn);
+        ChessBoard chessBoard = new ChessBoard(testBoardPosition);
+        ArrayList<Position> actualMoveset = MoveGenerator.getMoveSetwithoutDangerCheck(testPawn, chessBoard, chessBoard);
+
+        expectedMoveset.add(new Position(1,6, new Pawn(false)));
+        expectedMoveset.add(new Position(1,5, new Pawn(false)));
+
+
+        for (int i = 0; i < expectedMoveset.size(); i++){
+            Assert.assertEquals(expectedMoveset.get(i).equals(actualMoveset.get(i)), true);
+        }
     }
 
     @Test
