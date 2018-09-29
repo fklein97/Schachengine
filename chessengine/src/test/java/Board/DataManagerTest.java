@@ -1,21 +1,19 @@
 package Board;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DataManagerTest {
     DataManager manager;
 
-    @BeforeEach
+    @Before
     void setUp() {
         manager = new DataManager();
     }
 
-    @AfterEach
+    @After
     void tearDown() {
         manager.disbandHistory();
     }

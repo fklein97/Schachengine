@@ -37,8 +37,11 @@ public class ChessBoard {
         setUp();
     }
 
-    public ChessBoard(ArrayList<Position> positions) {
-        this.positions = positions;
+    public ChessBoard(ArrayList<Position> position) {
+        this.positions = new ArrayList<Position>();
+        for(Position pos : position){
+            this.positions.add(pos);
+        }
     }
 
     public Position getKingPosition(boolean forWhite) {

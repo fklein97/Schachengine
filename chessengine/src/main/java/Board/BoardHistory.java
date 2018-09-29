@@ -45,6 +45,9 @@ public class BoardHistory {
 
     public static void add(Position from, Position to){
         ChessBoard chessBoard = new ChessBoard(boards.get((boards.size()-1)).getPositionsCopy());
+        if(from.toString().equals("white pawn") || from.toString().equals("black pawn")){
+            boards.clear();
+        }
         chessBoard.move(from, to);
         boards.add(chessBoard);
     }
