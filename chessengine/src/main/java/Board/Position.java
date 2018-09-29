@@ -72,7 +72,7 @@ public class Position {
     }
 
     public boolean equals(Position position){
-        if(this.x == position.getX() && this.y == position.getY() && this.piece.equals(position.getPiece())){
+        if(this.x == position.getX() && this.y == position.getY() && this.piece.toString().equals(position.getPiece().toString())){
             return true;
         }
         return false;

@@ -1,0 +1,17 @@
+---> : go wtime 1000 btime 1000
+<--- : INFO DEBUG: start go
+<--- : info currmove b8c6 currmovenumber 0
+<--- : INFO DEBUG: 0 black knight
+<--- : INFO DEBUG: CURRENT BOARD RATING: -262
+<--- : info score cp 26
+<--- : bestmove b8c6
+<--- : INFO DEBUG: Go succesful
+---> : ucinewgame
+---> : go wtime 300000 btime 300000
+<--- : INFO DEBUG: start go
+<--- : info currmove b8c6 currmovenumber 0
+<--- : INFO DEBUG: 0 black knight
+<--- : INFO DEBUG: CURRENT BOARD RATING: -262
+<--- : info score cp 26
+<--- : bestmove b8c6
+<--- : INFO DEBUG: Go succesful

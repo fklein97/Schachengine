@@ -125,6 +125,7 @@ public class MoveGenerator {
         return moveset;
     }
 
+
     /**
      * Generates the moveset for a Pawn
      * @param currentPos Position of the pawn

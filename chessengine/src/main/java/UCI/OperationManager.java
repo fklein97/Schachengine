@@ -47,6 +47,8 @@ public class OperationManager {
 
     public TimeManager getTimer(){ return this.timer; }
 
+    public ChessBoard getBoard(){return this.board; }
+
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
@@ -252,11 +254,6 @@ public class OperationManager {
         Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";
-/**
-        MinMaxTree tree = new MinMaxTree(board,Parameters.isEngineWhite);
-        tree.generateTree(Parameters.Depth);
-        Move move = tree.getBestMove();
-**/
 
         movestring = (posToString(move.getPositionFrom()) + (posToString(move.getPositionTo())));
         board.move(move.getPositionFrom(), move.getPositionTo());

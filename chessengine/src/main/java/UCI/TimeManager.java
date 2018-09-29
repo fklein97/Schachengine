@@ -6,12 +6,12 @@ import Parameters.Parameters;
  */
 public class TimeManager {
 
-    private int engineTime;
-    private int playerTime;
+    private double engineTime;
+    private double playerTime;
     //Avg number of moves per gamemode
-    private int moveNumber = 20;
+    private int moveNumber = 0;
 
-    public int getPlayerTime() {
+    public double getPlayerTime() {
         return playerTime;
     }
 
@@ -19,17 +19,23 @@ public class TimeManager {
         this.playerTime = playerTime;
     }
 
-    public int getEngineTime() {
+    public double getEngineTime() {
         return engineTime;
     }
 
     public void setEngineTime(int engineTime) {
         this.engineTime = engineTime;
+        if (moveNumber == 0){
+            moveNumber = engineTime/20000;
+        }
+        setTurnTime();
     }
 
-    public void setTurnTime(){
-        if (moveNumber > 1)
-        moveNumber--;
-        Parameters.turnTime = engineTime/moveNumber;
+    public void setTurnTime() {
+        Parameters.turnTime = (this.engineTime / moveNumber);
+        System.out.println(engineTime + " " + Parameters.turnTime);
+        if (moveNumber > 1) {
+            moveNumber--;
+        }
     }
 }

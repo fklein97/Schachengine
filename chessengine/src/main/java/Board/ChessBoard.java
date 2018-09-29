@@ -100,6 +100,13 @@ public class ChessBoard {
         return null;
     }
 
+    public void newGame() {
+        setUp();
+    }
+
+    public void newGame(ArrayList<Position> positions) {
+        this.positions = positions;
+    }
     /**
      * prints this chessboard
      */
@@ -120,7 +127,6 @@ public class ChessBoard {
      * @param row Row that should be printed
      */
     private void printBoardRow(int row) {
-        //TODO Info Methode erstellen
         System.out.print("DEBUG INFO: " + row + " ");
         for (int i = 1; i <= 8; i++) {
             ChessPiece nextPiece = chessPieceAt(i, row);
@@ -179,6 +185,7 @@ public class ChessBoard {
         Boolean didSpecialMove = false;
         Position from = null;
         Position to = null;
+        Position position = null;
 
         didSpecialMove = castling(positionFrom,positionTo);
 
@@ -209,6 +216,45 @@ public class ChessBoard {
         }
     }
 
+    private void moveCastling(Position positionFrom, Position positionTo){
+        Position from = null;
+        Position to = null;
+        Position position = null;
+
+
+            for (Position p : positions) {
+                if (p.getX() == positionTo.getX() && p.getY() == positionTo.getY()) {
+                    to = p;
+                }
+            }
+
+
+            if (to != null) {
+                positions.remove(to);
+            }
+
+            for (Position p : positions) {
+                if (p.getX() == positionFrom.getX() && p.getY() == positionFrom.getY()) {
+                    from = p;
+                }
+            }
+
+            if (from != null) {
+                positions.remove(from);
+                positionFrom.getPiece().move();
+                positions.add(new Position(positionTo.getX(), positionTo.getY(), positionTo.getPiece()));
+
+            }
+    }
+
+    public boolean checkforSpecialMoves(Position positionFrom, Position positionTo){
+        if(positionFrom.getPiece() instanceof King && positionFrom.getPiece().moved() == false){ //ROCHADE
+
+        }
+
+        return false;
+    }
+
     /**
      * Castling method
      * @param positionFrom old Position
@@ -221,16 +267,16 @@ public class ChessBoard {
             if (positionFrom.equals(Constant.WHITE_CASTLING_LONG_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_LONG_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
-                move(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
+                moveCastling(positionFrom,Constant.WHITE_CASTLING_LONG_TO);
+                moveCastling(Constant.WHITE_CASTLING_LONG_ROOK_FROM,Constant.WHITE_CASTLING_LONG_ROOK_TO);
                 IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             } else if (positionFrom.equals(Constant.WHITE_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.WHITE_CASTLING_SHORT_TO))) {
                 IO.sendDebugInfo("Rochade + found equals");
                 positionFrom.getPiece().move();
-                move(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
-                move(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
+                moveCastling(positionFrom,Constant.WHITE_CASTLING_SHORT_TO);
+                moveCastling(Constant.WHITE_CASTLING_SHORT_ROOK_FROM,Constant.WHITE_CASTLING_SHORT_ROOK_TO);
                 IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             }
@@ -239,15 +285,15 @@ public class ChessBoard {
             if (positionFrom.equals(Constant.BLACK_CASTLING_LONG_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_LONG_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
-                move(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
+                moveCastling(positionFrom, Constant.BLACK_CASTLING_LONG_FROM);
+                moveCastling(Constant.BLACK_CASTLING_LONG_ROOK_FROM, Constant.BLACK_CASTLING_LONG_ROOK_TO);
                 IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             } else if (positionFrom.equals(Constant.BLACK_CASTLING_SHORT_FROM) &&
                     (positionTo.equals(Constant.BLACK_CASTLING_SHORT_TO))) {
                 positionFrom.getPiece().move();
-                move(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
-                move(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
+                moveCastling(positionFrom, Constant.BLACK_CASTLING_SHORT_TO);
+                moveCastling(Constant.BLACK_CASTLING_SHORT_ROOK_FROM, Constant.BLACK_CASTLING_SHORT_ROOK_TO);
                 IO.sendDebugInfo("Rochade + found equals");
                 back = true;
             }
@@ -261,6 +307,7 @@ public class ChessBoard {
      * @param positionTo new Position
      * @param chessPiece new Chesspiece that the pawn gets promoted to
      */
+
     public void move(Position positionFrom, Position positionTo, ChessPiece chessPiece) {
         promote(positionFrom, positionTo, chessPiece);
     }
@@ -310,6 +357,27 @@ public class ChessBoard {
          **/
     }
 
+    public boolean equals(ChessBoard chessBoard){
+        boolean found = false;
+
+        if(chessBoard.getPositions().size() != positions.size()){
+            return false;
+        }
+
+        for(int i = 0; i < chessBoard.getPositions().size(); i++){
+            for(int j = 0; j < positions.size(); j++) {
+                if (chessBoard.getPositions().get(i).equals(positions.get(j))) {
+                    found = true;
+                }
+            }
+            if(!found){
+                return false;
+            }
+            found = false;
+        }
+
+        return true;
+    }
     /**
      * Adds the standart positions to the Chessboard
      */
