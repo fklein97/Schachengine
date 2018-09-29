@@ -1,5 +1,7 @@
 package Board;
 
+import Parameters.Strings;
+
 /**
  * @author Moritz Grill
  */
@@ -91,10 +93,10 @@ public class ChessPiece {
      */
     public String toString(){
         if(isWhite()){
-            return "white chesspiece";
+            return Strings.WHITE_CHESSPIECE;
         }
         else{
-            return "black chesspiece";
+            return Strings.BLACK_CHESSPIECE;
         }
     }
 

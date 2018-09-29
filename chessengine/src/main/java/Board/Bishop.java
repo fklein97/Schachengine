@@ -1,5 +1,7 @@
 package Board;
 
+import Parameters.Strings;
+
 /**
  * Class for Bishop-Objects
  */
@@ -16,10 +18,10 @@ public class Bishop extends ChessPiece {
      */
     public String toString(){
         if(isWhite()){
-            return "white bishop";
+            return Strings.WHITE_BISHOP;
         }
         else{
-            return "black bishop";
+            return Strings.BLACK_BISHOP;
         }
     }
 }

@@ -1,5 +1,7 @@
 package Board;
 
+import Parameters.Strings;
+
 public class Pawn extends ChessPiece {
 
     public Pawn (boolean white){
@@ -13,10 +15,10 @@ public class Pawn extends ChessPiece {
 
     public String toString(){
         if (isWhite()){
-            return "white pawn";
+            return Strings.WHITE_PAWN;
         }
         else{
-            return "black pawn";
+            return Strings.BLACK_PAWN;
         }
     }
 }

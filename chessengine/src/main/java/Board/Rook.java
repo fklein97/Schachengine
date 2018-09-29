@@ -1,5 +1,7 @@
 package Board;
 
+import Parameters.Strings;
+
 public class Rook extends ChessPiece {
 
     public Rook(boolean white){
@@ -15,10 +17,10 @@ public class Rook extends ChessPiece {
 
     public String toString(){
         if (isWhite()){
-            return "white rook";
+            return Strings.WHITE_ROOK;
         }
         else{
-            return "black rook";
+            return Strings.BLACK_ROOK;
         }
     }
 }

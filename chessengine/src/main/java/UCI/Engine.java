@@ -6,8 +6,8 @@ package UCI;
 public class Engine {
 
     /**
-     *
-     * @param args
+     * main-method
+     * @param args commandline arguments
      */
     public static void main(String args[]){
         new UCI().getCommand();
