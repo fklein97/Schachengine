@@ -4,12 +4,14 @@ import Parameters.Parameters;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 /**
  *  Class Input/Output managing all communication tasks
+ *  @author Dominic Buech, Florian Klein
  */
 public class IO {
 
@@ -22,6 +24,7 @@ public class IO {
     private Scanner scann;
     private static FileWriter writer = null;
     private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+    private static DateTimeFormatter logtimeformat = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static LocalDateTime now = LocalDateTime.now();
 
 
@@ -37,10 +40,11 @@ public class IO {
 
     /**
      * Method to read a full line from System.in
+     * @return input
      */
     public String receive() {
         input = scann.nextLine();
-        log("---> : " + input);
+        log(" ---> : " + input);
         return input;
     }
 
@@ -49,16 +53,20 @@ public class IO {
      * @param output String that is send to GUI
      */
     public static void answer(String output){
-        log("<--- : " + output);
+        log(" <--- : " + output);
         System.out.println(output);
     }
 
+    /**
+     * Sends debug infos to the GUI if debug-mode is activ. Also logs the infos
+     * @param output infos that should be send
+     */
     public static void sendDebugInfo(String output){
         String debugOutput = "INFO DEBUG: " + output;
         if(Parameters.debugMode == true){
             System.out.println(debugOutput);
         }
-        log("<--- : " + debugOutput);
+        log(" <--- : " + debugOutput);
     }
 
     /**
@@ -71,7 +79,8 @@ public class IO {
                 newLogFile();
             }
             writer = new FileWriter("log_" + now.format(dtf) + ".log", true);
-            writer.write(input + "\n");
+            LocalDateTime writetime = LocalDateTime.now();
+            writer.write( writetime.format(logtimeformat)+ input + "\n");
             if(writer != null){
                 writer.flush();
                 writer.close();
@@ -82,6 +91,9 @@ public class IO {
         }
     }
 
+    /**
+     * Creates a new LogFile
+     */
     public static void newLogFile(){
         try {
             if(writer != null){

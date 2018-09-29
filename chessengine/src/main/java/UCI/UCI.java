@@ -111,74 +111,75 @@ public class UCI {
 
     /**
      * receives the parameters for the offered options and sets them
+     * @param input info string by the GUI to set the options
      */
     public void setOption(String input){
         String[] input_array = input.split(" ");
         if(input_array[2].equals("Depth")){
             Parameters.Depth = Integer.parseInt(input_array[4]);
-            System.out.println("INFO: Engine Depth has been set!");
+            IO.sendDebugInfo("Engine Depth has been set!");
         }
         else if (input_array[2].equals("use_AlphaBeta")){
             if(input_array[4].equals("true")){
                 Parameters.useAlphaBeta = true;
-                System.out.println("INFO: The Engine now uses AlphaBeta!");
+                IO.sendDebugInfo("The Engine now uses AlphaBeta!");
             }
             else if(input_array[4].equals("false")){
                 Parameters.useAlphaBeta = false;
-                System.out.println("INFO: The Engine now doesnt use AlphaBeta!");
+                IO.sendDebugInfo("The Engine now doesnt use AlphaBeta!");
             }
         }
         else if(input_array[2].equals("RandomizerValue")){
             Parameters.randomizerValue = Integer.parseInt(input_array[4]);
-            System.out.println("INFO: The Randomizer Value has been set!");
+            IO.sendDebugInfo("The Randomizer Value has been set!");
         }
         else if (input_array[2].equals("use_Material_Rating")) {
             if (input_array[4].equals("true")) {
                 Parameters.useMaterialRating = true;
-                System.out.println("INFO: The Engine now uses MaterialRating!");
+                IO.sendDebugInfo("The Engine now uses MaterialRating!");
             } else if (input_array[4].equals("false")) {
                 Parameters.useMaterialRating = false;
-                System.out.println("INFO: The Engine now doesnt use MaterialRating!");
+                IO.sendDebugInfo("The Engine now doesnt use MaterialRating!");
             }
         }
         else if (input_array[2].equals("use_KinginDanger_Rating")) {
             if (input_array[4].equals("true")) {
                 Parameters.useKinginDangerRating = true;
-                System.out.println("INFO: The Engine now uses KinginDangerRating!");
+                IO.sendDebugInfo("The Engine now uses KinginDangerRating!");
             } else if (input_array[4].equals("false")) {
                 Parameters.useKinginDangerRating = false;
-                System.out.println("INFO: The Engine now doesnt use KinginDangerRating!");
+                IO.sendDebugInfo("The Engine now doesnt use KinginDangerRating!");
             }
         }
         else if(input_array[2].equals("KinginDanger_PieceCount")){
             Parameters.KinginDangerPieceCount = Integer.parseInt(input_array[4]);
-            System.out.println("INFO: The KinginDanger Piececount has been set!");
+            IO.sendDebugInfo("The KinginDanger Piececount has been set!");
         }
         else if (input_array[2].equals("use_DangerPositions_Rating")) {
             if (input_array[4].equals("true")) {
                 Parameters.useDangerPositionsRating = true;
-                System.out.println("INFO: The Engine now uses DangerPositionsRating!");
+                IO.sendDebugInfo("The Engine now uses DangerPositionsRating!");
             } else if (input_array[4].equals("false")) {
                 Parameters.useDangerPositionsRating = false;
-                System.out.println("INFO: The Engine now doesnt use DangerPositionsRating!");
+                IO.sendDebugInfo("The Engine now doesnt use DangerPositionsRating!");
             }
         }
         else if (input_array[2].equals("use_Position_Rating")) {
             if (input_array[4].equals("true")) {
                 Parameters.usePositionRating = true;
-                System.out.println("INFO: The Engine now uses PositionRating!");
+                IO.sendDebugInfo("The Engine now uses PositionRating!");
             } else if (input_array[4].equals("false")) {
                 Parameters.usePositionRating = false;
-                System.out.println("INFO: The Engine now doesnt use PositionRating!");
+                IO.sendDebugInfo("The Engine now doesnt use PositionRating!");
             }
         }
         else if (input_array[2].equals("use_PawnStructure_Rating")) {
             if (input_array[4].equals("true")) {
                 Parameters.usePawnStructureRating = true;
-                System.out.println("INFO: The Engine now uses PawnStructureRating!");
+                IO.sendDebugInfo("The Engine now uses PawnStructureRating!");
             } else if (input_array[4].equals("false")) {
                 Parameters.usePawnStructureRating = false;
-                System.out.println("INFO: The Engine now doesnt use PawnStructureRating!");
+                IO.sendDebugInfo("The Engine now doesnt use PawnStructureRating!");
             }
         }
     }
@@ -206,7 +207,8 @@ public class UCI {
     }
 
     /**
-     * This method receives the board from the GUI
+     * This method receives the board from the GUI and handles player movement
+     * @param input board and moving infos
      */
     public void position(String input){
 
@@ -241,6 +243,7 @@ public class UCI {
 
     /**
      * Starts the calculation of the best possible move
+     * @param input infos
      */
     public void go(String input){
 
@@ -280,7 +283,7 @@ public class UCI {
     public void stop(){
         if (goThread.isAlive()) {
             goThread.interrupt();
-        };
+        }
     }
 
     /**

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  * Class that handles all further task management in the engine after receiving a command
+ * @author Dominic Büch, Florian Klein, Moritz Grill
  */
 public class OperationManager {
 
@@ -37,6 +38,9 @@ public class OperationManager {
 
     private boolean debug;
 
+    /**
+     * Constructor
+     */
     public OperationManager(){
 
         history = new DataManager();
@@ -45,6 +49,10 @@ public class OperationManager {
         timer = new TimeManager();
     }
 
+    /**
+     * Returns the timemanager
+     * @return
+     */
     public TimeManager getTimer(){ return this.timer; }
 
     public ChessBoard getBoard(){return this.board; }
@@ -246,11 +254,13 @@ public class OperationManager {
     }
 
     /**
-     * Method go starts the
+     * Starts engine calculating
+     * @param input detailed go input (not used anymore)
+     * @return best move as string
      */
     public String go(String input){
 
-        MinMaxTreeDominic chessicasBrain = new MinMaxTreeDominic();
+        MinMaxTree chessicasBrain = new MinMaxTree();
         Move move = chessicasBrain.initialize(new ChessBoard(board.getPositionsCopy()), Parameters.isEngineWhite);
 
         String movestring = "";

@@ -7,3 +7,4 @@ chessengine/.idea/misc.xml
 *.class
 *.jar
 chessengine/out/artifacts/chessengine/log_2018_09_19_09_40
+*.log

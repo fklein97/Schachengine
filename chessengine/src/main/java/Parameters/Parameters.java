@@ -1,7 +1,8 @@
 package Parameters;
 
 /**
- * Created by FKPro on 10.07.2018.
+ * Stores all engine parameters
+ * @author Florian Klein
  */
 public class Parameters {
     public static boolean isEngineWhite = false;
