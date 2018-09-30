@@ -29,9 +29,6 @@ public class DangerCheckerTest {
         boardDanger.add(new Position(7,2, new King(true)));
         boardDanger.add(new Position(7,1, new King(true)));
 
-        System.out.println(boardDanger.size());
-        System.out.println(boardDangerActual.size());
-
         for (Position bd : boardDanger){
             for(Position bda : boardDangerActual){
                 if(bd.equals(bda)){

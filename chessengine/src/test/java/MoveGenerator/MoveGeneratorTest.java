@@ -157,6 +157,32 @@ public class MoveGeneratorTest {
         }
     }
 
+    @Test
+    public void BlockedBlackRook(){
+        ArrayList<Position> expectedMoveset = new ArrayList<>();
+        ArrayList<Position> testBoardPosition = new ArrayList<>();
+
+        Position testRook = new Position(1,1, new Rook(false));
+        Position bishop1 = new Position(1,2, new Bishop(false));
+        Position bishop2 = new Position(3,1, new Bishop(false));
+
+
+        testBoardPosition.add(testRook);
+        testBoardPosition.add(bishop1);
+        testBoardPosition.add(bishop2);
+
+
+        ChessBoard chessBoard = new ChessBoard(testBoardPosition);
+        ArrayList<Position> actualMoveset = MoveGenerator.getMoveSetwithoutDangerCheck(testRook, chessBoard, chessBoard);
+
+        expectedMoveset.add(new Position(2,1, new Rook(false)));
+
+
+        for (int i = 0; i < expectedMoveset.size(); i++){
+            Assert.assertEquals(expectedMoveset.get(i).equals(actualMoveset.get(i)), true);
+        }
+
+    }
     
 
 
