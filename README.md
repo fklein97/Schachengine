@@ -1,4 +1,4 @@
-![chessica_logo](https://raw.githubusercontent.com/fklein97/Schachengine/master/chessengine/out/artifacts/chessengine/logo.jpg)
+![chessica_logo](https://github.com/fklein97/Schachengine/blob/5f8e690ac570865cebeb3a44ad055982af3bbad0/chessengine/out/artifacts/chessengine/ChessIca%201500x840.png)
 # Chessica - Chessengine
 htw saar - computer science project 2018
 
